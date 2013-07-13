@@ -8,7 +8,7 @@
 }
 
 @media (max-width: 768px) {
-  #content-wrapper {
+  body, #page-header-wrapper, #content-wrapper {
     padding-left: 0;
     padding-right: 0;
   }
@@ -60,15 +60,36 @@
     width: 100%;
   }
 
-  .generate-buttons {
-    float: right;
-    margin-top: 10px;
-    button { margin-left: 10px; }
+  #config-options {
+    clear: both;
+    margin-bottom: 15px;
+
+    #config-options-buttons {
+      float: right;
+      button { margin-left: 10px; }
+    }
+
+    #config-options-view-type {
+      float: left;
+      white-space: nowrap;
+
+      label {
+        display: inline-block;
+      }
+
+      input {
+        margin: -2px 5px 0 0;
+      }
+    }
   }
 
-  #fields {
+  #config-server {
     clear: both;
-    padding-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  #config-fields {
+    clear: both;
   }
 }
 
@@ -84,15 +105,12 @@
   table.result-set {
     clear: both;
 
-    td.column-name {
-      text-align: right;
-    }
-    td.column-link-ajax {
-      img { min-width: 9px; min-height: 9px; }
-    }
-    td.column-url {
+    td {
       width: 100%;
       white-space: nowrap;
+      line-height: 18px;
+      font-size: 12px;
+      word-break: normal;
     }
 
     tr.url-standard {
@@ -113,20 +131,12 @@
     .method-name {
       white-space: nowrap;
     }
-
-    .api-link-ajax {
-      margin-right: 10px;
-    }
-
-    .api-link {
-      font-size: 10px;
-    }
   }
 }
 
 @media (max-width: 768px) {
   #api-mate-results {
-    position: static !important;
+    //position: static !important;
     width: 100% !important;
   }
 }

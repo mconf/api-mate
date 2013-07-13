@@ -2,16 +2,14 @@ template =
   "<table class='table table-condensed result-set'>
      <thead>
        <tr>
-         <th colspan='2'><h3 class='label-title'>Results {{title}}:</h5></th>
+         <th><h3 class='label-title'>Results {{title}}:</h5></th>
        </tr>
      </thead>
      <tbody>
        {{#urls}}
          <tr class='{{urlClass}}'>
-           <td class='column-name'>
+           <td>
              <span class='method-name'>{{name}}</span>
-           </td>
-           <td class='column-url'>
              <a class='api-link' href='{{url}}'>{{urlName}}</a>
            </td>
          </tr>
@@ -95,13 +93,11 @@ generateUrls = () ->
   urls = api.getUrls(params)
   addUrlsToPage urls
 
-# Empty all inputs inside #fields
+# Empty all inputs inside #config-fields
 clearAllFields = ->
-  $("#fields").children().each -> $(this).val("")
+  $("#config-fields").children().each -> $(this).val("")
 
 $ ->
-  $("#api-mate-results").affix { offset: { top: 100 } }
-
   # set random values in some inputs
   vbridge = "7" + Math.floor(Math.random() * 10000 - 1).toString()
   $("#input-voice-bridge").val(vbridge)
@@ -114,9 +110,20 @@ $ ->
   # when the meeting name is changed, change the id also
   $("#input-id").on "keyup", -> $("#input-name").val $(this).val()
 
-  # button to generate the links
-  $("input, select, textarea", "#api-mate-config").on "change keyup", (e) ->
+  # trigger to generate the links
+  $("input, select, textarea", "#config-fields").on "change keyup", (e) ->
     generateUrls()
+
+  $("#view-type-input").on "change", ->
+    selected = $("#view-type-input").is(":checked")
+    if selected
+      $("#api-mate-results table.result-set td").css("word-break", "break-all")
+      $("#api-mate-results table.result-set td").css("white-space", "normal")
+      $("#api-mate-results .method-name").css("display", "block")
+    else
+      $("#api-mate-results table.result-set td").css("word-break", "normal")
+      $("#api-mate-results table.result-set td").css("white-space", "nowrap")
+      $("#api-mate-results .method-name").css("display", "inline-block")
 
   # button to clear the inputs
   $(".api-mate-clearall").on "click", (e) ->
