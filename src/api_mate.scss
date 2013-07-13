@@ -19,11 +19,31 @@
     float: left;
   }
 
-  .description {
+  .logo {
     float: left;
-    margin-top: 22px;
-    margin-left: 20px;
-    color: #666;
+
+    h1 {
+      margin: 0;
+      float: left;
+    }
+
+    .description {
+      float: left;
+      margin-top: 16px;
+      margin-left: 10px;
+      color: #666;
+      white-space: nowrap;
+    }
+
+    .docs {
+      float: left;
+      clear: both;
+      margin-top: 5px;
+      font-size: 12px;
+      * {
+        margin-right: 10px;
+      }
+    }
   }
 
   .notes {

@@ -11,11 +11,24 @@
     padding-right: 0; } }
 #page-header h1 {
   float: left; }
-#page-header .description {
-  float: left;
-  margin-top: 22px;
-  margin-left: 20px;
-  color: #666; }
+#page-header .logo {
+  float: left; }
+  #page-header .logo h1 {
+    margin: 0;
+    float: left; }
+  #page-header .logo .description {
+    float: left;
+    margin-top: 16px;
+    margin-left: 10px;
+    color: #666;
+    white-space: nowrap; }
+  #page-header .logo .docs {
+    float: left;
+    clear: both;
+    margin-top: 5px;
+    font-size: 12px; }
+    #page-header .logo .docs * {
+      margin-right: 10px; }
 #page-header .notes {
   float: right;
   margin: 5px 100px 0 0;

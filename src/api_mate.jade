@@ -7,13 +7,20 @@ append content
 
   #page-header-wrapper.clearfix
     #page-header.clearfix
-      h1 API Mate
-      .description A tool to access the API of BigBlueButton and Mconf
+      .logo.clearfix
+        h1 API Mate
+        .description
+          | A tool to access the API of BigBlueButton and Mconf
+        .docs
+          span
+            | API docs:
+          a(href='http://code.google.com/p/bigbluebutton/wiki/API') BigBlueButton
+          a(href='https://github.com/mconf/wiki/wiki/Mconf-Live-API-Changes') Mconf-Live
       .notes
-        div.about
+        .about
           = 'Developed using '
           a(href='https://github.com/mconf/bigbluebutton-api-js') bigbluebutton-api-js
-        div.thanks
+        .thanks
           i.icon.icon-thumbs-up
           = 'Thanks to Omar Shammas for '
           a(href='http://www.omarshammas.com/bbbapibuddy') the original API Buddy idea!
