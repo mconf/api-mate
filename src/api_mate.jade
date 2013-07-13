@@ -121,8 +121,13 @@ append content
         .field
           .tip attribute=value (one per line, without spaces)
           label(for='input-custom')
-            code custom_*
+            | Custom parameters
           textarea#input-custom(rows='3', placeholder='myCustomAttribute=Testing')
+        .field
+          .tip One call name per line
+          label(for='input-custom')
+            | Custom API calls
+          textarea#input-custom-calls(rows='3', placeholder='customApiCall')
 
     .span8
       #api-mate-results

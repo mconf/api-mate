@@ -41,7 +41,8 @@ addUrlsToPage = (urls) ->
     title: new Date().toTimeString()
     urls: urls
   html = Mustache.to_html(template, opts)
-  $(placeholder).html html
+  $(placeholder).html(html)
+  expandLinks($("#view-type-input").hasClass("active"))
 
 # Generate urls for all BBB calls and add them to the page.
 generateUrls = () ->
@@ -88,15 +89,31 @@ generateUrls = () ->
         paramValue = line.substring(separator+1, line.length)
         params["custom_" + paramName] = paramValue
 
+  customCalls = null
+  if isFilled("#input-custom-calls")
+    lines = $("#input-custom-calls").val().replace(/\r\n/g, "\n").split("\n")
+    customCalls = lines
+
   # get the list of links and add them to the page
   api = new BigBlueButtonApi(server.url, server.salt, server.mobileSalt)
-  urls = api.getUrls(params)
-  addUrlsToPage urls
+  urls = api.getUrls(params, customCalls)
+  addUrlsToPage(urls)
 
 # Empty all inputs inside #config-fields
 clearAllFields = ->
   $("#config-fields input, #config-fields textarea").each -> $(this).val("")
   $("#config-fields input[type=checkbox]").each -> $(this).attr("checked", null)
+
+# Expand (if `selected` is true) or collapse the links.
+expandLinks = (selected) ->
+  if selected
+    $("#api-mate-results table.result-set td").css("word-break", "break-all")
+    $("#api-mate-results table.result-set td").css("white-space", "normal")
+    $("#api-mate-results .method-name").css("display", "block")
+  else
+    $("#api-mate-results table.result-set td").css("word-break", "normal")
+    $("#api-mate-results table.result-set td").css("white-space", "nowrap")
+    $("#api-mate-results .method-name").css("display", "inline-block")
 
 $ ->
   # set random values in some inputs
@@ -118,14 +135,7 @@ $ ->
   # expand or collapse links
   $("#view-type-input").on "click", ->
     selected = !$("#view-type-input").hasClass("active")
-    if selected
-      $("#api-mate-results table.result-set td").css("word-break", "break-all")
-      $("#api-mate-results table.result-set td").css("white-space", "normal")
-      $("#api-mate-results .method-name").css("display", "block")
-    else
-      $("#api-mate-results table.result-set td").css("word-break", "normal")
-      $("#api-mate-results table.result-set td").css("white-space", "nowrap")
-      $("#api-mate-results .method-name").css("display", "inline-block")
+    expandLinks(selected)
 
   # button to clear the inputs
   $(".api-mate-clearall").on "click", (e) ->
