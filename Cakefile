@@ -5,6 +5,10 @@ jade = require('jade')
 sass = require('node-sass')
 
 binPath = './node_modules/.bin/'
+viewSrc = 'src/api_mate.jade'
+stylesheetSrc = 'src/api_mate.scss'
+stylesheetOutput = 'lib/api_mate.css'
+javascriptSrc = 'src/api_mate.coffee'
 
 # Returns a string with the current time to print out.
 timeNow = ->
@@ -17,24 +21,24 @@ run = (bin, options, onExit) ->
   bin = binPath + bin
   console.log timeNow() + ' - running: ' + bin + ' ' + (if options? then options.join(' ') else "")
   cmd = spawn bin, options
-  cmd.stdout.on 'data', (data) -> print data.toString()
+  cmd.stdout.on 'data', (data) -> #print data.toString()
   cmd.stderr.on 'data', (data) -> print data.toString()
   cmd.on 'exit', (code) ->
-    console.log 'done.'
+    console.log timeNow() + ' - done.'
     onExit?(code, options)
 
 compileView = (done) ->
-  options = ['-o', 'lib', 'src/api_mate.jade']
+  options = ['-o', 'lib', viewSrc]
   run 'jade', options, ->
     done?()
 
 compileCss = (done) ->
-  options = ['src/api_mate.scss', 'lib/api_mate.css']
+  options = [stylesheetSrc, stylesheetOutput]
   run 'node-sass', options, ->
     done?()
 
 compileJs = (done) ->
-  options = ['-c', '-o', 'lib', 'src/api_mate.coffee']
+  options = ['-c', '-o', 'lib', javascriptSrc]
   run 'coffee', options, ->
     done?()
 
@@ -46,5 +50,16 @@ build = (done) ->
           compileJs (err) ->
             done?()
 
+watch = () ->
+  fs.watchFile viewSrc, (curr, prev) ->
+    compileView()
+  fs.watchFile stylesheetSrc, (curr, prev) ->
+    compileCss()
+  fs.watchFile javascriptSrc, (curr, prev) ->
+    compileJs()
+
 task 'build', 'Build everything from src/ into lib/', ->
   build()
+
+task 'watch', 'Watch for changes to compile the sources', ->
+  watch()
