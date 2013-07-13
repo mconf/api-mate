@@ -11,7 +11,7 @@ append content
       .description A tool to access the API of BigBlueButton and Mconf
       .notes
         div.about
-          | Developed using
+          = 'Developed using '
           a(href='https://github.com/mconf/bigbluebutton-api-js') bigbluebutton-api-js
         div.thanks
           i.icon.icon-thumbs-up
@@ -114,19 +114,19 @@ append content
             code publish
           input#input-publish(type='checkbox')
         .field
-          .tip attribute=value (one per line, without spaces)
           label(for='input-meta')
             code meta_*
+          .tip attribute=value (one per line, without spaces)
           textarea#input-meta(rows='3', placeholder='myAttribute=1')
         .field
-          .tip attribute=value (one per line, without spaces)
           label(for='input-custom')
-            | Custom parameters
+            | Custom parameters:
+          .tip attribute=value (one per line, without spaces)
           textarea#input-custom(rows='3', placeholder='myCustomAttribute=Testing')
         .field
           .tip One call name per line
           label(for='input-custom')
-            | Custom API calls
+            | Custom API calls:
           textarea#input-custom-calls(rows='3', placeholder='customApiCall')
 
     .span8

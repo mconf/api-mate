@@ -1,21 +1,19 @@
 template =
-  "<table class='table table-condensed result-set'>
-     <thead>
-       <tr>
-         <th><h3 class='label-title'>Results {{title}}:</h5></th>
-       </tr>
-     </thead>
-     <tbody>
+  "<div class='result-set'>
+     <div class='result-title'>
+       <h4 class='label-title'>Results {{title}}:</h4>
+     </div>
+     <div class='result-links'>
        {{#urls}}
-         <tr class='{{urlClass}}'>
-           <td>
-             <span class='method-name'>{{name}}</span>
-             <a class='api-link' href='{{url}}'>{{urlName}}</a>
-           </td>
-         </tr>
+         <div class='result-link-wrapper'>
+         <div class='result-link {{urlClass}}'>
+           <span class='method-name'>{{name}}</span>
+           <a class='api-link' href='{{url}}'>{{urlName}}</a>
+         </div>
+         </div>
        {{/urls}}
-     </tbody>
-   </table>"
+     </div>
+   </div>"
 
 # Check if an input text field has a valid value (not empty).
 isFilled = (field) ->
@@ -34,6 +32,8 @@ addUrlsToPage = (urls) ->
       u.urlClass = "url-from-mobile"
     else if key.match(/mobile:/i)
       u.urlClass = "url-mobile-api"
+    else if key.match(/custom call/i)
+      u.urlClass = "url-custom-call"
     else
       u.urlClass = "url-standard"
     u
@@ -107,12 +107,12 @@ clearAllFields = ->
 # Expand (if `selected` is true) or collapse the links.
 expandLinks = (selected) ->
   if selected
-    $("#api-mate-results table.result-set td").css("word-break", "break-all")
-    $("#api-mate-results table.result-set td").css("white-space", "normal")
+    $("#api-mate-results .result-link").css("word-break", "break-all")
+    $("#api-mate-results .result-link").css("white-space", "normal")
     $("#api-mate-results .method-name").css("display", "block")
   else
-    $("#api-mate-results table.result-set td").css("word-break", "normal")
-    $("#api-mate-results table.result-set td").css("white-space", "nowrap")
+    $("#api-mate-results .result-link").css("word-break", "normal")
+    $("#api-mate-results .result-link").css("white-space", "nowrap")
     $("#api-mate-results .method-name").css("display", "inline-block")
 
 $ ->
