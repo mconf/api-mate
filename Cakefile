@@ -28,7 +28,7 @@ run = (bin, options, onExit) ->
     onExit?(code, options)
 
 compileView = (done) ->
-  options = ['-o', 'lib', viewSrc]
+  options = ['--pretty', '-o', 'lib', viewSrc]
   run 'jade', options, ->
     done?()
 
