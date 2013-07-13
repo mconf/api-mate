@@ -28,6 +28,8 @@
   #page-header .notes .icon {
     float: right;
     margin-left: 5px; }
+  #page-header .notes .thanks {
+    font-size: 11px; }
 
 #content {
   width: auto;
@@ -42,21 +44,37 @@
   clear: both;
   margin-bottom: 15px; }
   #api-mate-config #config-options #config-options-buttons {
-    float: right; }
-    #api-mate-config #config-options #config-options-buttons button {
-      margin-left: 10px; }
+    float: left; }
   #api-mate-config #config-options #config-options-view-type {
-    float: left;
+    float: right;
     white-space: nowrap; }
     #api-mate-config #config-options #config-options-view-type label {
       display: inline-block; }
     #api-mate-config #config-options #config-options-view-type input {
       margin: -2px 5px 0 0; }
+  #api-mate-config #config-options #view-type-input i {
+    margin-right: 5px;
+    display: none; }
+  #api-mate-config #config-options #view-type-input.active i {
+    display: inline-block; }
 #api-mate-config #config-server {
   clear: both;
   margin-bottom: 15px; }
 #api-mate-config #config-fields {
   clear: both; }
+  #api-mate-config #config-fields .field {
+    display: block;
+    clear: both; }
+    #api-mate-config #config-fields .field .tip {
+      float: right;
+      font-size: 12px;
+      color: #888;
+      margin-top: 3px;
+      font-style: italic; }
+  #api-mate-config #config-fields label {
+    display: inline-block; }
+  #api-mate-config #config-fields input[type=checkbox] {
+    margin: 0 0 0 5px; }
 
 #api-mate-results {
   overflow: hidden;

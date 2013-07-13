@@ -10,29 +10,26 @@ append content
       h1 API Mate
       .description A tool to access the API of BigBlueButton and Mconf
       .notes
-        div
+        div.about
+          | Developed using
+          a(href='https://github.com/mconf/bigbluebutton-api-js') bigbluebutton-api-js
+        div.thanks
           i.icon.icon-thumbs-up
           = 'Thanks to Omar Shammas for '
           a(href='http://www.omarshammas.com/bbbapibuddy') the original API Buddy idea!
-        div
-          | Developed using
-          | (
-          a(href='https://github.com/mconf/bigbluebutton-api-js') bigbluebutton-api-js
-          | )
 
   .row-fluid#content
-    .span8
-      #api-mate-results
-
     .span4#api-mate-config
 
       #config-options.clearfix
         h4 Options
         #config-options-view-type
-          input#view-type-input(type="checkbox")
-          label(for="view-type-input") Expanded view
+          div.btn-group(data-toggle="buttons-checkbox")
+            button.btn.btn-small#view-type-input(type="button")
+              i.icon-check
+              | Full links
         #config-options-buttons
-          button.api-mate-clearall.btn.btn-small(type='submit') Clear fields
+          button.api-mate-clearall.btn.btn-small.btn-danger(type='submit') Clear fields
 
       #config-server
         h4 Server
@@ -43,45 +40,89 @@ append content
       #config-fields
         h4 Parameters
         //- common fields
-        label(for='input-id')
-          | Meeting ID (also Record IDs):
-        input#input-id(type='text')
-        label(for='input-name') Name:
-        input#input-name(type='text')
-        label(for='input-attendee-password') Attendee Password:
-        input#input-attendee-password(type='text', value='ap')
-        label(for='input-moderator-password') Moderator Password:
-        input#input-moderator-password(type='text', value='mp')
-        label(for='input-fullname') Full Name:
-        input#input-fullname(type='text')
-        label(for='input-welcome') Welcome Message:
-        textarea#input-welcome(rows='3')
-          | <br>Welcome to <b>%%CONFNAME%%</b>!
-        label(for='input-record') Record:
-        input#input-record(type='checkbox')
+        .field
+          label(for='input-id')
+            code meetingID
+            = ' and '
+            code recordID
+          input#input-id(type='text')
+        .field
+          label(for='input-name')
+            code name
+          input#input-name(type='text')
+        .field
+          label(for='input-attendee-password')
+            code attendeePW
+          input#input-attendee-password(type='text', value='ap')
+        .field
+          label(for='input-moderator-password')
+            code moderatorPW
+          input#input-moderator-password(type='text', value='mp')
+        .field
+          label(for='input-fullname')
+            code fullName
+          input#input-fullname(type='text')
+        .field
+          label(for='input-welcome')
+            code welcome
+          textarea#input-welcome(rows='3')
+            | <br>Welcome to <b>%%CONFNAME%%</b>!
+        .field
+          label(for='input-record')
+            code record
+          input#input-record(type='checkbox')
 
         //- 'advanced' fields
-        label(for='input-voice-bridge') Voice Bridge:
-        input#input-voice-bridge(type='text')
-        label(for='input-dial-number') Dial Number:
-        input#input-dial-number(type='text')
-        label(for='input-web-voice') Web Voice:
-        input#input-web-voice(type='text')
-        label(for='input-logout-url') Logout URL:
-        input#input-logout-url(type='text')
-        label(for='input-max-participants') Max Participants:
-        input#input-max-participants(type='text')
-        label(for='input-duration') Duration:
-        input#input-duration(type='text')
-        label(for='input-user-id') User ID:
-        input#input-user-id(type='text')
-        label(for='input-create-time') Create Time:
-        input#input-create-time(type='text')
-        label(for='input-web-voice-conf') Web Voice Conf:
-        input#input-web-voice-conf(type='text')
-        label(for='input-publish') Publish:
-        input#input-publish(type='checkbox')
-        label(for='input-meta') Meta fields:
-        textarea#input-meta(rows='3', placeholder='attribute=value (one per line, without spaces)')
-        label(for='input-custom') Custom fields:
-        textarea#input-custom(rows='3', placeholder='attribute=value (one per line, without spaces)')
+        .field
+          label(for='input-voice-bridge')
+            code voiceBridge
+          input#input-voice-bridge(type='text')
+        .field
+          label(for='input-dial-number')
+            code dialNumber
+          input#input-dial-number(type='text')
+        .field
+          label(for='input-web-voice')
+            code webVoice
+          input#input-web-voice(type='text')
+        .field
+          label(for='input-logout-url')
+            code logoutURL
+          input#input-logout-url(type='text')
+        .field
+          label(for='input-max-participants')
+            code maxParticipants
+          input#input-max-participants(type='text')
+        .field
+          label(for='input-duration')
+            code duration
+          input#input-duration(type='text')
+        .field
+          label(for='input-user-id')
+            code userID
+          input#input-user-id(type='text')
+        .field
+          label(for='input-create-time')
+            code createTime
+          input#input-create-time(type='text')
+        .field
+          label(for='input-web-voice-conf')
+            code webVoiceConf
+          input#input-web-voice-conf(type='text')
+        .field
+          label(for='input-publish')
+            code publish
+          input#input-publish(type='checkbox')
+        .field
+          .tip attribute=value (one per line, without spaces)
+          label(for='input-meta')
+            code meta_*
+          textarea#input-meta(rows='3', placeholder='myAttribute=1')
+        .field
+          .tip attribute=value (one per line, without spaces)
+          label(for='input-custom')
+            code custom_*
+          textarea#input-custom(rows='3', placeholder='myCustomAttribute=Testing')
+
+    .span8
+      #api-mate-results

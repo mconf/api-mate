@@ -95,7 +95,8 @@ generateUrls = () ->
 
 # Empty all inputs inside #config-fields
 clearAllFields = ->
-  $("#config-fields").children().each -> $(this).val("")
+  $("#config-fields input, #config-fields textarea").each -> $(this).val("")
+  $("#config-fields input[type=checkbox]").each -> $(this).attr("checked", null)
 
 $ ->
   # set random values in some inputs
@@ -114,8 +115,9 @@ $ ->
   $("input, select, textarea", "#config-fields").on "change keyup", (e) ->
     generateUrls()
 
-  $("#view-type-input").on "change", ->
-    selected = $("#view-type-input").is(":checked")
+  # expand or collapse links
+  $("#view-type-input").on "click", ->
+    selected = !$("#view-type-input").hasClass("active")
     if selected
       $("#api-mate-results table.result-set td").css("word-break", "break-all")
       $("#api-mate-results table.result-set td").css("white-space", "normal")
