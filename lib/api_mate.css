@@ -1,0 +1,88 @@
+#page-header-wrapper {
+  background: #f6f6f6;
+  border-bottom: 1px solid #e4e4e4; }
+
+#page-header {
+  padding: 10px 20px; }
+
+@media (max-width: 768px) {
+  #content-wrapper {
+    padding-left: 0;
+    padding-right: 0; } }
+#page-header h1 {
+  float: left; }
+#page-header .description {
+  float: left;
+  margin-top: 22px;
+  margin-left: 20px;
+  color: #666; }
+#page-header .notes {
+  float: right;
+  margin: 5px 100px 0 0;
+  font-size: 12px;
+  text-align: center; }
+  #page-header .notes div {
+    clear: both; }
+    #page-header .notes div:first-child {
+      margin-bottom: 5px; }
+  #page-header .notes .icon {
+    float: right;
+    margin-left: 5px; }
+
+#content {
+  width: auto;
+  padding: 0 20px;
+  margin: 0; }
+
+#api-mate-config input[type='text'], #api-mate-config textarea {
+  width: 96%; }
+#api-mate-config select {
+  width: 100%; }
+#api-mate-config .generate-buttons {
+  float: right;
+  margin-top: 10px; }
+  #api-mate-config .generate-buttons button {
+    margin-left: 10px; }
+#api-mate-config #fields {
+  clear: both;
+  padding-top: 15px; }
+
+#api-mate-results {
+  overflow: hidden;
+  word-wrap: break-word; }
+  #api-mate-results.affix {
+    width: 64%;
+    top: 0; }
+  #api-mate-results table.result-set {
+    clear: both; }
+    #api-mate-results table.result-set td.column-name {
+      text-align: right; }
+    #api-mate-results table.result-set td.column-link-ajax img {
+      min-width: 9px;
+      min-height: 9px; }
+    #api-mate-results table.result-set td.column-url {
+      width: 100%;
+      white-space: nowrap; }
+    #api-mate-results table.result-set tr.url-recordings {
+      background: #eee; }
+      #api-mate-results table.result-set tr.url-recordings td {
+        border-top-color: #ccc; }
+    #api-mate-results table.result-set tr.url-from-mobile {
+      background: #FCF8E3; }
+      #api-mate-results table.result-set tr.url-from-mobile td {
+        border-top-color: #f7ecb5; }
+    #api-mate-results table.result-set tr.url-mobile-api {
+      background: #D9EDF7; }
+      #api-mate-results table.result-set tr.url-mobile-api td {
+        border-top-color: #afdaee; }
+    #api-mate-results table.result-set .method-name {
+      white-space: nowrap; }
+    #api-mate-results table.result-set .api-link-ajax {
+      margin-right: 10px; }
+    #api-mate-results table.result-set .api-link {
+      font-size: 10px; }
+
+@media (max-width: 768px) {
+  #api-mate-results {
+    position: static !important;
+    width: 100% !important; } }

@@ -1,0 +1,132 @@
+#page-header-wrapper {
+  background: #f6f6f6;
+  border-bottom: 1px solid darken(#f6f6f6, 7);
+}
+
+#page-header {
+  padding: 10px 20px;
+}
+
+@media (max-width: 768px) {
+  #content-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
+#page-header {
+  h1 {
+    float: left;
+  }
+
+  .description {
+    float: left;
+    margin-top: 22px;
+    margin-left: 20px;
+    color: #666;
+  }
+
+  .notes {
+    float: right;
+    margin: 5px 100px 0 0;
+    font-size: 12px;
+    text-align: center;
+
+    div {
+      clear: both;
+      &:first-child { margin-bottom: 5px; }
+    }
+
+    .icon {
+      float: right;
+      margin-left: 5px;
+    }
+  }
+}
+
+#content {
+  width: auto;
+  padding: 0 20px;
+  margin: 0;
+}
+
+#api-mate-config {
+
+  input[type='text'], textarea {
+    width: 96%;
+  }
+  select {
+    width: 100%;
+  }
+
+  .generate-buttons {
+    float: right;
+    margin-top: 10px;
+    button { margin-left: 10px; }
+  }
+
+  #fields {
+    clear: both;
+    padding-top: 15px;
+  }
+}
+
+#api-mate-results {
+  overflow: hidden;
+  word-wrap: break-word;
+
+  &.affix {
+    width: 64%; // almost the same as bootstrap's .span8
+    top: 0;
+  }
+
+  table.result-set {
+    clear: both;
+
+    td.column-name {
+      text-align: right;
+    }
+    td.column-link-ajax {
+      img { min-width: 9px; min-height: 9px; }
+    }
+    td.column-url {
+      width: 100%;
+      white-space: nowrap;
+    }
+
+    tr.url-standard {
+    }
+    tr.url-recordings {
+      td { border-top-color: #ccc; }
+      background: #eee;
+    }
+    tr.url-from-mobile {
+      td { border-top-color: darken(#FCF8E3, 10); }
+      background: #FCF8E3;
+    }
+    tr.url-mobile-api {
+      td { border-top-color: darken(#D9EDF7, 10); }
+      background: #D9EDF7;
+    }
+
+    .method-name {
+      white-space: nowrap;
+    }
+
+    .api-link-ajax {
+      margin-right: 10px;
+    }
+
+    .api-link {
+      font-size: 10px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #api-mate-results {
+    position: static !important;
+    width: 100% !important;
+  }
+}
