@@ -128,8 +128,10 @@ $ ->
   # when the meeting name is changed, change the id also
   $("#input-id").on "keyup", -> $("#input-name").val $(this).val()
 
-  # trigger to generate the links
+  # triggers to generate the links
   $("input, select, textarea", "#config-fields").on "change keyup", (e) ->
+    generateUrls()
+  $("input, select, textarea", "#config-server").on "change keyup", (e) ->
     generateUrls()
 
   # expand or collapse links
