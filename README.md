@@ -26,3 +26,8 @@ This will compile all files inside `src/` to formats that can be opened in the b
 To watch for changes and compile the files automatically run:
 
     cake watch
+
+License
+-------
+
+Distributed under The MIT License (MIT), see `LICENSE`.
