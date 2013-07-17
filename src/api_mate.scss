@@ -186,6 +186,17 @@
       white-space: nowrap;
     }
   }
+
+  &.updated {
+    .result-title {
+      color: #EE5F5B;
+    }
+    .result-link {
+      border-color: #EE5F5B;
+      /* a { color: #EE5F5B; } */
+    }
+  }
+
 }
 
 @media (max-width: 768px) {

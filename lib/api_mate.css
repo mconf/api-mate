@@ -118,6 +118,11 @@
       border-color: #B94A48; }
     #api-mate-results .result-set .method-name {
       white-space: nowrap; }
+  #api-mate-results.updated .result-title {
+    color: #EE5F5B; }
+  #api-mate-results.updated .result-link {
+    border-color: #EE5F5B;
+    /* a { color: #EE5F5B; } */ }
 
 @media (max-width: 768px) {
   #api-mate-results {

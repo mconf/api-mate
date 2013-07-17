@@ -1,3 +1,5 @@
+updatedTimer = null
+
 template =
   "<div class='result-set'>
      <div class='result-title'>
@@ -43,6 +45,13 @@ addUrlsToPage = (urls) ->
   html = Mustache.to_html(template, opts)
   $(placeholder).html(html)
   expandLinks($("#view-type-input").hasClass("active"))
+
+  # mark the items as updated
+  placeholder.addClass("updated")
+  clearTimeout(updatedTimer)
+  updatedTimer = setTimeout( ->
+    placeholder.removeClass("updated")
+  , 300)
 
 # Generate urls for all BBB calls and add them to the page.
 generateUrls = () ->
