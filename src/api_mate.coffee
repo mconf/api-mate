@@ -57,9 +57,13 @@ addUrlsToPage = (urls) ->
 generateUrls = () ->
   server = {}
   server.url = $("#input-custom-server-url").val()
-  server.name = server.url
   server.salt = $("#input-custom-server-salt").val()
   server.mobileSalt = $("#input-custom-server-mobile-salt").val()
+
+  # Do some cleanups on the server URL to that pasted URLs in various formats work better
+  # Remove trailing /, and add /api on the end if missing.
+  server.url = server.url.replace(/(\/api)?\/?$/, '/api')
+  server.name = server.url
 
   # set ALL the parameters
   params = {}
