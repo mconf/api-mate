@@ -128,9 +128,13 @@ expandLinks = (selected) ->
     $("#api-mate-results .result-link").css("white-space", "nowrap")
     $("#api-mate-results .method-name").css("display", "inline-block")
 
+pad = (num, size) ->
+  s = "0000" + num
+  s.substr(s.length-size)
+
 $ ->
   # set random values in some inputs
-  vbridge = "7" + Math.floor(Math.random() * 10000 - 1).toString()
+  vbridge = "7" + pad(Math.floor(Math.random() * 10000 - 1).toString(), 4)
   $("#input-voice-bridge").val(vbridge)
   name = "random-" + Math.floor(Math.random() * 10000000).toString()
   $("#input-name").val(name)
