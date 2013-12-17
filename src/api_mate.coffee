@@ -9,6 +9,11 @@ template =
        {{#urls}}
          <div class='result-link-wrapper'>
          <div class='result-link {{urlClass}}'>
+           <div class='result-show'>
+           </div>
+           <a href='' action='{{url}}' class='result-form tooltipped' title='POST request to {{name}}' data-original-title='POST request to {{name}}'>
+              <i class='icon-upload'></i>
+           </a>
            <span class='method-name'>{{name}}</span>
            <a class='api-link' href='{{url}}'>{{urlName}}</a>
          </div>
@@ -16,6 +21,17 @@ template =
        {{/urls}}
      </div>
    </div>"
+
+post_template_file =
+  ""
+
+post_template_url =
+  "<?xml version='1.0' encoding='UTF-8'?>
+     <modules>
+       <module name='presentation'>
+         <document url='{{url}}' />
+       </module>
+     </modules>"
 
 # Check if an input text field has a valid value (not empty).
 isFilled = (field) ->
@@ -128,6 +144,28 @@ expandLinks = (selected) ->
     $("#api-mate-results .result-link").css("white-space", "nowrap")
     $("#api-mate-results .method-name").css("display", "inline-block")
 
+bindTooltips = ->
+  defaultOptions =
+    # append tooltips to the <body> element to prevent problems with tooltips inside
+    # elements with `overflow:hidden` set, for example.
+    container: 'body'
+    placement: 'top'
+
+  $('.tooltipped').tooltip(defaultOptions)
+
+bindPostRequests = ->
+  $("a.result-form").click ->
+    alert("yeeeash")
+    action = $(this).attr('action')
+    opts =
+      url: 'http://fc03.deviantart.net/fs71/f/2010/154/7/b/Big_Blue_Button_Logo_by_ThanRi.jpg'
+    data =
+      body: Mustache.to_html(post_template_url, opts)
+
+    $.post action, data, (data) ->
+      alert(data)
+      $(".result-show", this).html(data)
+
 pad = (num, size) ->
   s = "0000" + num
   s.substr(s.length-size)
@@ -155,6 +193,15 @@ $ ->
   $("#view-type-input").on "click", ->
     selected = !$("#view-type-input").hasClass("active")
     expandLinks(selected)
+
+  $("input[name='document']").on "change", ->
+    val = $("input[name='document']:checked").attr('value')
+    if val == 'file'
+      $("#pre-upload-file").show()
+      $("#pre-upload-url").hide()
+    else if val == 'url'
+      $("#pre-upload-url").show()
+      $("#pre-upload-file").hide()
 
   # button to clear the inputs
   $(".api-mate-clearall").on "click", (e) ->

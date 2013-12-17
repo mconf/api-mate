@@ -88,6 +88,8 @@
     display: inline-block; }
   #api-mate-config #config-fields input[type=checkbox] {
     margin: 0 0 0 5px; }
+  #api-mate-config #config-fields #pre-upload-url {
+    display: none; }
 
 #api-mate-results {
   overflow: hidden;
@@ -123,6 +125,10 @@
   #api-mate-results.updated .result-link {
     border-color: #EE5F5B;
     /* a { color: #EE5F5B; } */ }
+  #api-mate-results div.result-form {
+    float: left; }
+  #api-mate-results div.result-form i {
+    margin-right: 5px; }
 
 @media (max-width: 768px) {
   #api-mate-results {

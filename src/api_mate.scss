@@ -140,6 +140,11 @@
     input[type=checkbox] {
       margin: 0 0 0 5px;
     }
+
+    #pre-upload-url {
+      display: none;
+    }
+
   }
 }
 
@@ -195,6 +200,14 @@
       border-color: #EE5F5B;
       /* a { color: #EE5F5B; } */
     }
+  }
+
+  div.result-form {
+    float: left;
+  }
+
+  div.result-form i {
+    margin-right: 5px;
   }
 
 }
