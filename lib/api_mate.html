@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>API Mate</title>
     <link href="vendor/bootstrap.min.css" media="all" rel="stylesheet" type="text/css">
     <link href="vendor/bootstrap-responsive.min.css" media="all" rel="stylesheet" type="text/css">
@@ -36,7 +37,6 @@
               <button type="submit" class="api-mate-clearall btn btn-small btn-danger">Clear fields</button>
             </div>
           </div>
-          <div id="config-method"></div>
           <div id="config-server">
             <h4>Server</h4>
             <input id="input-custom-server-url" type="text" value="http://test-install.blindsidenetworks.com/bigbluebutton/api" placeholder="Url (e.g http://192.168.0.100:8080/bigbluebutton/api)">
@@ -154,6 +154,13 @@
         </div>
         <div class="span8">
           <div id="api-mate-results"></div>
+        </div>
+        <div id="post-response-modal" class="modal hide fade">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+            <h3>Response</h3>
+          </div>
+          <div class="modal-body"></div>
         </div>
       </div>
     </div>

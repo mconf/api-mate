@@ -38,16 +38,6 @@ append content
         #config-options-buttons
           button.api-mate-clearall.btn.btn-small.btn-danger(type='submit') Clear fields
 
-      #config-method
-      //-  h4 Request Method
-      //-    .field
-      //-      label(for='input-method-get')
-      //-        code GET
-      //-      input#input-method-get(type='radio', name='method', value='GET', checked)
-      //-      label(for='input-method-post')
-      //-        code POST
-      //-      input#input-method-post(type='radio', name='method', value='POST')
-
       #config-server
         h4 Server
         input#input-custom-server-url(type='text', value='http://test-install.blindsidenetworks.com/bigbluebutton/api', placeholder='Url (e.g http://192.168.0.100:8080/bigbluebutton/api)')
@@ -171,3 +161,10 @@ append content
 
     .span8
       #api-mate-results
+
+    #post-response-modal.modal.hide.fade
+      .modal-header
+        button(type="button", class="close", data-dismiss="modal", aria-hidden="true")
+          &times;
+        h3 Response
+      .modal-body
