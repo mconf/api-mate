@@ -2,7 +2,7 @@
 template =
   "<div class='result-set'>
      <div class='result-title'>
-       <h4 class='label-title'>Results {{title}}:</h4>
+       <h5 class='label-title'>Results {{title}}:</h5>
      </div>
      <div class='result-links'>
        {{#urls}}

@@ -4,8 +4,8 @@ body {
 #page-header-wrapper {
   border: 0;
   border-radius: 0;
-  border-bottom: 1px solid #d4d4d4;
-  background: #eee; }
+  border-bottom: 1px solid #dddddd;
+  background: #f6f6f6; }
 
 #page-header {
   padding: 15px 0;
@@ -52,7 +52,7 @@ body {
 #content {
   width: auto;
   padding: 0;
-  margin: 0; }
+  margin: 0 0 30px 0; }
 
 #api-mate-config #config-options {
   clear: both;
@@ -88,9 +88,19 @@ body {
     #api-mate-config #config-fields .form-group label {
       font-weight: normal; }
   #api-mate-config #config-fields input[type=checkbox] {
-    margin: 0 0 0 5px; }
+    margin: 0 0 0 5px;
+    width: auto; }
   #api-mate-config #config-fields #pre-upload-url {
     display: none; }
+#api-mate-config .panel {
+  border: 0;
+  box-shadow: none; }
+  #api-mate-config .panel .panel-collapse {
+    padding: 10px; }
+  #api-mate-config .panel .panel-heading {
+    padding: 5px; }
+    #api-mate-config .panel .panel-heading a {
+      display: block; }
 
 #api-mate-results {
   overflow: hidden;

@@ -7,8 +7,8 @@ body {
 #page-header-wrapper {
   border: 0;
   border-radius: 0;
-  border-bottom: 1px solid darken(#eee, 10);
-  background: #eee;
+  border-bottom: 1px solid darken(#f6f6f6, 10);
+  background: #f6f6f6;
 }
 
 #page-header {
@@ -77,7 +77,7 @@ body {
 #content {
   width: auto;
   padding: 0;
-  margin: 0;
+  margin: 0 0 30px 0;
 }
 
 #api-mate-config {
@@ -139,13 +139,28 @@ body {
 
     input[type=checkbox] {
       margin: 0 0 0 5px;
+      width: auto; // otherwise will look gigantic on chrome
     }
 
     #pre-upload-url {
       display: none;
     }
-
   }
+
+  .panel {
+    border: 0;
+    box-shadow: none;
+
+    .panel-collapse {
+      padding: 10px;
+    }
+
+    .panel-heading {
+      padding: 5px;
+      a { display: block; }
+    }
+  }
+
 }
 
 #api-mate-results {

@@ -27,10 +27,9 @@
       <div id="content" class="row">
         <div id="api-mate-config" class="col-sm-4">
           <div id="config-options" class="clearfix">
-            <h4>Options</h4>
             <div id="config-options-view-type">
               <div data-toggle="buttons-checkbox" class="btn-group">
-                <button id="view-type-input" type="button" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-check"></i>Full links</button>
+                <button id="view-type-input" type="button" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-check"></i>Show full links</button>
               </div>
             </div>
             <div id="config-options-buttons">
@@ -38,123 +37,153 @@
             </div>
           </div>
           <div id="config-server">
-            <h4>Server</h4>
-            <div class="form-group">
-              <input id="input-custom-server-url" type="text" value="http://test-install.blindsidenetworks.com/bigbluebutton/api" placeholder="Url (e.g http://192.168.0.100:8080/bigbluebutton/api)" class="form-control input-sm input-sm">
-            </div>
-            <div class="form-group">
-              <input id="input-custom-server-salt" type="text" value="8cd8ef52e8e101574e400365b55e11a6" placeholder="Salt" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <input id="input-custom-server-mobile-salt" type="text" value="03b07" placeholder="Mobile salt" class="form-control input-sm">
+            <div class="panel-group">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title"><a data-toggle="collapse" href="#config-server-1">Server</a></h4>
+                </div>
+                <div id="config-server-1" class="panel-collapse collapse in">
+                  <div class="form-group">
+                    <input id="input-custom-server-url" type="text" value="http://test-install.blindsidenetworks.com/bigbluebutton/api" placeholder="Url (e.g http://192.168.0.100:8080/bigbluebutton/api)" class="form-control input-sm input-sm">
+                  </div>
+                  <div class="form-group">
+                    <input id="input-custom-server-salt" type="text" value="8cd8ef52e8e101574e400365b55e11a6" placeholder="Salt" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <input id="input-custom-server-mobile-salt" type="text" value="03b07" placeholder="Mobile salt" class="form-control input-sm">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div id="config-fields">
-            <h4>Parameters</h4>
-            <div class="form-group">
-              <label for="input-id"><code>meetingID</code> and <code>recordID</code>
-              </label>
-              <input id="input-id" type="text" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <label for="input-name"><code>name</code></label>
-              <input id="input-name" type="text" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <label for="input-attendee-password"><code>attendeePW</code></label>
-              <input id="input-attendee-password" type="text" value="ap" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <label for="input-moderator-password"><code>moderatorPW</code></label>
-              <input id="input-moderator-password" type="text" value="mp" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <label for="input-fullname"><code>fullName</code></label>
-              <input id="input-fullname" type="text" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <label for="input-welcome"><code>welcome</code></label>
-              <textarea id="input-welcome" rows="3" class="form-control input-sm"><br>Welcome to <b>%%CONFNAME%%</b>!</textarea>
-            </div>
-            <div class="form-group">
-              <label for="input-record"><code>record</code></label>
-              <input id="input-record" type="checkbox" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <label for="input-preupload"><code>pre upload document</code></label>
-              <div id="pre-upload-file">
-                <label for="input-pre-upload-file">
-                  <p>Select a local file:</p>
-                </label>
-                <input id="input-pre-upload-file" type="file">
+            <div id="accordion" class="panel-group">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#config-panel-1">URL Parameters</a></h4>
+                </div>
+                <div id="config-panel-1" class="panel-collapse collapse in">
+                  <div class="form-group">
+                    <label for="input-id"><code>meetingID</code> and <code>recordID</code>
+                    </label>
+                    <input id="input-id" type="text" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-name"><code>name</code></label>
+                    <input id="input-name" type="text" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-attendee-password"><code>attendeePW</code></label>
+                    <input id="input-attendee-password" type="text" value="ap" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-moderator-password"><code>moderatorPW</code></label>
+                    <input id="input-moderator-password" type="text" value="mp" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-fullname"><code>fullName</code></label>
+                    <input id="input-fullname" type="text" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-welcome"><code>welcome</code></label>
+                    <textarea id="input-welcome" rows="3" class="form-control input-sm"><br>Welcome to <b>%%CONFNAME%%</b>!</textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="input-record"><code>record</code></label>
+                    <input id="input-record" type="checkbox" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-voice-bridge"><code>voiceBridge</code></label>
+                    <input id="input-voice-bridge" type="text" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-dial-number"><code>dialNumber</code></label>
+                    <input id="input-dial-number" type="text" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-web-voice"><code>webVoice</code></label>
+                    <input id="input-web-voice" type="text" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-logout-url"><code>logoutURL</code></label>
+                    <input id="input-logout-url" type="text" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-max-participants"><code>maxParticipants</code></label>
+                    <input id="input-max-participants" type="text" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-duration"><code>duration</code></label>
+                    <input id="input-duration" type="text" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-user-id"><code>userID</code></label>
+                    <input id="input-user-id" type="text" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-create-time"><code>createTime</code></label>
+                    <input id="input-create-time" type="text" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-web-voice-conf"><code>webVoiceConf</code></label>
+                    <input id="input-web-voice-conf" type="text" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-publish"><code>publish</code></label>
+                    <input id="input-publish" type="checkbox" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-meta"><code>meta_*</code></label>
+                    <div class="tip">attribute=value (one per line, without spaces)</div>
+                    <textarea id="input-meta" rows="3" placeholder="myAttribute=1" class="form-control input-sm"></textarea>
+                  </div>
+                </div>
               </div>
-              <div id="pre-upload-url">
-                <label for="input-pre-upload-url">
-                  <p>Paste an URL pointing to the document</p>
-                </label>
-                <input id="input-pre-upload-url" type="text">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#config-panel-2">POST Data</a></h4>
+                </div>
+                <div id="config-panel-2" class="panel-collapse collapse">
+                  <div class="form-group">
+                    <label for="input-preupload"><code>pre upload document</code></label>
+                    <div id="pre-upload-file">
+                      <label for="input-pre-upload-file">
+                        <p>Select a local file:</p>
+                      </label>
+                      <input id="input-pre-upload-file" type="file">
+                    </div>
+                    <div id="pre-upload-url">
+                      <label for="input-pre-upload-url">
+                        <p>Paste an URL pointing to the document</p>
+                      </label>
+                      <input id="input-pre-upload-url" type="text">
+                    </div>
+                    <label for="document-file"><code>From a local file</code>
+                      <input id="input-document-file" type="radio" name="document" value="file" checked>
+                    </label>
+                    <label for="document-link"><code>From an URL</code>
+                      <input id="input-document-url" type="radio" name="document" value="url">
+                    </label>
+                  </div>
+                </div>
               </div>
-              <label for="document-file"><code>From a local file</code>
-                <input id="input-document-file" type="radio" name="document" value="file" checked>
-              </label>
-              <label for="document-link"><code>From an URL</code>
-                <input id="input-document-url" type="radio" name="document" value="url">
-              </label>
-            </div>
-            <div class="form-group">
-              <label for="input-voice-bridge"><code>voiceBridge</code></label>
-              <input id="input-voice-bridge" type="text" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <label for="input-dial-number"><code>dialNumber</code></label>
-              <input id="input-dial-number" type="text" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <label for="input-web-voice"><code>webVoice</code></label>
-              <input id="input-web-voice" type="text" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <label for="input-logout-url"><code>logoutURL</code></label>
-              <input id="input-logout-url" type="text" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <label for="input-max-participants"><code>maxParticipants</code></label>
-              <input id="input-max-participants" type="text" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <label for="input-duration"><code>duration</code></label>
-              <input id="input-duration" type="text" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <label for="input-user-id"><code>userID</code></label>
-              <input id="input-user-id" type="text" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <label for="input-create-time"><code>createTime</code></label>
-              <input id="input-create-time" type="text" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <label for="input-web-voice-conf"><code>webVoiceConf</code></label>
-              <input id="input-web-voice-conf" type="text" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <label for="input-publish"><code>publish</code></label>
-              <input id="input-publish" type="checkbox" class="form-control input-sm">
-            </div>
-            <div class="form-group">
-              <label for="input-meta"><code>meta_*</code></label>
-              <div class="tip">attribute=value (one per line, without spaces)</div>
-              <textarea id="input-meta" rows="3" placeholder="myAttribute=1" class="form-control input-sm"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="input-custom">Custom parameters:</label>
-              <div class="tip">attribute=value (one per line, without spaces)</div>
-              <textarea id="input-custom" rows="3" placeholder="myCustomAttribute=Testing" class="form-control input-sm"></textarea>
-            </div>
-            <div class="form-group">
-              <div class="tip">One call name per line</div>
-              <label for="input-custom">Custom API calls:</label>
-              <textarea id="input-custom-calls" rows="3" placeholder="customApiCall" class="form-control input-sm"></textarea>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#config-panel-3">Custom parameters</a></h4>
+                </div>
+                <div id="config-panel-3" class="panel-collapse collapse">
+                  <div class="form-group">
+                    <label for="input-custom">Custom parameters:</label>
+                    <div class="tip">attribute=value (one per line, without spaces)</div>
+                    <textarea id="input-custom" rows="3" placeholder="myCustomAttribute=Testing" class="form-control input-sm"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <div class="tip">One call name per line</div>
+                    <label for="input-custom">Custom API calls:</label>
+                    <textarea id="input-custom-calls" rows="3" placeholder="customApiCall" class="form-control input-sm"></textarea>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

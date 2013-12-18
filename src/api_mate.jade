@@ -30,138 +30,155 @@ append content
     #api-mate-config.col-sm-4
 
       #config-options.clearfix
-        h4 Options
         #config-options-view-type
           div.btn-group(data-toggle="buttons-checkbox")
             button.btn.btn-default.btn-sm#view-type-input(type="button")
               i.glyphicon.glyphicon-check
-              | Full links
+              | Show full links
         #config-options-buttons
           button.api-mate-clearall.btn.btn-sm.btn-danger(type='submit') Clear fields
 
       #config-server
-        h4 Server
-        .form-group
-          input#input-custom-server-url.form-control.input-sm.input-sm(type='text', value='http://test-install.blindsidenetworks.com/bigbluebutton/api', placeholder='Url (e.g http://192.168.0.100:8080/bigbluebutton/api)')
-        .form-group
-          input#input-custom-server-salt.form-control.input-sm(type='text', value='8cd8ef52e8e101574e400365b55e11a6', placeholder='Salt')
-        .form-group
-          input#input-custom-server-mobile-salt.form-control.input-sm(type='text', value='03b07', placeholder='Mobile salt')
+
+        .panel-group
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a(data-toggle="collapse", href="#config-server-1") Server
+            #config-server-1.panel-collapse.collapse.in
+              .form-group
+                input#input-custom-server-url.form-control.input-sm.input-sm(type='text', value='http://test-install.blindsidenetworks.com/bigbluebutton/api', placeholder='Url (e.g http://192.168.0.100:8080/bigbluebutton/api)')
+              .form-group
+                input#input-custom-server-salt.form-control.input-sm(type='text', value='8cd8ef52e8e101574e400365b55e11a6', placeholder='Salt')
+              .form-group
+                input#input-custom-server-mobile-salt.form-control.input-sm(type='text', value='03b07', placeholder='Mobile salt')
 
       #config-fields
-        h4 Parameters
-        //- common fields
-        .form-group
-          label(for='input-id')
-            code meetingID
-            = ' and '
-            code recordID
-          input#input-id.form-control.input-sm(type='text')
-        .form-group
-          label(for='input-name')
-            code name
-          input#input-name.form-control.input-sm(type='text')
-        .form-group
-          label(for='input-attendee-password')
-            code attendeePW
-          input#input-attendee-password.form-control.input-sm(type='text', value='ap')
-        .form-group
-          label(for='input-moderator-password')
-            code moderatorPW
-          input#input-moderator-password.form-control.input-sm(type='text', value='mp')
-        .form-group
-          label(for='input-fullname')
-            code fullName
-          input#input-fullname.form-control.input-sm(type='text')
-        .form-group
-          label(for='input-welcome')
-            code welcome
-          textarea#input-welcome.form-control.input-sm(rows='3')
-            | <br>Welcome to <b>%%CONFNAME%%</b>!
-        .form-group
-          label(for='input-record')
-            code record
-          input#input-record.form-control.input-sm(type='checkbox')
 
-        //- slides
-        .form-group
+        .panel-group#accordion
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a(data-toggle="collapse", data-parent="#accordion", href="#config-panel-1") URL Parameters
+            #config-panel-1.panel-collapse.collapse.in
+              //- common fields
+              .form-group
+                label(for='input-id')
+                  code meetingID
+                  = ' and '
+                  code recordID
+                input#input-id.form-control.input-sm(type='text')
+              .form-group
+                label(for='input-name')
+                  code name
+                input#input-name.form-control.input-sm(type='text')
+              .form-group
+                label(for='input-attendee-password')
+                  code attendeePW
+                input#input-attendee-password.form-control.input-sm(type='text', value='ap')
+              .form-group
+                label(for='input-moderator-password')
+                  code moderatorPW
+                input#input-moderator-password.form-control.input-sm(type='text', value='mp')
+              .form-group
+                label(for='input-fullname')
+                  code fullName
+                input#input-fullname.form-control.input-sm(type='text')
+              .form-group
+                label(for='input-welcome')
+                  code welcome
+                textarea#input-welcome.form-control.input-sm(rows='3')
+                  | <br>Welcome to <b>%%CONFNAME%%</b>!
+              .form-group
+                label(for='input-record')
+                  code record
+                input#input-record.form-control.input-sm(type='checkbox')
+              //- 'advanced' fields
+              .form-group
+                label(for='input-voice-bridge')
+                  code voiceBridge
+                input#input-voice-bridge.form-control.input-sm(type='text')
+              .form-group
+                label(for='input-dial-number')
+                  code dialNumber
+                input#input-dial-number.form-control.input-sm(type='text')
+              .form-group
+                label(for='input-web-voice')
+                  code webVoice
+                input#input-web-voice.form-control.input-sm(type='text')
+              .form-group
+                label(for='input-logout-url')
+                  code logoutURL
+                input#input-logout-url.form-control.input-sm(type='text')
+              .form-group
+                label(for='input-max-participants')
+                  code maxParticipants
+                input#input-max-participants.form-control.input-sm(type='text')
+              .form-group
+                label(for='input-duration')
+                  code duration
+                input#input-duration.form-control.input-sm(type='text')
+              .form-group
+                label(for='input-user-id')
+                  code userID
+                input#input-user-id.form-control.input-sm(type='text')
+              .form-group
+                label(for='input-create-time')
+                  code createTime
+                input#input-create-time.form-control.input-sm(type='text')
+              .form-group
+                label(for='input-web-voice-conf')
+                  code webVoiceConf
+                input#input-web-voice-conf.form-control.input-sm(type='text')
+              .form-group
+                label(for='input-publish')
+                  code publish
+                input#input-publish.form-control.input-sm(type='checkbox')
+              .form-group
+                label(for='input-meta')
+                  code meta_*
+                .tip attribute=value (one per line, without spaces)
+                textarea#input-meta.form-control.input-sm(rows='3', placeholder='myAttribute=1')
 
-          label(for='input-preupload')
-            code pre upload document
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a(data-toggle="collapse", data-parent="#accordion", href="#config-panel-2") POST Data
+            #config-panel-2.panel-collapse.collapse
+              //- slides
+              .form-group
+                label(for='input-preupload')
+                  code pre upload document
+                #pre-upload-file
+                  label(for='input-pre-upload-file')
+                    p Select a local file:
+                  input#input-pre-upload-file(type='file')
+                #pre-upload-url
+                  label(for='input-pre-upload-url')
+                    p Paste an URL pointing to the document
+                  input#input-pre-upload-url(type='text')
+                label(for='document-file')
+                  code From a local file
+                  input#input-document-file(type='radio', name='document', value='file', checked)
+                label(for='document-link')
+                  code From an URL
+                  input#input-document-url(type='radio', name='document', value='url')
 
-          #pre-upload-file
-            label(for='input-pre-upload-file')
-              p Select a local file:
-            input#input-pre-upload-file(type='file')
-
-          #pre-upload-url
-            label(for='input-pre-upload-url')
-              p Paste an URL pointing to the document
-            input#input-pre-upload-url(type='text')
-
-          label(for='document-file')
-            code From a local file
-            input#input-document-file(type='radio', name='document', value='file', checked)
-          label(for='document-link')
-            code From an URL
-            input#input-document-url(type='radio', name='document', value='url')
-
-        //- 'advanced' fields
-        .form-group
-          label(for='input-voice-bridge')
-            code voiceBridge
-          input#input-voice-bridge.form-control.input-sm(type='text')
-        .form-group
-          label(for='input-dial-number')
-            code dialNumber
-          input#input-dial-number.form-control.input-sm(type='text')
-        .form-group
-          label(for='input-web-voice')
-            code webVoice
-          input#input-web-voice.form-control.input-sm(type='text')
-        .form-group
-          label(for='input-logout-url')
-            code logoutURL
-          input#input-logout-url.form-control.input-sm(type='text')
-        .form-group
-          label(for='input-max-participants')
-            code maxParticipants
-          input#input-max-participants.form-control.input-sm(type='text')
-        .form-group
-          label(for='input-duration')
-            code duration
-          input#input-duration.form-control.input-sm(type='text')
-        .form-group
-          label(for='input-user-id')
-            code userID
-          input#input-user-id.form-control.input-sm(type='text')
-        .form-group
-          label(for='input-create-time')
-            code createTime
-          input#input-create-time.form-control.input-sm(type='text')
-        .form-group
-          label(for='input-web-voice-conf')
-            code webVoiceConf
-          input#input-web-voice-conf.form-control.input-sm(type='text')
-        .form-group
-          label(for='input-publish')
-            code publish
-          input#input-publish.form-control.input-sm(type='checkbox')
-        .form-group
-          label(for='input-meta')
-            code meta_*
-          .tip attribute=value (one per line, without spaces)
-          textarea#input-meta.form-control.input-sm(rows='3', placeholder='myAttribute=1')
-        .form-group
-          label(for='input-custom')
-            | Custom parameters:
-          .tip attribute=value (one per line, without spaces)
-          textarea#input-custom.form-control.input-sm(rows='3', placeholder='myCustomAttribute=Testing')
-        .form-group
-          .tip One call name per line
-          label(for='input-custom')
-            | Custom API calls:
-          textarea#input-custom-calls.form-control.input-sm(rows='3', placeholder='customApiCall')
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a(data-toggle="collapse", data-parent="#accordion", href="#config-panel-3") Custom parameters
+            #config-panel-3.panel-collapse.collapse
+              .form-group
+                label(for='input-custom')
+                  | Custom parameters:
+                .tip attribute=value (one per line, without spaces)
+                textarea#input-custom.form-control.input-sm(rows='3', placeholder='myCustomAttribute=Testing')
+              .form-group
+                .tip One call name per line
+                label(for='input-custom')
+                  | Custom API calls:
+                textarea#input-custom-calls.form-control.input-sm(rows='3', placeholder='customApiCall')
 
     .col-sm-8
       #api-mate-results
