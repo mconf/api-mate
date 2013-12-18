@@ -1,3 +1,4 @@
+# Content shown in the middle of the page with the list of links generated
 template =
   "<div class='result-set'>
      <div class='result-title'>
@@ -17,6 +18,34 @@ template =
        {{/urls}}
      </div>
    </div>"
+
+# Content of the dialog when a POST request succeeds
+postSuccessTemplate = "<pre>{{response}}</pre>"
+
+# Content of the dialog when a POST request fails
+postErrorTemplate =
+  "<p>Server responded with status: <code>{{status}}: {{statusText}}</code>.</p>
+   {{#response}}
+     <p>Content:</p>
+     <pre>{{response}}</pre>
+   {{/response}}
+   {{^response}}
+     <p>Content: <code>-- no content --</code></p>
+   {{/response}}
+   <p>If you don't know the reason for this error, check these possibilities:</p>
+   <ul>
+     <li>
+       Your server does not allow <strong>cross-domain requests</strong>. By default BigBlueButton and Mconf-Live <strong>do not</strong> allow cross-domain
+       requests, so you have to enable it to test this request via POST. Check our <a href=\"https://github.com/mconf/api-mate/tree/master#allow-cross-domain-requests-for-post-requests\">README</a>
+       for instructions on how to do it.
+     </li>
+     <li>
+       This API method cannot be accessed via POST.
+     </li>
+     <li>
+       Your server is down or malfunctioning. Log into it and check if everything is OK with <code>bbb-conf --check</code>.
+     </li>
+   <ul>"
 
 post_template_file =
   ""
@@ -194,8 +223,6 @@ class ApiMate
       href = $target.attr('data-url')
 
       $('.api-link-post').addClass('disabled')
-      $target.addClass('loading')
-
       $.ajax
         url: href
         type: "POST"
@@ -203,12 +230,28 @@ class ApiMate
         contentType:"application/xml; charset=utf-8"
         dataType: "xml"
         complete: (jqxhr, status) ->
-          $('#post-response-modal .modal-body').text(jqxhr.responseText)
-          $('#post-response-modal').modal({ show: true })
-          $target.removeClass('loading')
-          $('.api-link-post').removeClass('disabled')
           # TODO: show the result properly formatted and highlighted in the modal
-          # TODO: show error if failed and warn about CORS
+
+          console.log jqxhr
+
+          if jqxhr.status is 200
+            $('#post-response-modal .modal-header').removeClass('alert-danger')
+            $('#post-response-modal .modal-header').addClass('alert-success')
+            html = Mustache.to_html(postSuccessTemplate, { response: jqxhr.responseText })
+            $('#post-response-modal .modal-body').html(html)
+          else
+            $('#post-response-modal .modal-header h4').text('Ooops!')
+            $('#post-response-modal .modal-header').addClass('alert-danger')
+            $('#post-response-modal .modal-header').removeClass('alert-success')
+            opts =
+              status: jqxhr.status
+              statusText: jqxhr.statusText
+            opts['response'] = jqxhr.responseText unless _.isEmpty(jqxhr.responseText)
+            html = Mustache.to_html(postErrorTemplate, opts)
+            $('#post-response-modal .modal-body').html(html)
+
+          $('#post-response-modal').modal({ show: true })
+          $('.api-link-post').removeClass('disabled')
 
       e.preventDefault()
       false
