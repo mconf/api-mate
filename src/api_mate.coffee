@@ -209,13 +209,9 @@ class ApiMate
   # Expand (if `selected` is true) or collapse the links.
   expandLinks: (selected) ->
     if selected
-      $("#api-mate-results .result-link").css("word-break", "break-all")
-      $("#api-mate-results .result-link").css("white-space", "normal")
-      $("#api-mate-results .method-name").css("display", "block")
+      $("#api-mate-results .result-link").addClass('expanded')
     else
-      $("#api-mate-results .result-link").css("word-break", "normal")
-      $("#api-mate-results .result-link").css("white-space", "nowrap")
-      $("#api-mate-results .method-name").css("display", "inline-block")
+      $("#api-mate-results .result-link").removeClass('expanded')
 
   bindPostRequests: ->
     $(document).on 'click', 'a.api-link-post', (e) ->

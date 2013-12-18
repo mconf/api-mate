@@ -182,7 +182,7 @@ body {
       border-left: 7px solid #3A87AD;
       white-space: nowrap;
       line-height: 18px;
-      font-size: $font-size - 2px;
+      font-size: $font-size - 1px;
       word-break: normal;
 
       .label {
@@ -193,6 +193,16 @@ body {
         &.disabled {
           opacity: 0.5;
           background: #888;
+        }
+      }
+
+      &.expanded {
+        word-break: break-all;
+        white-space: normal;
+        padding: 5px;
+        .method-name {
+          display: block;
+          margin-bottom: 5px;
         }
       }
 
