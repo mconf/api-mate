@@ -2,12 +2,13 @@ extends layout
 
 append content
 
-  a(href="https://github.com/mconf/api-mate")
-    img(style="position: absolute; top: 0; right: 0; border: 0;", src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png", alt="Fork me on GitHub")
+  #github-banner
+    a(href="https://github.com/mconf/api-mate")
+      img(style="position: absolute; top: 0; right: 0; border: 0;", src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png", alt="Fork me on GitHub")
 
-  #page-header-wrapper.clearfix
-    #page-header.clearfix
-      .logo.clearfix
+  header#page-header-wrapper.navbar
+    #page-header.row
+      .col-sm-7.logo
         h1 API Mate
         .description
           | A tool to access the API of BigBlueButton and Mconf
@@ -16,71 +17,74 @@ append content
             | API docs:
           a(href='http://code.google.com/p/bigbluebutton/wiki/API') BigBlueButton
           a(href='https://github.com/mconf/wiki/wiki/Mconf-Live-API-Changes') Mconf-Live
-      .notes
+      .col-sm-5.notes
         .about
           = 'Developed using '
           a(href='https://github.com/mconf/bigbluebutton-api-js') bigbluebutton-api-js
         .thanks
-          i.icon.icon-thumbs-up
           = 'Thanks to Omar Shammas for '
           a(href='http://www.omarshammas.com/bbbapibuddy') the original API Buddy idea!
+          i.glyphicon.glyphicon-thumbs-up
 
-  .row-fluid#content
-    .span4#api-mate-config
+  #content.row
+    #api-mate-config.col-sm-4
 
       #config-options.clearfix
         h4 Options
         #config-options-view-type
           div.btn-group(data-toggle="buttons-checkbox")
-            button.btn.btn-small#view-type-input(type="button")
-              i.icon-check
+            button.btn.btn-default.btn-sm#view-type-input(type="button")
+              i.glyphicon.glyphicon-check
               | Full links
         #config-options-buttons
-          button.api-mate-clearall.btn.btn-small.btn-danger(type='submit') Clear fields
+          button.api-mate-clearall.btn.btn-sm.btn-danger(type='submit') Clear fields
 
       #config-server
         h4 Server
-        input#input-custom-server-url(type='text', value='http://test-install.blindsidenetworks.com/bigbluebutton/api', placeholder='Url (e.g http://192.168.0.100:8080/bigbluebutton/api)')
-        input#input-custom-server-salt(type='text', value='8cd8ef52e8e101574e400365b55e11a6', placeholder='Salt')
-        input#input-custom-server-mobile-salt(type='text', value='03b07', placeholder='Mobile salt')
+        .form-group
+          input#input-custom-server-url.form-control.input-sm.input-sm(type='text', value='http://test-install.blindsidenetworks.com/bigbluebutton/api', placeholder='Url (e.g http://192.168.0.100:8080/bigbluebutton/api)')
+        .form-group
+          input#input-custom-server-salt.form-control.input-sm(type='text', value='8cd8ef52e8e101574e400365b55e11a6', placeholder='Salt')
+        .form-group
+          input#input-custom-server-mobile-salt.form-control.input-sm(type='text', value='03b07', placeholder='Mobile salt')
 
       #config-fields
         h4 Parameters
         //- common fields
-        .field
+        .form-group
           label(for='input-id')
             code meetingID
             = ' and '
             code recordID
-          input#input-id(type='text')
-        .field
+          input#input-id.form-control.input-sm(type='text')
+        .form-group
           label(for='input-name')
             code name
-          input#input-name(type='text')
-        .field
+          input#input-name.form-control.input-sm(type='text')
+        .form-group
           label(for='input-attendee-password')
             code attendeePW
-          input#input-attendee-password(type='text', value='ap')
-        .field
+          input#input-attendee-password.form-control.input-sm(type='text', value='ap')
+        .form-group
           label(for='input-moderator-password')
             code moderatorPW
-          input#input-moderator-password(type='text', value='mp')
-        .field
+          input#input-moderator-password.form-control.input-sm(type='text', value='mp')
+        .form-group
           label(for='input-fullname')
             code fullName
-          input#input-fullname(type='text')
-        .field
+          input#input-fullname.form-control.input-sm(type='text')
+        .form-group
           label(for='input-welcome')
             code welcome
-          textarea#input-welcome(rows='3')
+          textarea#input-welcome.form-control.input-sm(rows='3')
             | <br>Welcome to <b>%%CONFNAME%%</b>!
-        .field
+        .form-group
           label(for='input-record')
             code record
-          input#input-record(type='checkbox')
+          input#input-record.form-control.input-sm(type='checkbox')
 
         //- slides
-        .field
+        .form-group
 
           label(for='input-preupload')
             code pre upload document
@@ -103,68 +107,70 @@ append content
             input#input-document-url(type='radio', name='document', value='url')
 
         //- 'advanced' fields
-        .field
+        .form-group
           label(for='input-voice-bridge')
             code voiceBridge
-          input#input-voice-bridge(type='text')
-        .field
+          input#input-voice-bridge.form-control.input-sm(type='text')
+        .form-group
           label(for='input-dial-number')
             code dialNumber
-          input#input-dial-number(type='text')
-        .field
+          input#input-dial-number.form-control.input-sm(type='text')
+        .form-group
           label(for='input-web-voice')
             code webVoice
-          input#input-web-voice(type='text')
-        .field
+          input#input-web-voice.form-control.input-sm(type='text')
+        .form-group
           label(for='input-logout-url')
             code logoutURL
-          input#input-logout-url(type='text')
-        .field
+          input#input-logout-url.form-control.input-sm(type='text')
+        .form-group
           label(for='input-max-participants')
             code maxParticipants
-          input#input-max-participants(type='text')
-        .field
+          input#input-max-participants.form-control.input-sm(type='text')
+        .form-group
           label(for='input-duration')
             code duration
-          input#input-duration(type='text')
-        .field
+          input#input-duration.form-control.input-sm(type='text')
+        .form-group
           label(for='input-user-id')
             code userID
-          input#input-user-id(type='text')
-        .field
+          input#input-user-id.form-control.input-sm(type='text')
+        .form-group
           label(for='input-create-time')
             code createTime
-          input#input-create-time(type='text')
-        .field
+          input#input-create-time.form-control.input-sm(type='text')
+        .form-group
           label(for='input-web-voice-conf')
             code webVoiceConf
-          input#input-web-voice-conf(type='text')
-        .field
+          input#input-web-voice-conf.form-control.input-sm(type='text')
+        .form-group
           label(for='input-publish')
             code publish
-          input#input-publish(type='checkbox')
-        .field
+          input#input-publish.form-control.input-sm(type='checkbox')
+        .form-group
           label(for='input-meta')
             code meta_*
           .tip attribute=value (one per line, without spaces)
-          textarea#input-meta(rows='3', placeholder='myAttribute=1')
-        .field
+          textarea#input-meta.form-control.input-sm(rows='3', placeholder='myAttribute=1')
+        .form-group
           label(for='input-custom')
             | Custom parameters:
           .tip attribute=value (one per line, without spaces)
-          textarea#input-custom(rows='3', placeholder='myCustomAttribute=Testing')
-        .field
+          textarea#input-custom.form-control.input-sm(rows='3', placeholder='myCustomAttribute=Testing')
+        .form-group
           .tip One call name per line
           label(for='input-custom')
             | Custom API calls:
-          textarea#input-custom-calls(rows='3', placeholder='customApiCall')
+          textarea#input-custom-calls.form-control.input-sm(rows='3', placeholder='customApiCall')
 
-    .span8
+    .col-sm-8
       #api-mate-results
 
-    #post-response-modal.modal.hide.fade
-      .modal-header
-        button(type="button", class="close", data-dismiss="modal", aria-hidden="true")
-          &times;
-        h3 Response
-      .modal-body
+    #post-response-modal.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button(type="button", class="close", data-dismiss="modal", aria-hidden="true")
+              &times;
+            h4 Response
+          .modal-body

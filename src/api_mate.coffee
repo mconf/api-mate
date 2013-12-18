@@ -7,7 +7,7 @@ template =
        {{#urls}}
          <div class='result-link-wrapper'>
          <div class='result-link {{urlClass}}'>
-           <a href='#' data-url='{{url}}' class='api-link-post tooltipped label label-info' title='Send \"{{name}}\" using a POST request'>
+           <a href='#' data-url='{{url}}' class='api-link-post tooltipped label' title='Send \"{{name}}\" using a POST request'>
              post
            </a>
            <span class='method-name'>{{name}}</span>
