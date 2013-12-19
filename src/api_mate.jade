@@ -145,24 +145,22 @@ append content
               h4.panel-title
                 a(data-toggle="collapse", data-parent="#accordion", href="#config-panel-2") POST Data
             #config-panel-2.panel-collapse.collapse
-              //- slides
               .form-group
-                label(for='input-preupload')
-                  code pre upload document
-                #pre-upload-file
-                  label(for='input-pre-upload-file')
-                    p Select a local file:
-                  input#input-pre-upload-file(type='file')
+                label
+                  | Pre-upload of slides for
+                  code POST create
+              .form-group
+                input#input-pre-upload-link-radio(type='radio', name='document', value='url', checked)
+                label(for='input-pre-upload-link-radio')
+                  | URL
+                input#input-pre-upload-text-radio(type='radio', name='document', value='text')
+                label.tooltipped(for='input-pre-upload-text-radio', title='Not working yet!')
+                  | Text content
+              .form-group
                 #pre-upload-url
-                  label(for='input-pre-upload-url')
-                    p Paste an URL pointing to the document
-                  input#input-pre-upload-url(type='text')
-                label(for='document-file')
-                  code From a local file
-                  input#input-document-file(type='radio', name='document', value='file', checked)
-                label(for='document-link')
-                  code From an URL
-                  input#input-document-url(type='radio', name='document', value='url')
+                  input.form-control.input-sm#input-pre-upload-url(type='text', placeholder='Paste an URL of a document')
+                #pre-upload-text
+                  textarea.form-control.input-sm#input-pre-upload-url(type='text', placeholder='Paste the content of your file', disabled='disabled')
 
           .panel.panel-default
             .panel-heading

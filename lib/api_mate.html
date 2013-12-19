@@ -145,25 +145,21 @@
                 </div>
                 <div id="config-panel-2" class="panel-collapse collapse">
                   <div class="form-group">
-                    <label for="input-preupload"><code>pre upload document</code></label>
-                    <div id="pre-upload-file">
-                      <label for="input-pre-upload-file">
-                        <p>Select a local file:</p>
-                      </label>
-                      <input id="input-pre-upload-file" type="file">
-                    </div>
+                    <label>Pre-upload of slides for<code>POST create</code></label>
+                  </div>
+                  <div class="form-group">
+                    <input id="input-pre-upload-link-radio" type="radio" name="document" value="url" checked>
+                    <label for="input-pre-upload-link-radio">URL</label>
+                    <input id="input-pre-upload-text-radio" type="radio" name="document" value="text">
+                    <label for="input-pre-upload-text-radio" title="Not working yet!" class="tooltipped">Text content</label>
+                  </div>
+                  <div class="form-group">
                     <div id="pre-upload-url">
-                      <label for="input-pre-upload-url">
-                        <p>Paste an URL pointing to the document</p>
-                      </label>
-                      <input id="input-pre-upload-url" type="text">
+                      <input id="input-pre-upload-url" type="text" placeholder="Paste an URL of a document" class="form-control input-sm">
                     </div>
-                    <label for="document-file"><code>From a local file</code>
-                      <input id="input-document-file" type="radio" name="document" value="file" checked>
-                    </label>
-                    <label for="document-link"><code>From an URL</code>
-                      <input id="input-document-url" type="radio" name="document" value="url">
-                    </label>
+                    <div id="pre-upload-text">
+                      <textarea id="input-pre-upload-url" type="text" placeholder="Paste the content of your file" disabled="disabled" class="form-control input-sm"></textarea>
+                    </div>
                   </div>
                 </div>
               </div>

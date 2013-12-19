@@ -90,7 +90,7 @@ body {
   #api-mate-config #config-fields input[type=checkbox] {
     margin: 0 0 0 5px;
     width: auto; }
-  #api-mate-config #config-fields #pre-upload-url {
+  #api-mate-config #config-fields #pre-upload-text {
     display: none; }
 #api-mate-config .panel {
   border: 0;

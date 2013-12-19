@@ -47,10 +47,7 @@ postErrorTemplate =
      </li>
    <ul>"
 
-post_template_file =
-  ""
-
-post_template_url =
+preUploadUrl =
   "<?xml version='1.0' encoding='UTF-8'?>
      <modules>
        <module name='presentation'>
@@ -80,14 +77,15 @@ class ApiMate
       selected = !$("#view-type-input").hasClass("active")
       @expandLinks(selected)
 
+    # changing the type of preupload input
     $("input[name='document']").on "change", ->
       val = $("input[name='document']:checked").attr('value')
-      if val == 'file'
-        $("#pre-upload-file").show()
-        $("#pre-upload-url").hide()
-      else if val == 'url'
+      if val is 'url'
         $("#pre-upload-url").show()
-        $("#pre-upload-file").hide()
+        $("#pre-upload-text").hide()
+      else if val is 'text'
+        $("#pre-upload-text").show()
+        $("#pre-upload-url").hide()
 
     # button to clear the inputs
     $(".api-mate-clearall").on "click", (e) =>
@@ -214,6 +212,7 @@ class ApiMate
       $("#api-mate-results .result-link").removeClass('expanded')
 
   bindPostRequests: ->
+    _apiMate = this
     $(document).on 'click', 'a.api-link-post', (e) ->
       $target = $(this)
       href = $target.attr('data-url')
@@ -225,10 +224,9 @@ class ApiMate
         crossDomain: true
         contentType:"application/xml; charset=utf-8"
         dataType: "xml"
+        data: _apiMate.getPostData()
         complete: (jqxhr, status) ->
           # TODO: show the result properly formatted and highlighted in the modal
-
-          console.log jqxhr
 
           if jqxhr.status is 200
             $('#post-response-modal .modal-header').removeClass('alert-danger')
@@ -251,6 +249,16 @@ class ApiMate
 
       e.preventDefault()
       false
+
+  getPostData: ->
+    val = $("input[name='document']:checked").attr('value')
+    if val is 'url'
+      url = $('#input-pre-upload-url').val()
+    # else
+    #   TODO: set from content
+    if url? and not _.isEmpty(url)
+      opts = { url: url }
+      Mustache.to_html(preUploadUrl, opts)
 
 # Check if an input text field has a valid value (not empty).
 isFilled = (field) ->
