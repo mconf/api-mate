@@ -54,14 +54,14 @@ append content
                 input#input-custom-server-mobile-salt.form-control.input-sm(type='text', value='03b07', placeholder='Mobile salt')
 
       #config-fields
-
         .panel-group#accordion
+
+          //- common fields
           .panel.panel-default
             .panel-heading
               h4.panel-title
-                a(data-toggle="collapse", data-parent="#accordion", href="#config-panel-1") URL Parameters
+                a(data-toggle="collapse", data-parent="#accordion", href="#config-panel-1") Basic URL parameters
             #config-panel-1.panel-collapse.collapse.in
-              //- common fields
               .form-group
                 label(for='input-id')
                   code meetingID
@@ -93,11 +93,17 @@ append content
                 label(for='input-record')
                   code record
                 input#input-record.form-control.input-sm(type='checkbox')
-              //- 'advanced' fields
               .form-group
                 label(for='input-voice-bridge')
                   code voiceBridge
                 input#input-voice-bridge.form-control.input-sm(type='text')
+
+          //- 'advanced' fields
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a(data-toggle="collapse", data-parent="#accordion", href="#config-panel-2") Other URL parameters
+            #config-panel-2.panel-collapse.collapse
               .form-group
                 label(for='input-dial-number')
                   code dialNumber
@@ -135,16 +141,33 @@ append content
                   code publish
                 input#input-publish.form-control.input-sm(type='checkbox')
               .form-group
+                label(for='input-redirect-client')
+                  code redirectClient
+                input#input-redirect-client.form-control.input-sm(type='text')
+              .form-group
+                label(for='input-client-url')
+                  code clientURL
+                input#input-client-url.form-control.input-sm(type='text')
+              .form-group
+                label(for='input-config-token')
+                  code configToken
+                input#input-config-token.form-control.input-sm(type='text')
+              .form-group
+                label(for='input-avatar-url')
+                  code avatarURL
+                input#input-avatar-url.form-control.input-sm(type='text')
+              .form-group
                 label(for='input-meta')
                   code meta_*
                 .tip attribute=value (one per line, without spaces)
                 textarea#input-meta.form-control.input-sm(rows='3', placeholder='myAttribute=1')
 
+          //- post data
           .panel.panel-default
             .panel-heading
               h4.panel-title
-                a(data-toggle="collapse", data-parent="#accordion", href="#config-panel-2") POST Data
-            #config-panel-2.panel-collapse.collapse
+                a(data-toggle="collapse", data-parent="#accordion", href="#config-panel-3") POST Data
+            #config-panel-3.panel-collapse.collapse
               .form-group
                 label
                   | Pre-upload for
@@ -157,8 +180,8 @@ append content
           .panel.panel-default
             .panel-heading
               h4.panel-title
-                a(data-toggle="collapse", data-parent="#accordion", href="#config-panel-3") Custom parameters
-            #config-panel-3.panel-collapse.collapse
+                a(data-toggle="collapse", data-parent="#accordion", href="#config-panel-4") Custom parameters
+            #config-panel-4.panel-collapse.collapse
               .form-group
                 label(for='input-custom')
                   | Custom parameters:

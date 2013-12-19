@@ -172,6 +172,10 @@ class ApiMate
     params.webVoiceConf = $("#input-web-voice-conf").val() if isFilled("#input-web-voice-conf")
     params.recordID = $("#input-id").val() if isFilled("#input-id")
     params.publish = $("#input-publish").is(":checked")
+    params.redirectClient = $("#input-redirect-client").val() if isFilled("#input-redirect-client")
+    params.clientURL = $("#input-client-url").val() if isFilled("#input-client-url")
+    params.configToken = $("#input-config-token").val() if isFilled("#input-config-token")
+    params.avatarURL = $("#input-avatar-url").val() if isFilled("#input-avatar-url")
     if isFilled("#input-meta")
       lines = $("#input-meta").val().replace(/\r\n/g, "\n").split("\n")
       for line in lines

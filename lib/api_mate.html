@@ -60,7 +60,7 @@
             <div id="accordion" class="panel-group">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#config-panel-1">URL Parameters</a></h4>
+                  <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#config-panel-1">Basic URL parameters</a></h4>
                 </div>
                 <div id="config-panel-1" class="panel-collapse collapse in">
                   <div class="form-group">
@@ -96,6 +96,13 @@
                     <label for="input-voice-bridge"><code>voiceBridge</code></label>
                     <input id="input-voice-bridge" type="text" class="form-control input-sm">
                   </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#config-panel-2">Other URL parameters</a></h4>
+                </div>
+                <div id="config-panel-2" class="panel-collapse collapse">
                   <div class="form-group">
                     <label for="input-dial-number"><code>dialNumber</code></label>
                     <input id="input-dial-number" type="text" class="form-control input-sm">
@@ -133,6 +140,22 @@
                     <input id="input-publish" type="checkbox" class="form-control input-sm">
                   </div>
                   <div class="form-group">
+                    <label for="input-redirect-client"><code>redirectClient</code></label>
+                    <input id="input-redirect-client" type="text" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-client-url"><code>clientURL</code></label>
+                    <input id="input-client-url" type="text" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-config-token"><code>configToken</code></label>
+                    <input id="input-config-token" type="text" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
+                    <label for="input-avatar-url"><code>avatarURL</code></label>
+                    <input id="input-avatar-url" type="text" class="form-control input-sm">
+                  </div>
+                  <div class="form-group">
                     <label for="input-meta"><code>meta_*</code></label>
                     <div class="tip">attribute=value (one per line, without spaces)</div>
                     <textarea id="input-meta" rows="3" placeholder="myAttribute=1" class="form-control input-sm"></textarea>
@@ -141,9 +164,9 @@
               </div>
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#config-panel-2">POST Data</a></h4>
+                  <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#config-panel-3">POST Data</a></h4>
                 </div>
-                <div id="config-panel-2" class="panel-collapse collapse">
+                <div id="config-panel-3" class="panel-collapse collapse">
                   <div class="form-group">
                     <label>Pre-upload for<code>create</code>via<code>POST</code></label>
                     <div class="tip">Accepts multiple URLs, one per line</div>
@@ -153,9 +176,9 @@
               </div>
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#config-panel-3">Custom parameters</a></h4>
+                  <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#config-panel-4">Custom parameters</a></h4>
                 </div>
-                <div id="config-panel-3" class="panel-collapse collapse">
+                <div id="config-panel-4" class="panel-collapse collapse">
                   <div class="form-group">
                     <label for="input-custom">Custom parameters:</label>
                     <div class="tip">attribute=value (one per line, without spaces)</div>
