@@ -274,8 +274,14 @@ isFilled = (field) ->
   value = $(field).val()
   value? and not _.isEmpty(value.trim())
 
+# Pads a number `num` with zeros up to `size` characters. Returns a string with it.
+# Example:
+#   pad(123, 5)
+#   > '00123'
 pad = (num, size) ->
-  s = "0000" + num
+  s = ''
+  s += '0' for [0..size-1]
+  s += num
   s.substr(s.length-size)
 
 $ ->
