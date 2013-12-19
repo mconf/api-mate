@@ -3,3 +3,6 @@
 *.log
 node_modules/
 .sass-cache/
+lib/api_mate.html
+lib/api_mate.css
+lib/api_mate.js

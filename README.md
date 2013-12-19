@@ -6,7 +6,9 @@ API Mate is a web application (a simple web page) to access the APIs of [BigBlue
 Usage
 -----
 
-Open `lib/api_mate.html` in your browser or check http://mconf.github.com/api-mate to use it.
+* Use it online at http://mconf.github.com/api-mate; or
+* Get the latest version from the branch [`gh-pages`](https://github.com/mconf/api-mate/tree/gh-pages) and
+  open `index.html` in your browser.
 
 Development
 -----------
@@ -17,13 +19,13 @@ Install the dependencies with:
 
     npm install
 
-Then, to compile the source files with:
+Then compile the source files with:
 
     cake build
 
-This will compile all files inside `src/` to formats that can be opened in the browser that will be put into `/lib`.
+This will compile all files inside `src/` to formats that can be opened in the browser and place them into `/lib`.
 
-To watch for changes and compile the files automatically run:
+To watch for changes and compile the files automatically, run:
 
     cake watch
 
