@@ -47,11 +47,14 @@ postErrorTemplate =
      </li>
    <ul>"
 
+# Body of a POST request to use pre-upload of slides.
 preUploadUrl =
   "<?xml version='1.0' encoding='UTF-8'?>
      <modules>
        <module name='presentation'>
-         <document url='{{url}}' />
+         {{#urls}}
+           <document url='{{url}}' />
+         {{/urls}}
        </module>
      </modules>"
 
@@ -77,22 +80,17 @@ class ApiMate
       selected = !$("#view-type-input").hasClass("active")
       @expandLinks(selected)
 
-    # changing the type of preupload input
-    $("input[name='document']").on "change", ->
-      val = $("input[name='document']:checked").attr('value')
-      if val is 'url'
-        $("#pre-upload-url").show()
-        $("#pre-upload-text").hide()
-      else if val is 'text'
-        $("#pre-upload-text").show()
-        $("#pre-upload-url").hide()
-
     # button to clear the inputs
     $(".api-mate-clearall").on "click", (e) =>
       @clearAllFields()
       @generateUrls()
 
+    # generate the links already on setup
     @generateUrls()
+
+    # binding elements
+    @bindPostRequests()
+    @bindTooltips()
 
   setInitialValues: ->
     vbridge = "7" + pad(Math.floor(Math.random() * 10000 - 1).toString(), 4)
@@ -127,6 +125,9 @@ class ApiMate
     $(placeholder).html(html)
     @expandLinks($("#view-type-input").hasClass("active"))
 
+    # rebind tooltips for the new elements
+    @bindTooltips()
+
     # mark the items as updated
     placeholder.addClass("updated")
     clearTimeout(@updatedTimer)
@@ -134,6 +135,7 @@ class ApiMate
       placeholder.removeClass("updated")
     , 300)
 
+  # Returns a BigBlueButtonApi configured with the server set by the user in the inputs.
   getApi: ->
     server = {}
     server.url = $("#input-custom-server-url").val()
@@ -196,8 +198,6 @@ class ApiMate
     api = @getApi()
     urls = api.getUrls(params, customCalls)
     @addUrlsToPage(urls)
-    @bindPostRequests()
-    bindTooltips()
 
   # Empty all inputs inside #config-fields
   clearAllFields: ->
@@ -211,6 +211,7 @@ class ApiMate
     else
       $("#api-mate-results .result-link").removeClass('expanded')
 
+  # Logic for when a button to send a request via POST is clicked.
   bindPostRequests: ->
     _apiMate = this
     $(document).on 'click', 'a.api-link-post', (e) ->
@@ -250,33 +251,28 @@ class ApiMate
       e.preventDefault()
       false
 
+  bindTooltips: ->
+    defaultOptions =
+      container: 'body'
+      placement: 'top'
+    $('.tooltipped').tooltip(defaultOptions)
+
   getPostData: ->
-    val = $("input[name='document']:checked").attr('value')
-    if val is 'url'
-      url = $('#input-pre-upload-url').val()
-    # else
-    #   TODO: set from content
-    if url? and not _.isEmpty(url)
-      opts = { url: url }
+    if isFilled("#input-pre-upload-url")
+      urls = $("#input-pre-upload-url").val().replace(/\r\n/g, "\n").split("\n")
+      urls = _.map(urls, (u) -> { url: u })
+    if urls?
+      opts = { urls: urls }
       Mustache.to_html(preUploadUrl, opts)
 
 # Check if an input text field has a valid value (not empty).
 isFilled = (field) ->
   value = $(field).val()
-  value? and value.trim() != ""
+  value? and not _.isEmpty(value.trim())
 
 pad = (num, size) ->
   s = "0000" + num
   s.substr(s.length-size)
-
-bindTooltips = ->
-  defaultOptions =
-    # append tooltips to the <body> element to prevent problems with tooltips inside
-    # elements with `overflow:hidden` set, for example.
-    container: 'body'
-    placement: 'top'
-
-  $('.tooltipped').tooltip(defaultOptions)
 
 $ ->
   apiMate = new ApiMate()

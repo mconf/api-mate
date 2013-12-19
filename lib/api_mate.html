@@ -145,21 +145,9 @@
                 </div>
                 <div id="config-panel-2" class="panel-collapse collapse">
                   <div class="form-group">
-                    <label>Pre-upload of slides for<code>POST create</code></label>
-                  </div>
-                  <div class="form-group">
-                    <input id="input-pre-upload-link-radio" type="radio" name="document" value="url" checked>
-                    <label for="input-pre-upload-link-radio">URL</label>
-                    <input id="input-pre-upload-text-radio" type="radio" name="document" value="text">
-                    <label for="input-pre-upload-text-radio" title="Not working yet!" class="tooltipped">Text content</label>
-                  </div>
-                  <div class="form-group">
-                    <div id="pre-upload-url">
-                      <input id="input-pre-upload-url" type="text" placeholder="Paste an URL of a document" class="form-control input-sm">
-                    </div>
-                    <div id="pre-upload-text">
-                      <textarea id="input-pre-upload-url" type="text" placeholder="Paste the content of your file" disabled="disabled" class="form-control input-sm"></textarea>
-                    </div>
+                    <label>Pre-upload for<code>create</code>via<code>POST</code></label>
+                    <div class="tip">Accepts multiple URLs, one per line</div>
+                    <textarea id="input-pre-upload-url" type="text" placeholder="http://my-server/sample.pdf" class="form-control input-sm"></textarea>
                   </div>
                 </div>
               </div>
