@@ -1,5 +1,5 @@
 # Content shown in the middle of the page with the list of links generated
-template =
+resultsTemplate =
   "<div class='result-set'>
      <div class='result-title'>
        <h5 class='label-title'>Results {{title}}:</h5>
@@ -8,11 +8,11 @@ template =
        {{#urls}}
          <div class='result-link-wrapper'>
          <div class='result-link {{urlClass}}'>
-           <a href='#' data-url='{{url}}' class='api-link-post tooltipped label' title='Send \"{{name}}\" using a POST request'>
+           <a href='#' data-url='{{url}}' class='api-link-post tooltipped label' title='Send \"{{name}}\" using a POST request' data-api-method='{{name}}', >
              post
            </a>
-           <span class='method-name'>{{name}}</span>
-           <a class='api-link' href='{{url}}'>{{urlName}}</a>
+           <span class='method-name'>{{description}}</span>
+           <a class='api-link' href='{{url}}'>{{url}}</a>
          </div>
          </div>
        {{/urls}}
@@ -105,23 +105,22 @@ class ApiMate
   # results container
   addUrlsToPage: (urls) ->
     placeholder = $("#api-mate-results")
-    urls = _.map urls, (url, key) ->
-      u = {name: key, url: url, urlName: url}
-      if key.match(/recordings/i)
-        u.urlClass = "url-recordings"
-      else if key.match(/from mobile/i)
-        u.urlClass = "url-from-mobile"
-      else if key.match(/mobile:/i)
-        u.urlClass = "url-mobile-api"
-      else if key.match(/custom call/i)
-        u.urlClass = "url-custom-call"
+    for item in urls
+      desc = item.description
+      if desc.match(/recordings/i)
+        item.urlClass = "url-recordings"
+      else if desc.match(/from mobile/i)
+        item.urlClass = "url-from-mobile"
+      else if desc.match(/mobile:/i)
+        item.urlClass = "url-mobile-api"
+      else if desc.match(/custom call/i)
+        item.urlClass = "url-custom-call"
       else
-        u.urlClass = "url-standard"
-      u
+        item.urlClass = "url-standard"
     opts =
       title: new Date().toTimeString()
       urls: urls
-    html = Mustache.to_html(template, opts)
+    html = Mustache.to_html(resultsTemplate, opts)
     $(placeholder).html(html)
     @expandLinks($("#view-type-input").hasClass("active"))
 
@@ -198,6 +197,11 @@ class ApiMate
       lines = $("#input-custom-calls").val().replace(/\r\n/g, "\n").split("\n")
       customCalls = lines
 
+    # TODO: apparently BigBlueButton receives these parameters from the URL and not from
+    #   the body of the POST request as stated in the docs, need to check it better
+    #   see getPostData() as well
+    params.configXML = $("#input-config-xml").val()
+
     # get the list of links and add them to the page
     api = @getApi()
     urls = api.getUrls(params, customCalls)
@@ -222,6 +226,10 @@ class ApiMate
       $target = $(this)
       href = $target.attr('data-url')
 
+      # get the data to be posted for this method
+      method = $target.attr('data-api-method')
+      data = _apiMate.getPostData(method)
+
       $('.api-link-post').addClass('disabled')
       $.ajax
         url: href
@@ -229,7 +237,7 @@ class ApiMate
         crossDomain: true
         contentType:"application/xml; charset=utf-8"
         dataType: "xml"
-        data: _apiMate.getPostData()
+        data: data
         complete: (jqxhr, status) ->
           # TODO: show the result properly formatted and highlighted in the modal
 
@@ -261,13 +269,24 @@ class ApiMate
       placement: 'top'
     $('.tooltipped').tooltip(defaultOptions)
 
-  getPostData: ->
-    if isFilled("#input-pre-upload-url")
-      urls = $("#input-pre-upload-url").val().replace(/\r\n/g, "\n").split("\n")
-      urls = _.map(urls, (u) -> { url: u })
-    if urls?
-      opts = { urls: urls }
-      Mustache.to_html(preUploadUrl, opts)
+  getPostData: (method) ->
+    if method is 'create'
+      if isFilled("#input-pre-upload-url")
+        urls = $("#input-pre-upload-url").val().replace(/\r\n/g, "\n").split("\n")
+        urls = _.map(urls, (u) -> { url: u })
+      if urls?
+        opts = { urls: urls }
+        Mustache.to_html(preUploadUrl, opts)
+    else if method is 'setConfigXML'
+      # TODO: apparently BigBlueButton receives these parameters from the URL and not from
+      #   the body of the POST request as stated in the docs, need to check it better
+      null
+      # if isFilled("#input-config-xml")
+      #   api = @getApi()
+      #   query  = "meetingID=#{api.encodeForUrl($("#input-id").val())}"
+      #   query += "&configXML=#{api.encodeForUrl($("#input-config-xml").val())}"
+      #   checksum = api.checksum('setConfigXML', query)
+      #   query + "&checksum=" + checksum
 
 # Check if an input text field has a valid value (not empty).
 isFilled = (field) ->

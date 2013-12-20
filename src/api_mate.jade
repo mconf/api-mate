@@ -40,7 +40,6 @@ append content
           button.api-mate-clearall.btn.btn-sm.btn-danger(type='submit') Clear fields
 
       #config-server
-
         .panel-group
           .panel.panel-default
             .panel-heading
@@ -176,7 +175,14 @@ append content
                   | via
                   code POST
                 .tip Accepts multiple URLs, one per line
-                textarea.form-control.input-sm#input-pre-upload-url(type='text', placeholder='http://my-server/sample.pdf')
+                textarea.form-control.input-sm#input-pre-upload-url(rows='3', placeholder='http://my-server/sample.pdf')
+              .form-group
+                label
+                  | XML for
+                  code setConfigXML
+                  | via
+                  code POST
+                textarea.form-control.input-sm#input-config-xml(rows='3', placeholder='All the content of your config.xml')
 
           .panel.panel-default
             .panel-heading

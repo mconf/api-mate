@@ -142,6 +142,10 @@ body {
       width: auto; // otherwise will look gigantic on chrome
     }
 
+    textarea {
+      resize: vertical;
+    }
+
     #pre-upload-text {
       display: none;
     }
