@@ -6,3 +6,4 @@ node_modules/
 lib/api_mate.html
 lib/api_mate.css
 lib/api_mate.js
+.nvmrc
