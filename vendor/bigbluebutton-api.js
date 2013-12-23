@@ -12,72 +12,62 @@
     }
 
     BigBlueButtonApi.prototype.getUrls = function(params, customCalls) {
-      var call, joinAtt, joinAttMobile, joinMod, joinModMobile, ret, _i, _len;
+      var call, joinAtt, joinAttMobile, joinMod, joinModMobile, ret, _elem, _i, _len;
       if (customCalls == null) {
         customCalls = null;
       }
       if (params == null) {
         params = {};
       }
-      params.random = Math.floor(Math.random() * 1000000000).toString();
       params.password = params.attendeePW;
       joinAtt = this.urlFor("join", params);
       joinAttMobile = replaceMobileProtocol(joinAtt);
       params.password = params.moderatorPW;
       joinMod = this.urlFor("join", params);
       joinModMobile = replaceMobileProtocol(joinMod);
-      ret = {
-        'create': this.urlFor("create", params),
-        'join (as moderator)': joinMod,
-        'join (as attendee)': joinAtt,
-        'isMeetingRunning': this.urlFor("isMeetingRunning", params),
-        'getMeetingInfo': this.urlFor("getMeetingInfo", params),
-        'end': this.urlFor("end", params),
-        'getMeetings': this.urlFor("getMeetings", params),
-        'getRecordings': this.urlFor("getRecordings", params),
-        'publishRecordings': this.urlFor("publishRecordings", params),
-        'deleteRecordings': this.urlFor("deleteRecordings", params),
-        'join from mobile (as moderator)': joinModMobile,
-        'join from mobile (as attendee)': joinAttMobile,
-        'mobile: getTimestamp': this.urlForMobileApi("getTimestamp", params),
-        'mobile: getMeetings': this.urlForMobileApi("getMeetings", params),
-        'mobile: create': this.urlForMobileApi("create", params)
+      _elem = function(name, desc, url) {
+        return {
+          name: name,
+          description: desc,
+          url: url
+        };
       };
+      ret = [_elem('root', 'root', this.urlFor("", params)), _elem('create', 'create', this.urlFor("create", params)), _elem('join', 'join (as moderator)', joinMod), _elem('join', 'join (as attendee)', joinAtt), _elem('isMeetingRunning', 'isMeetingRunning', this.urlFor("isMeetingRunning", params)), _elem('getMeetingInfo', 'getMeetingInfo', this.urlFor("getMeetingInfo", params)), _elem('end', 'end', this.urlFor("end", params)), _elem('getMeetings', 'getMeetings', this.urlFor("getMeetings", params)), _elem('getDefaultConfigXML', 'getDefaultConfigXML', this.urlFor("getDefaultConfigXML", params)), _elem('setConfigXML', 'setConfigXML', this.urlFor("setConfigXML", params)), _elem('getRecordings', 'getRecordings', this.urlFor("getRecordings", params)), _elem('publishRecordings', 'publishRecordings', this.urlFor("publishRecordings", params)), _elem('deleteRecordings', 'deleteRecordings', this.urlFor("deleteRecordings", params)), _elem('join', 'join from mobile (as moderator)', joinModMobile), _elem('join', 'join from mobile (as attendee)', joinAttMobile), _elem('getTimestamp', 'mobile: getTimestamp', this.urlForMobileApi("getTimestamp", params)), _elem('getMeetings', 'mobile: getMeetings', this.urlForMobileApi("getMeetings", params)), _elem('create', 'mobile: create', this.urlForMobileApi("create", params))];
       if (customCalls != null) {
         for (_i = 0, _len = customCalls.length; _i < _len; _i++) {
           call = customCalls[_i];
-          ret['custom call: ' + call] = this.urlFor(call, params, false);
+          ret.push(_elem(call, "custom call: " + call, this.urlFor(call, params, false)));
         }
       }
       return ret;
     };
 
-    BigBlueButtonApi.prototype.paramsFor = function(param) {
+    BigBlueButtonApi.prototype.urlParamsFor = function(param) {
       switch (param) {
         case "create":
-          return [["meetingID", true], ["name", true], ["attendeePW", false], ["moderatorPW", false], ["welcome", false], ["dialNumber", false], ["voiceBridge", false], ["webVoice", false], ["logoutURL", false], ["maxParticipants", false], ["record", false], ["duration", false], [/meta_\w+/, false]];
+          return [["meetingID", true], ["name", true], ["attendeePW", false], ["moderatorPW", false], ["welcome", false], ["dialNumber", false], ["voiceBridge", false], ["webVoice", false], ["logoutURL", false], ["maxParticipants", false], ["record", false], ["duration", false], [/meta_\w+/, false], ["redirectClient", false], ["clientURL", false]];
         case "join":
-          return [["fullName", true], ["meetingID", true], ["password", true], ["createTime", false], ["userID", false], ["webVoiceConf", false]];
+          return [["fullName", true], ["meetingID", true], ["password", true], ["createTime", false], ["userID", false], ["webVoiceConf", false], ["configToken", false], ["avatarURL", false]];
         case "isMeetingRunning":
           return [["meetingID", true]];
         case "end":
           return [["meetingID", true], ["password", true]];
         case "getMeetingInfo":
           return [["meetingID", true], ["password", true]];
-        case "getMeetings":
-          return [["random", true]];
         case "getRecordings":
           return [["meetingID", true], [/meta_\w+/, false]];
         case "publishRecordings":
           return [["recordID", true], ["publish", true]];
         case "deleteRecordings":
           return [["recordID", true]];
+        case "setConfigXML":
+          return [["meetingID", true], ["configXML", true]];
       }
     };
 
     BigBlueButtonApi.prototype.filterParams = function(params, method) {
       var filters, r;
-      filters = this.paramsFor(method);
+      filters = this.urlParamsFor(method);
       if ((filters == null) || filters.length === 0) {
         ({});
       } else {
@@ -116,7 +106,7 @@
       for (key in params) {
         param = params[key];
         if ((key != null) && (param != null)) {
-          paramList.push("" + (encodeURIComponent(key)) + "=" + (encodeURIComponent(param)));
+          paramList.push("" + (this.encodeForUrl(key)) + "=" + (this.encodeForUrl(param)));
         }
       }
       if (paramList.length > 0) {
@@ -159,6 +149,10 @@
         str = method + query + this.salt;
       }
       return Crypto.SHA1(str);
+    };
+
+    BigBlueButtonApi.prototype.encodeForUrl = function(value) {
+      return encodeURIComponent(value).replace(/%20/g, '+');
     };
 
     return BigBlueButtonApi;
