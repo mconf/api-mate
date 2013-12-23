@@ -7,13 +7,22 @@ body {
 #page-header-wrapper {
   border: 0;
   border-radius: 0;
-  border-bottom: 1px solid darken(#f6f6f6, 10);
+  //border-bottom: 1px solid darken(#f6f6f6, 10);
   background: #f6f6f6;
 }
 
 #page-header {
   padding: 15px 0;
   margin: 0;
+}
+
+#nav {
+  padding: 0 20px;
+
+  // make it smaller than originally in bootstrap
+  > li > a {
+    padding: 5px 10px;
+  }
 }
 
 #github-banner, #github-banner * {
@@ -80,17 +89,17 @@ body {
   margin: 0 0 30px 0;
 }
 
-#api-mate-config {
+#menu {
 
-  #config-options {
+  #menu-options {
     clear: both;
     margin-bottom: 15px;
 
-    #config-options-buttons {
+    #menu-options-buttons {
       float: left;
     }
 
-    #config-options-view-type {
+    #menu-options-view-type {
       float: right;
       white-space: nowrap;
 
@@ -112,12 +121,13 @@ body {
     }
   }
 
-  #config-server {
+  #menu-server {
     clear: both;
     margin-bottom: 15px;
   }
 
-  #config-fields {
+  #menu-inputs
+ {
     clear: both;
 
     .form-group {
@@ -172,95 +182,134 @@ body {
 
 }
 
-#api-mate-results {
-  overflow: hidden;
-  word-wrap: break-word;
+#tab-all {
 
-  .result-set {
-    clear: both;
+  #api-mate-results {
+    overflow: hidden;
+    word-wrap: break-word;
 
-    .result-link-wrapper {
+    .result-set {
       clear: both;
-      width: 100%;
-      border-top: 1px solid #eee;
-      padding: 2px;
-    }
 
-    .result-link {
-      padding: 2px 5px;
-      border-left: 7px solid #3A87AD;
-      white-space: nowrap;
-      line-height: 18px;
-      font-size: $font-size - 1px;
-      word-break: normal;
+      .result-link-wrapper {
+        clear: both;
+        width: 100%;
+        border-top: 1px solid #eee;
+        padding: 2px;
+      }
 
-      .label {
-        float: left;
-        font-size: $font-size - 4px;
-        margin: 2px 5px 0 0;
+      .result-link {
+        padding: 2px 5px;
+        border-left: 7px solid #3A87AD;
+        white-space: nowrap;
+        line-height: 18px;
+        font-size: $font-size - 1px;
+        word-break: normal;
 
-        &.disabled {
-          opacity: 0.5;
-          background: #888;
+        .label {
+          float: left;
+          font-size: $font-size - 4px;
+          margin: 2px 5px 0 0;
+
+          &.disabled {
+            opacity: 0.5;
+            background: #888;
+          }
+        }
+
+        &.expanded {
+          word-break: break-all;
+          white-space: normal;
+          padding: 5px;
+          .method-name {
+            display: block;
+            margin-bottom: 5px;
+          }
+        }
+
+      }
+
+      .url-standard {
+        border-color: #3A87AD;
+        .label {
+          background: lighten(#3A87AD, 10);
+        }
+      }
+      .url-recordings {
+        border-color: #468847;
+        .label {
+          background: lighten(#468847, 10);
+        }
+      }
+      .url-from-mobile {
+        border-color: #f89406;
+        .label {
+          background: lighten(#f89406, 10);
+        }
+      }
+      .url-mobile-api {
+        border-color: lighten(#f89406, 15);
+        .label {
+          background: lighten(#f89406, 25);
+        }
+      }
+      .url-custom-call {
+        border-color: #B94A48;
+        .label {
+          background: lighten(#B94A48, 10);
         }
       }
 
-      &.expanded {
-        word-break: break-all;
-        white-space: normal;
-        padding: 5px;
-        .method-name {
-          display: block;
-          margin-bottom: 5px;
-        }
-      }
-
-    }
-
-    .url-standard {
-      border-color: #3A87AD;
-      .label {
-        background: lighten(#3A87AD, 10);
-      }
-    }
-    .url-recordings {
-      border-color: #468847;
-      .label {
-        background: lighten(#468847, 10);
-      }
-    }
-    .url-from-mobile {
-      border-color: #f89406;
-      .label {
-        background: lighten(#f89406, 10);
-      }
-    }
-    .url-mobile-api {
-      border-color: lighten(#f89406, 15);
-      .label {
-        background: lighten(#f89406, 25);
-      }
-    }
-    .url-custom-call {
-      border-color: #B94A48;
-      .label {
-        background: lighten(#B94A48, 10);
+      .method-name {
+        white-space: nowrap;
       }
     }
 
-    .method-name {
-      white-space: nowrap;
+    &.updated {
+      .result-title {
+        color: #EE5F5B;
+      }
+      .result-link {
+        border-color: #EE5F5B;
+        .label { background: #EE5F5B; }
+      }
+    }
+
+  }
+}
+
+#tab-config-xml {
+
+  dl.dl-horizontal {
+    dt {
+      width: 20px;
+    }
+    dd {
+      margin-left: 25px;
     }
   }
 
-  &.updated {
-    .result-title {
-      color: #EE5F5B;
+  .step {
+    margin-bottom: 20px;
+
+    .step-headline {
+      margin-top: 2px;
+      margin-bottom: 10px;
+
+      .label-danger {
+        margin-right: 5px;
+      }
+
+      ul.step-options {
+        padding-left: 20px;
+        margin-top: 5px;
+      }
     }
-    .result-link {
-      border-color: #EE5F5B;
-      .label { background: #EE5F5B; }
-    }
+
+  }
+
+  #config-xml, #config-xml-2 {
+    height: 150px;
   }
 
 }

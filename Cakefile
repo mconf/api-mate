@@ -51,6 +51,13 @@ build = (done) ->
             done?()
 
 watch = () ->
+  # TODO: watch the entire folder, not every single file
+  fs.watchFile 'src/layout.jade', (curr, prev) ->
+    compileView()
+  fs.watchFile 'src/_tab_menu.jade', (curr, prev) ->
+    compileView()
+  fs.watchFile 'src/_tab_config_xml.jade', (curr, prev) ->
+    compileView()
   fs.watchFile viewSrc, (curr, prev) ->
     compileView()
   fs.watchFile stylesheetSrc, (curr, prev) ->

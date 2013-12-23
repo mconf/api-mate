@@ -1,0 +1,151 @@
+dl.dl-horizontal
+  dt
+    span.label.label-danger= '1'
+  dd#step-1.step
+    .step-headline
+      = 'Create a meeting'
+      ul.step-options
+        li
+          a.btn.btn-xs.btn-primary(href='#')
+            i.glyphicon.glyphicon-new-window
+            = ' Click here'
+          = ' or'
+        li
+          a(href='#')= 'http://my-server.com.br/bigbluebutton/api/create?lalalaljaaoisjdoiajsd'
+  dt
+    span.label.label-danger= '2'
+  dd#step-2.step
+    .step-headline
+      = 'Get the default config.xml '
+      ul.step-options
+        li
+          a.btn.btn-xs.btn-primary(href='#')
+            i.glyphicon.glyphicon-new-window
+            = ' Click here'
+          = ' or'
+        li
+          a(href='#')= 'http://my-server.com.br/bigbluebutton/api/getDefaultConfigXML?oajsdoiajsodj'
+    .step-controls
+      textarea#config-xml.form-control(cols='5', placeholder='Or simply put your original config.xml here')
+  dt
+    span.label.label-danger= '3'
+  dd#step-3.step
+    .step-headline
+      = 'Edit with regular expressions'
+    .step-controls
+      .form-group
+        //- /<module.*name="VideoconfModule".*presenterShareOnly = "([^"]*)".*resolutions = "([^"]*)"/ "true" "640x480,1280x720"
+        //- <layout.*showToolbar="([^"]*)"/ "false"
+        textarea#regexes.form-control(cols='3', placeholder='/VideoconfModule.*presenterShareOnly = "([^"]*)".*resolutions = "([^"]*)"/ "true" "640x480,1280x720"')
+      .form-group
+        button.btn.btn-xs.btn-primary
+          i.glyphicon.glyphicon-arrow-down
+          = ' Apply'
+      .form-group
+        textarea#config-xml-2.form-control(cols='5', placeholder='Or simply put your target config.xml here')
+  dt
+    span.label.label-danger= '4'
+  dd#step-4.step
+    .step-headline
+      = 'Set the config.xml for your meeting '
+      ul.step-options
+        li
+          a.btn.btn-xs.btn-primary(href='#')
+            i.glyphicon.glyphicon-new-window
+            = ' Click here'
+          = ' or'
+        li
+          a(href='#')= 'http://my-server.com.br/bigbluebutton/api/setConfigXML?oajsdoiajsodj'
+    .step-controls
+      input#config-token.form-control(type='text', placeholder='Or simply put your configToken here')
+  dt
+    span.label.label-danger= '5'
+  dd#step-5.step
+    .step-headline
+      = 'Join the meeting'
+    .step-controls
+      table.table.table-condensed
+        tr
+          td(colspan='2')
+            strong= 'Using the token above'
+        tr
+          td= 'As moderator'
+          td
+            a(href='#')= 'http://my-server.com.br/bigbluebutton/api/join?oajsdoiajsodj'
+        tr
+          td= 'As attendee'
+          td
+            a(href='#')= 'http://my-server.com.br/bigbluebutton/api/join?oajsdoiajsodj'
+        tr
+          td(colspan='2')
+            strong= 'Without the token (with the default config.xml)'
+        tr
+          td= 'As moderator'
+          td
+            a(href='#')= 'http://my-server.com.br/bigbluebutton/api/join?oajsdoiajsodj'
+        tr
+          td= 'As attendee'
+          td
+            a(href='#')= 'http://my-server.com.br/bigbluebutton/api/join?oajsdoiajsodj'
+
+
+// //- TODO: TEMPORARY
+// #step-1.step
+//   .step-headline
+//     span.label.label-danger= '1'
+//     = 'Create a meeting '
+//     span.label.label-info= 'clicking here'
+//     = ' or '
+//     a(href='#')= 'http://my-server.com.br/bigbluebutton/api/create?lalalaljaaoisjdoiajsd'
+// #step-2.step
+//   .step-headline
+//     span.label.label-danger= '2'
+//     = 'Get the default config.xml '
+//     span.label.label-info= 'clicking here'
+//     = ' or '
+//     a(href='#')= 'http://my-server.com.br/bigbluebutton/api/getDefaultConfigXML?oajsdoiajsodj'
+//   .step-controls
+//     textarea.form-control(cols='5')
+// #step-3.step
+//   .step-headline
+//     span.label.label-danger= '3'
+//     = 'Edit the config.xml directly in the input above and/or with regexes below'
+//   .step-controls
+//     textarea.form-control(cols='3', placeholder='e.g. /123/g=321')
+// #step-4.step
+//   .step-headline
+//     span.label.label-danger= '4'
+//     = 'Set the config.xml for your meeting '
+//     span.label.label-info= 'clicking here'
+//     = ' or '
+//     a(href='#')= 'http://my-server.com.br/bigbluebutton/api/setConfigXML?oajsdoiajsodj'
+//   .step-controls
+//     input.form-control(type='text', placeholder='This is the configToken received')
+// #step-5.step
+//   .step-headline
+//     span.label.label-danger= '5'
+//     = 'Join the meeting:'
+//   .step-controls
+//     table.table.table-condensed
+//       tr
+//         td(colspan='2')
+//           strong= 'Using the token above'
+//       tr
+//         td= 'As moderator'
+//         td
+//           a(href='#')= 'http://my-server.com.br/bigbluebutton/api/join?oajsdoiajsodj'
+//       tr
+//         td= 'As attendee'
+//         td
+//           a(href='#')= 'http://my-server.com.br/bigbluebutton/api/join?oajsdoiajsodj'
+//       tr
+//         td(colspan='2')
+//           strong= 'Without the token (with the default config.xml)'
+//       tr
+//         td= 'As moderator'
+//         td
+//           a(href='#')= 'http://my-server.com.br/bigbluebutton/api/join?oajsdoiajsodj'
+//       tr
+//         td= 'As attendee'
+//         td
+//           a(href='#')= 'http://my-server.com.br/bigbluebutton/api/join?oajsdoiajsodj'
