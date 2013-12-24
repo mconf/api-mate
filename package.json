@@ -7,6 +7,7 @@
       "jade": "0.33.0"
     , "node-sass": "0.5.4"
     , "coffee-script": "1.6.3"
+    , "chokidar": "0.8.1"
   }
   , "engine": "node >= 0.10.0"
 }

@@ -1,3 +1,4 @@
+chokidar = require('chokidar')
 fs = require('fs')
 {print} = require('sys')
 {spawn} = require('child_process')
@@ -44,26 +45,20 @@ compileJs = (done) ->
 
 build = (done) ->
   compileView (err) ->
-    unless err
-      compileCss (err) ->
-        unless err
-          compileJs (err) ->
-            done?()
+    compileCss (err) ->
+      compileJs (err) ->
+        done?()
 
 watch = () ->
-  # TODO: watch the entire folder, not every single file
-  fs.watchFile 'src/layout.jade', (curr, prev) ->
-    compileView()
-  fs.watchFile 'src/_tab_menu.jade', (curr, prev) ->
-    compileView()
-  fs.watchFile 'src/_tab_config_xml.jade', (curr, prev) ->
-    compileView()
-  fs.watchFile viewSrc, (curr, prev) ->
-    compileView()
-  fs.watchFile stylesheetSrc, (curr, prev) ->
-    compileCss()
-  fs.watchFile javascriptSrc, (curr, prev) ->
-    compileJs()
+  watcher = chokidar.watch('src', { ignored: /[\/\\]\./, persistent: true })
+  watcher.on 'all', (event, path) ->
+    console.log timeNow() + ' = detected', event, 'on', path
+    if path.match(/\.coffee$/)
+      compileJs()
+    else if path.match(/\.scss/)
+      compileCss()
+    else if path.match(/\.jade/)
+      compileView()
 
 task 'build', 'Build everything from src/ into lib/', ->
   build()
