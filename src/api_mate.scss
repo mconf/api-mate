@@ -7,13 +7,48 @@ body {
 #page-header-wrapper {
   border: 0;
   border-radius: 0;
-  //border-bottom: 1px solid darken(#f6f6f6, 10);
   background: #f6f6f6;
+}
+
+#page-header-top {
+  background: #eee;
+  border-bottom: 1px solid #ddd;
+  padding: 4px 8px;
+
+  .docs {
+    font-size: $font-size;
+    * {
+      margin-right: 10px;
+    }
+  }
 }
 
 #page-header {
   padding: 15px 0;
   margin: 0;
+
+  h1 {
+    float: left;
+    font-weight: bold;
+  }
+
+  .logo {
+    float: left;
+
+    h1 {
+      margin: 0;
+      margin-right: 10px;
+      display: block;
+    }
+
+    .description {
+      display: block;
+      clear: both;
+      color: #888;
+      white-space: nowrap;
+    }
+  }
+
 }
 
 #nav {
@@ -27,59 +62,8 @@ body {
 
 #github-banner, #github-banner * {
   z-index: 9999;
-}
-
-#page-header {
-  h1 {
-    float: left;
-    font-weight: bold;
-  }
-
-  .logo {
-    float: left;
-
-    h1 {
-      margin: 0;
-      float: left;
-      margin-right: 10px;
-    }
-
-    .description {
-      float: left;
-      margin-top: 16px;
-      color: #888;
-      white-space: nowrap;
-    }
-
-    .docs {
-      float: left;
-      clear: both;
-      margin-top: 5px;
-      font-size: $font-size;
-      * {
-        margin-right: 10px;
-      }
-    }
-  }
-
-  .notes {
-    float: right;
-    padding: 10px 110px 0 0;
-    font-size: $font-size;
-    text-align: center;
-
-    div {
-      clear: both;
-      &:first-child { margin-bottom: 5px; }
-    }
-
-    .glyphicon {
-      margin-left: 5px;
-    }
-
-    .thanks {
-      font-size: $font-size - 1px;
-    }
+  img {
+    width: 165px;
   }
 }
 
@@ -89,8 +73,29 @@ body {
   margin: 0 0 30px 0;
 }
 
-#menu {
+#footer {
+  background: #f6f6f6;
+  border-top: 1px solid darken(#f6f6f6, 10);
+  padding: 6px 8px;
 
+  .thanks {
+    .glyphicon {
+      margin-left: 5px;
+    }
+  }
+
+  .about {
+    text-align: right;
+  }
+}
+@media(max-width:767px) {
+  #footer {
+    .thanks { text-align: center; }
+    .about { text-align: center; }
+  }
+}
+
+#menu {
   #menu-options {
     clear: both;
     margin-bottom: 15px;
@@ -126,8 +131,7 @@ body {
     margin-bottom: 15px;
   }
 
-  #menu-inputs
- {
+  #menu-inputs {
     clear: both;
 
     .form-group {
@@ -313,3 +317,9 @@ body {
   }
 
 }
+
+// media queries for bootstrap 3
+/* @media(max-width:767px){} */
+/* @media(min-width:768px){} */
+/* @media(min-width:992px){} */
+/* @media(min-width:1200px){} */

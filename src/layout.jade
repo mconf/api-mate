@@ -12,26 +12,21 @@ html(lang="en")
         a(href="https://github.com/mconf/api-mate")
           img(style="position: absolute; top: 0; right: 0; border: 0;", src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png", alt="Fork me on GitHub")
 
+      #page-header-top.row
+        .col-sm-12
+          .docs
+            span
+              | API docs:
+            a(href='http://code.google.com/p/bigbluebutton/wiki/API') BigBlueButton
+            a(href='https://github.com/mconf/wiki/wiki/Mconf-Live-API') Mconf-Live
+
+
       header#page-header-wrapper.navbar
         #page-header.row
-          .col-sm-7.logo
+          .col-sm-12.logo
             h1 API Mate
             .description
               | A tool to access the API of BigBlueButton and Mconf
-            .docs
-              span
-                | API docs:
-              a(href='http://code.google.com/p/bigbluebutton/wiki/API') BigBlueButton
-              a(href='https://github.com/mconf/wiki/wiki/Mconf-Live-API') Mconf-Live
-          .col-sm-5.notes
-            .about
-              = 'Developed using '
-              a(href='https://github.com/mconf/bigbluebutton-api-js') bigbluebutton-api-js
-            .thanks
-              = 'Thanks to the original idea from '
-              a(href='http://www.omarshammas.com/bbbapibuddy') API Buddy
-              = '!'
-              i.glyphicon.glyphicon-thumbs-up
 
         ul#nav.nav.nav-tabs
           li.active
@@ -40,6 +35,17 @@ html(lang="en")
             a(href='#tab-config-xml', data-toggle='tab')= "config.xml utility"
 
       block content
+
+    #footer.row
+      .thanks.col-sm-6
+        = 'Thanks to the original idea from '
+        a(href='http://www.omarshammas.com/bbbapibuddy') API Buddy
+        = '!'
+        i.glyphicon.glyphicon-thumbs-up
+      .about.col-sm-6
+        = 'Developed using '
+        a(href='https://github.com/mconf/bigbluebutton-api-js') bigbluebutton-api-js
+
 
     script(type="text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
     script(type="text/javascript", src="vendor/bootstrap.min.js")
