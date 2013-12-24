@@ -1,4 +1,6 @@
-# Usage
+# API Mate - HTTP Proxy
+
+## Usage
 
 First, install [node.js](nodejs.org). You can use the latest version.
 
@@ -28,4 +30,4 @@ As you make requests from the API Mate to your proxy, the proxy will print infor
 You will notice that the only request that is not proxied is `join`. In this case the user is redirected directly to
 the web conference server.
 
-![Example of output given by the proxy](https://raw.github.com/mconf/api-mate/http-proxy/proxy/img/api-mate-server.png "Example of output given by the proxy")
+![Example of output given by the proxy](https://raw.github.com/mconf/api-mate/http-proxy/proxy/img/proxy-output.png "Example of output given by the proxy")
