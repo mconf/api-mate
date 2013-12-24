@@ -57,4 +57,4 @@ proxy.on('end', function () {
   console.log("The request was proxied".green);
 });
 
-console.log(('Server started, proxying to ' + config.host + ':' + config.port).blue.bold);
+console.log(('Server started at localhost:8000, proxying to ' + config.host + ':' + config.port).blue.bold);

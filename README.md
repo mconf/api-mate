@@ -10,29 +10,21 @@ Usage
 * Get the latest version from the branch [`gh-pages`](https://github.com/mconf/api-mate/tree/gh-pages) and
   open `index.html` in your browser.
 
-Development
------------
 
-At first, install [Node.js](http://nodejs.org/) (see `package.json` for the specific version required).
+## Allow cross-domain requests
 
-Install the dependencies with:
+The API Mate runs on your web browser and most of the API methods are accesssed through HTTP GET calls, so you can simply click on a link in the API Mate and you'll access the API method.
 
-    npm install
+However, for some other methods (such as API methods accessed via POST) or some more advanced features, we need to run API calls from the javascript using ajax. This will result in a cross-domain request, since a web page (the API Mate) is making requests directly to another server (your web conference server). Since cross-domain requests are by default disabled in the browser, they will all fail.
 
-Then compile the source files with:
+There are two ways to solve this:
 
-    cake build
+1. Change your BigBlueButton/Mconf-Live server to accept cross-domain requests (ok, but only recommended for development and testing); or
+2. Use a local proxy that will receive the calls and proxy them to your web conference server.
 
-This will compile all files inside `src/` to formats that can be opened in the browser and place them into `/lib`.
+### 1. Change your server to accept cross-domain requests
 
-To watch for changes and compile the files automatically, run:
-
-    cake watch
-
-### Allow cross-domain requests for POST requests
-
-To enable the API Mate to make POST requests to your server's API, the server has to enable cross-origin
-requests using [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing).
+With this option you will enable cross-origin requests using [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) on your BigBlueButton/Mconf-Live server.
 
 #### In BigBlueButton/Mconf-Live with Nginx
 
@@ -62,9 +54,11 @@ Save it and restart Nginx to apply the changes:
 $ sudo /etc/init.d/nginx restart
 ```
 
-If you need something better suited for production, [try this one](http://enable-cors.org/server_nginx.html).
+If you need a more detailed and controlled example, [try this one](http://enable-cors.org/server_nginx.html).
 
 #### On node.js with express.js:
+
+If you're not accessing your web conference server directly, but through an application written in node.js, you can use the following code to enable cross-domain requests:
 
 ```coffeescript
 app.all '*', (req, res, next) ->
@@ -74,6 +68,38 @@ app.all '*', (req, res, next) ->
 ```
 
 [Source](http://enable-cors.org/server_expressjs.html).
+
+
+### 2. Use a local proxy
+
+An application that can be used as a local proxy called `api-mate-proxy` is available in this repository, in the folder [proxy](https://github.com/mconf/api-mate/tree/master/proxy).
+
+It is a very simple node.js application that you can run locally and that will receive all requests from the API Mate and proxy them to your web conference server.
+
+#### Usage
+
+See `api-mate-proxy`'s [README file](https://github.com/mconf/api-mate/tree/master/proxy).
+
+
+
+Development
+-----------
+
+At first, install [Node.js](http://nodejs.org/) (see `package.json` for the specific version required).
+
+Install the dependencies with:
+
+    npm install
+
+Then compile the source files with:
+
+    cake build
+
+This will compile all files inside `src/` to formats that can be opened in the browser and place them into `/lib`.
+
+To watch for changes and compile the files automatically, run:
+
+    cake watch
 
 
 License
