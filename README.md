@@ -13,18 +13,25 @@ Usage
 
 ## Allow cross-domain requests
 
-The API Mate runs on your web browser and most of the API methods are accesssed through HTTP GET calls, so you can simply click on a link in the API Mate and you'll access the API method.
+The API Mate runs on your web browser and most of the API methods are accesssed through HTTP GET
+calls, so you can simply click on a link in the API Mate and you'll access the API method.
 
-However, for some other methods (such as API methods accessed via POST) or some more advanced features, we need to run API calls from the javascript using ajax. This will result in a cross-domain request, since a web page (the API Mate) is making requests directly to another server (your web conference server). Since cross-domain requests are by default disabled in the browser, they will all fail.
+However, for some other methods (such as API methods accessed via POST) or some more advanced
+features, we need to run API calls from the javascript using ajax. This will result in a cross-domain
+request, since a web page (the API Mate) is making requests directly to another server (your web
+conference server). Since cross-domain requests are by default disabled in the browser, they will
+all fail.
 
-There are two ways to solve this:
+We offer two solutions:
 
-1. Change your BigBlueButton/Mconf-Live server to accept cross-domain requests (ok, but only recommended for development and testing); or
+1. Change your BigBlueButton/Mconf-Live server to accept cross-domain requests (ok, but only
+   recommended for development and testing); or
 2. Use a local proxy that will receive the calls and proxy them to your web conference server.
 
 ### 1. Change your server to accept cross-domain requests
 
-With this option you will enable cross-origin requests using [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) on your BigBlueButton/Mconf-Live server.
+With this option you will enable cross-origin requests using
+[CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) on your BigBlueButton/Mconf-Live server.
 
 #### In BigBlueButton/Mconf-Live with Nginx
 
@@ -56,9 +63,10 @@ $ sudo /etc/init.d/nginx restart
 
 If you need a more detailed and controlled example, [try this one](http://enable-cors.org/server_nginx.html).
 
-#### On node.js with express.js:
+#### On [Node.js](http://nodejs.org/) with [Express.js](http://expressjs.com/):
 
-If you're not accessing your web conference server directly, but through an application written in node.js, you can use the following code to enable cross-domain requests:
+If you're not accessing your web conference server directly, but through an application written in
+Node.js, you can use the following code to enable cross-domain requests:
 
 ```coffeescript
 app.all '*', (req, res, next) ->
@@ -72,14 +80,15 @@ app.all '*', (req, res, next) ->
 
 ### 2. Use a local proxy
 
-An application that can be used as a local proxy called `api-mate-proxy` is available in this repository, in the folder [proxy](https://github.com/mconf/api-mate/tree/master/proxy).
+There's an application that can be used as a local proxy called `api-mate-proxy` available in this
+repository, in the folder [proxy](https://github.com/mconf/api-mate/tree/master/proxy).
 
-It is a very simple node.js application that you can run locally and that will receive all requests from the API Mate and proxy them to your web conference server.
+It is a very simple Node.js application that you can run locally to receive all requests
+from the API Mate and proxy them to your web conference server.
 
 #### Usage
 
 See `api-mate-proxy`'s [README file](https://github.com/mconf/api-mate/tree/master/proxy).
-
 
 
 Development
