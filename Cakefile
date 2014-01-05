@@ -6,10 +6,6 @@ jade = require('jade')
 sass = require('node-sass')
 
 binPath = './node_modules/.bin/'
-viewSrc = 'src/api_mate.jade'
-stylesheetSrc = 'src/api_mate.scss'
-stylesheetOutput = 'lib/api_mate.css'
-javascriptSrc = 'src/api_mate.coffee'
 
 # Returns a string with the current time to print out.
 timeNow = ->
@@ -20,7 +16,7 @@ timeNow = ->
 # when it finishes.
 run = (bin, options, onExit) ->
   bin = binPath + bin
-  console.log timeNow() + ' - running: ' + bin + ' ' + (if options? then options.join(' ') else "")
+  console.log timeNow() + ' - running: ' + bin + ' ' + (if options? then options.join(' ') else '')
   cmd = spawn bin, options
   cmd.stdout.on 'data', (data) -> #print data.toString()
   cmd.stderr.on 'data', (data) -> print data.toString()
@@ -29,19 +25,31 @@ run = (bin, options, onExit) ->
     onExit?(code, options)
 
 compileView = (done) ->
-  options = ['--pretty', '-o', 'lib', viewSrc]
+  options = ['--pretty', 'src/views/api_mate.jade', '--out', 'lib']
   run 'jade', options, ->
     done?()
 
 compileCss = (done) ->
-  options = [stylesheetSrc, stylesheetOutput]
+  options = ['src/css/api_mate.scss', 'lib/api_mate.css']
   run 'node-sass', options, ->
-    done?()
+    options = ['src/css/application.scss', 'lib/application.css']
+    run 'node-sass', options, ->
+      done?()
 
 compileJs = (done) ->
-  options = ['-c', '-o', 'lib', javascriptSrc]
+  options = [
+    '-o', 'lib',
+    '--join', 'api_mate.js',
+    '--compile', 'src/js/templates.coffee', 'src/js/api_mate.coffee'
+  ]
   run 'coffee', options, ->
-    done?()
+    options = [
+      '-o', 'lib',
+      '--join', 'application.js',
+      '--compile', 'src/js/application.coffee'
+    ]
+    run 'coffee', options, ->
+      done?()
 
 build = (done) ->
   compileView (err) ->
