@@ -26,29 +26,43 @@ opts = {
 };
 var proxy = new httpProxy.RoutingProxy(opts);
 http.createServer(function (req, res) {
-  console.log("Request received:".yellow, req.url);
+  console.log("Request received:".yellow, req.method, req.url);
 
-  // we don't proxy join requests, redirect the user directly to the join url
-  if (req.url.match(/\/join\?/)) {
-    // TODO: get the protocol used in the request
-    var destination = 'http://' + config.host + ':' + config.port + req.url;
-    console.log('It\'s a join, redirecting to:'.green, destination);
-    res.writeHead(302, { Location: destination });
+  if (req.method === 'OPTIONS') {
+    console.log('It\'s a OPTIONS request, sending a default response'.green);
+    var headers = {};
+    headers["Access-Control-Allow-Origin"] = "*";
+    headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
+    headers["Access-Control-Allow-Credentials"] = false;
+    headers["Access-Control-Max-Age"] = '86400'; // 24 hours
+    headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept";
+    res.writeHead(200, headers);
     res.end();
-
   } else {
 
-    // accept cross-domain requests for all requests
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
+    // we don't proxy join requests, redirect the user directly to the join url
+    if (req.url.match(/\/join\?/)) {
+      // TODO: get the protocol used in the request
+      var destination = 'http://' + config.host + ':' + config.port + req.url;
+      console.log('It\'s a join, redirecting to:'.green, destination);
+      res.writeHead(302, { Location: destination });
+      res.end();
 
-    // proxy everything to the target server
-    var buffer = httpProxy.buffer(req);
-    proxy.proxyRequest(req, res, {
-      port: config.port,
-      host: config.host,
-      buffer: buffer
-    });
+    } else {
+
+      // accept cross-domain requests for all requests
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
+
+      // proxy everything to the target server
+      var buffer = httpProxy.buffer(req);
+      proxy.proxyRequest(req, res, {
+        port: config.port,
+        host: config.host,
+        buffer: buffer
+      });
+    }
+
   }
 
 }).listen(8000);
