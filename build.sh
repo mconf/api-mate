@@ -16,7 +16,7 @@ git rm -r fonts/
 mv dist/* .
 mv api_mate.html index.html
 
-git add index.html api_mate.css api_mate.js
+git add index.html api_mate.css api_mate.js application.css application.js
 if [ -d "vendor" ]; then
     git add vendor/
 fi
