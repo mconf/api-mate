@@ -1,0 +1,139 @@
+body {
+  overflow-x: hidden; }
+
+#page-header-wrapper {
+  border: 0;
+  border-radius: 0;
+  background: #f6f6f6;
+  border-bottom: 1px solid #eee; }
+
+#page-header-top {
+  background: #eee;
+  border-bottom: 1px solid #ddd;
+  padding: 4px 8px; }
+  #page-header-top .docs {
+    font-size: 14px; }
+    #page-header-top .docs * {
+      margin-right: 10px; }
+
+#page-header {
+  padding: 15px 0;
+  margin: 0; }
+  #page-header h1 {
+    float: left;
+    font-weight: bold; }
+  #page-header .logo {
+    float: left; }
+    #page-header .logo h1 {
+      margin: 0;
+      margin-right: 10px;
+      display: block; }
+    #page-header .logo .description {
+      display: block;
+      clear: both;
+      color: #888;
+      white-space: nowrap; }
+
+#nav {
+  padding: 0 20px; }
+  #nav > li > a {
+    padding: 5px 10px; }
+
+#github-banner, #github-banner * {
+  z-index: 9999; }
+  #github-banner img, #github-banner * img {
+    width: 165px; }
+
+#content {
+  width: auto;
+  padding: 0;
+  margin: 0 0 30px 0; }
+
+#footer {
+  background: #f6f6f6;
+  border-top: 1px solid #dddddd;
+  padding: 6px 8px; }
+  #footer .thanks .glyphicon {
+    margin-left: 5px; }
+  #footer .about {
+    text-align: right; }
+
+@media (max-width: 767px) {
+  #footer .thanks {
+    text-align: center; }  #footer .about {
+    text-align: center; } }
+#menu #menu-options {
+  clear: both;
+  margin-bottom: 15px; }
+  #menu #menu-options #menu-options-buttons {
+    float: left; }
+  #menu #menu-options #menu-options-view-type {
+    float: right;
+    white-space: nowrap; }
+    #menu #menu-options #menu-options-view-type label {
+      display: inline-block; }
+    #menu #menu-options #menu-options-view-type input {
+      margin: -2px 5px 0 0; }
+  #menu #menu-options #view-type-input .glyphicon {
+    margin-right: 5px;
+    display: none; }
+  #menu #menu-options #view-type-input.active .glyphicon {
+    display: inline-block; }
+#menu #menu-server {
+  clear: both;
+  margin-bottom: 15px; }
+#menu #menu-inputs {
+  clear: both; }
+  #menu #menu-inputs .form-group {
+    display: block;
+    clear: both; }
+    #menu #menu-inputs .form-group .tip {
+      float: right;
+      font-size: 14px;
+      color: #888;
+      margin-top: 3px;
+      font-style: italic; }
+    #menu #menu-inputs .form-group label {
+      font-weight: normal; }
+  #menu #menu-inputs input[type=checkbox] {
+    margin: 0 0 0 5px;
+    width: auto; }
+  #menu #menu-inputs textarea {
+    resize: vertical; }
+  #menu #menu-inputs #pre-upload-text {
+    display: none; }
+#menu .panel {
+  border: 0;
+  box-shadow: none; }
+  #menu .panel .panel-collapse {
+    padding: 10px; }
+  #menu .panel .panel-heading {
+    padding: 5px; }
+    #menu .panel .panel-heading a {
+      display: block; }
+#menu .experimental {
+  color: darkorange;
+  cursor: pointer; }
+
+
+#tab-config-xml dl.dl-horizontal dt {
+  width: 20px; }
+#tab-config-xml dl.dl-horizontal dd {
+  margin-left: 25px; }
+#tab-config-xml .step {
+  margin-bottom: 20px; }
+  #tab-config-xml .step .step-headline {
+    margin-top: 2px;
+    margin-bottom: 10px; }
+    #tab-config-xml .step .step-headline .label-danger {
+      margin-right: 5px; }
+    #tab-config-xml .step .step-headline ul.step-options {
+      padding-left: 20px;
+      margin-top: 5px; }
+#tab-config-xml #config-xml, #tab-config-xml #config-xml-2 {
+  height: 150px; }
+
+/* @media(max-width:767px){} */
+/* @media(min-width:768px){} */
+/* @media(min-width:992px){} */
+/* @media(min-width:1200px){} */
