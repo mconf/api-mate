@@ -197,7 +197,7 @@ window.ApiMate = class ApiMate
         url: href
         type: "POST"
         crossDomain: true
-        contentType:"application/xml; charset=utf-8"
+        contentType: "application/xml; charset=utf-8"
         dataType: "xml"
         data: data
         complete: (jqxhr, status) ->
@@ -240,7 +240,7 @@ window.ApiMate = class ApiMate
       # TODO: apparently BigBlueButton receives these parameters from the URL and not from
       #   the body of the POST request as stated in the docs, need to check it better
       null
-      # if isFilled("textarea[data-api-mate-param='config-xml']")
+      # if isFilled("textarea[data-api-mate-param='configXML']")
       #   api = @getApi()
       #   query  = "meetingID=#{api.encodeForUrl($("#input-id").val())}"
       #   query += "&configXML=#{api.encodeForUrl($("#input-config-xml").val())}"
