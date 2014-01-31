@@ -161,7 +161,7 @@
     };
 
     BigBlueButtonApi.prototype.encodeForUrl = function(value) {
-      return encodeURIComponent(value).replace(/%20/g, '+');
+      return encodeURIComponent(value).replace(/%20/g, '+').replace(/[!'()]/g, escape).replace(/\*/g, "%2A");
     };
 
     return BigBlueButtonApi;
