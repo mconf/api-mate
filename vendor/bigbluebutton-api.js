@@ -32,7 +32,7 @@
           url: url
         };
       };
-      ret = [_elem('root', 'root', this.urlFor("", params)), _elem('create', 'create', this.urlFor("create", params)), _elem('join', 'join (as moderator)', joinMod), _elem('join', 'join (as attendee)', joinAtt), _elem('isMeetingRunning', 'isMeetingRunning', this.urlFor("isMeetingRunning", params)), _elem('getMeetingInfo', 'getMeetingInfo', this.urlFor("getMeetingInfo", params)), _elem('end', 'end', this.urlFor("end", params)), _elem('getMeetings', 'getMeetings', this.urlFor("getMeetings", params)), _elem('getDefaultConfigXML', 'getDefaultConfigXML', this.urlFor("getDefaultConfigXML", params)), _elem('setConfigXML', 'setConfigXML', this.urlFor("setConfigXML", params)), _elem('getRecordings', 'getRecordings', this.urlFor("getRecordings", params)), _elem('publishRecordings', 'publishRecordings', this.urlFor("publishRecordings", params)), _elem('deleteRecordings', 'deleteRecordings', this.urlFor("deleteRecordings", params)), _elem('join', 'join from mobile (as moderator)', joinModMobile), _elem('join', 'join from mobile (as attendee)', joinAttMobile), _elem('getTimestamp', 'mobile: getTimestamp', this.urlForMobileApi("getTimestamp", params)), _elem('getMeetings', 'mobile: getMeetings', this.urlForMobileApi("getMeetings", params)), _elem('create', 'mobile: create', this.urlForMobileApi("create", params))];
+      ret = [_elem('root', 'root', this.urlFor("", params)), _elem('create', 'create', this.urlFor("create", params)), _elem('join', 'join (as moderator)', joinMod), _elem('join', 'join (as attendee)', joinAtt), _elem('isMeetingRunning', 'isMeetingRunning', this.urlFor("isMeetingRunning", params)), _elem('getMeetingInfo', 'getMeetingInfo', this.urlFor("getMeetingInfo", params)), _elem('end', 'end', this.urlFor("end", params)), _elem('getMeetings', 'getMeetings', this.urlFor("getMeetings", params)), _elem('getDefaultConfigXML', 'getDefaultConfigXML', this.urlFor("getDefaultConfigXML", params)), _elem('setConfigXML', 'setConfigXML', this.urlFor("setConfigXML", params)), _elem('getRecordings', 'getRecordings', this.urlFor("getRecordings", params)), _elem('publishRecordings', 'publishRecordings', this.urlFor("publishRecordings", params)), _elem('deleteRecordings', 'deleteRecordings', this.urlFor("deleteRecordings", params)), _elem('join', 'join from mobile (as moderator)', joinModMobile), _elem('join', 'join from mobile (as attendee)', joinAttMobile)];
       if (customCalls != null) {
         for (_i = 0, _len = customCalls.length; _i < _len; _i++) {
           call = customCalls[_i];
@@ -92,7 +92,7 @@
     };
 
     BigBlueButtonApi.prototype.urlFor = function(method, params, filter) {
-      var checksum, key, keys, param, paramList, query, url, _i, _len;
+      var checksum, key, keys, param, paramList, property, query, url, _i, _len;
       if (filter == null) {
         filter = true;
       }
@@ -104,7 +104,10 @@
       url = this.url;
       paramList = [];
       if (params != null) {
-        keys = Object.keys(params);
+        keys = [];
+        for (property in params) {
+          keys.push(property);
+        }
         keys = keys.sort();
         for (_i = 0, _len = keys.length; _i < _len; _i++) {
           key = keys[_i];
@@ -130,23 +133,6 @@
       }
       query += "checksum=" + checksum;
       return url + "/" + query;
-    };
-
-    BigBlueButtonApi.prototype.urlForMobileApi = function(method, params) {
-      var matched, oldPat, query, url;
-      url = this.urlFor(method, params, true);
-      oldPat = new RegExp("bigbluebutton\\/api\\/" + method + "\\?");
-      url = url.replace(oldPat, "demo/mobile.jsp?action=" + method + "&");
-      url = url.replace(/[&]?checksum=.*$/, "");
-      if (!url.match(/action=getTimestamp/)) {
-        url = url + "&timestamp=" + new Date().getTime();
-      }
-      query = "";
-      matched = url.match(/\?(.*)$/);
-      if ((matched != null) && (matched[1] != null)) {
-        query = matched[1];
-      }
-      return url = url + "&checksum=" + this.checksum(method, query, true);
     };
 
     BigBlueButtonApi.prototype.checksum = function(method, query, forMobile) {
