@@ -88,8 +88,6 @@ window.ApiMate = class ApiMate
         item.urlClass = "api-mate-url-recordings"
       else if desc.match(/from mobile/i)
         item.urlClass = "api-mate-url-from-mobile"
-      else if desc.match(/mobile:/i)
-        item.urlClass = "api-mate-url-mobile-api"
       else if desc.match(/custom call/i)
         item.urlClass = "api-mate-url-custom-call"
       else
