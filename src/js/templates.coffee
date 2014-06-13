@@ -15,7 +15,7 @@ resultsTemplate =
                 title='Send \"{{name}}\" using a POST request'
                 data-api-mate-post='{{name}}'>post</a>
              <span class='api-mate-method-name'>{{description}}</span>
-             <a href='{{url}}'>{{url}}</a>
+             <a href='{{url}}' target='_blank'>{{url}}</a>
            </div>
          </div>
        {{/urls}}
