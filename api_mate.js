@@ -2,7 +2,7 @@
 (function() {
   var ApiMate, inputValue, isFilled, pad, postErrorTemplate, postSuccessTemplate, preUploadUrl, resultsTemplate;
 
-  resultsTemplate = "<div class='api-mate-results'>     <div class='api-mate-result-title'>       <h5 class='label-title'>Results {{title}}:</h5>     </div>     <div class='api-mate-links'>       {{#urls}}         <div class='api-mate-link-wrapper'>           <div class='api-mate-link {{urlClass}}'>             <a href='#' data-url='{{url}}' class='tooltipped label'                title='Send \"{{name}}\" using a POST request'                data-api-mate-post='{{name}}'>post</a>             <span class='api-mate-method-name'>{{description}}</span>             <a href='{{url}}'>{{url}}</a>           </div>         </div>       {{/urls}}     </div>   </div>";
+  resultsTemplate = "<div class='api-mate-results'>     <div class='api-mate-result-title'>       <h5 class='label-title'>Results {{title}}:</h5>     </div>     <div class='api-mate-links'>       {{#urls}}         <div class='api-mate-link-wrapper'>           <div class='api-mate-link {{urlClass}}'>             <a href='#' data-url='{{url}}' class='tooltipped label'                title='Send \"{{name}}\" using a POST request'                data-api-mate-post='{{name}}'>post</a>             <span class='api-mate-method-name'>{{description}}</span>             <a href='{{url}}' target='_blank'>{{url}}</a>           </div>         </div>       {{/urls}}     </div>   </div>";
 
   postSuccessTemplate = "<pre>{{response}}</pre>";
 
