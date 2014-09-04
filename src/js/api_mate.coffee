@@ -113,14 +113,13 @@ window.ApiMate = class ApiMate
     server = {}
     server.url = $("[data-api-mate-server='url']").val()
     server.salt = $("[data-api-mate-server='salt']").val()
-    server.mobileSalt = $("[data-api-mate-server='mobile-salt']").val()
 
     # Do some cleanups on the server URL to that pasted URLs in various formats work better
     # Remove trailing /, and add /api on the end if missing.
     server.url = server.url.replace(/(\/api)?\/?$/, '/api')
     server.name = server.url
 
-    new BigBlueButtonApi(server.url, server.salt, server.mobileSalt)
+    new BigBlueButtonApi(server.url, server.salt)
 
   # Generate urls for all API calls and store them internally in `@urls`.
   generateUrls: () ->
