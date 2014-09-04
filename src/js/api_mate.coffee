@@ -78,6 +78,21 @@ window.ApiMate = class ApiMate
     user = "User " + Math.floor(Math.random() * 10000000).toString()
     $("[data-api-mate-param*='fullName']").val(user)
 
+    # set values based on parameters in the URL
+    query = parseQueryString(window.location.search.substring(1))
+    if query.server?
+      $("[data-api-mate-server='url']").val(query.server)
+      delete query.server
+    # accept both 'salt' and 'sharedSecret', giving priority to 'sharedSecret'
+    if query.salt?
+      $("[data-api-mate-server='salt']").val(query.salt)
+      delete query.salt
+    if query.sharedSecret?
+      $("[data-api-mate-server='salt']").val(query.sharedSecret)
+      delete query.sharedSecret
+    for prop, value of query
+      $("[data-api-mate-param*='#{prop}']").val(value)
+
   # Add a div with all links and a close button to the global
   # results container
   addUrlsToPage: (urls) ->
@@ -278,3 +293,21 @@ pad = (num, size) ->
   s += '0' for [0..size-1]
   s += num
   s.substr(s.length-size)
+
+# Parse the query string into an object
+# From http://www.joezimjs.com/javascript/3-ways-to-parse-a-query-string-in-a-url/
+parseQueryString = (queryString) ->
+  params = {}
+
+  # Split into key/value pairs
+  queries = queryString.split("&")
+
+  # Convert the array of strings into an object
+  i = 0
+  l = queries.length
+  while i < l
+    temp = queries[i].split('=')
+    params[temp[0]] = temp[1]
+    i++
+
+  params

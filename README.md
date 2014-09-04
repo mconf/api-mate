@@ -11,6 +11,23 @@ Usage
   open `index.html` in your browser.
 
 
+## Passing parameters in the URL
+
+The API Mate HTML page accepts parameters in the URL to pre-configure all the inputs available in the
+menu, that will define the links generated. You can, for instance, generate a link in an application to redirect to the API Mate and automatically fill the server and shared secret fields in the API Mate so that it points to the server
+you want to use.
+
+The URL below shows a few of the parameters that can be passed in the URL:
+
+```
+api_mate.html?server=http://my-server.com/bigbluebutton/api&sharedSecret=lsk8df74e400365b55e0987&meetingID=meeting-1234567&custom-calls=getMyData
+```
+
+The server address and shared secret are defined in the URL parameters `server` and `sharedSecret` (you can also use `salt`), respectively.
+
+All the other parameters are matched by an HTML `data-api-mate-param` attribute that is defined in all inputs in the API Mate. The input to define the meeting ID, for example, has this attribute set as `data-api-mate-param='meetingID,recordindID'`, so you can use both `meetingID=something` or  `recordingID=something` in the URL and it will automatically fill the meeting ID input. The input to define custom API calls has the attribute set as `data-api-mate-param='custom-calls'`, and this is why in the URL above we used `custom-calls=getMyData`.
+
+
 ## Allow cross-domain requests
 
 The API Mate runs on your web browser and most of the API methods are accesssed through HTTP GET
