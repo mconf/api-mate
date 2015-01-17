@@ -4,9 +4,13 @@
       | Clear inputs
   #options-view-type
     div.btn-group(data-toggle="buttons-checkbox")
-      button.btn.btn-default.btn-xs#view-type-input(type="button", data-api-mate-expand='1')
+      button.btn.btn-default.btn-xs.tooltipped#view-type-input(type="button", data-api-mate-expand='1', title='Show the entire link generated instead of breaking to a single line')
         i.glyphicon.glyphicon-check
         | Show full links
+    div.btn-group(data-toggle="buttons-checkbox")
+      button.btn.btn-default.btn-xs.tooltipped(type="button", data-api-mate-debug='1', title="Print debug messages to your browser's console")
+        i.glyphicon.glyphicon-check
+        | Debug messages
 
 #menu-server
   .panel-group

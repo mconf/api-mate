@@ -34,6 +34,7 @@ window.ApiMate = class ApiMate
     @templates['postSuccess'] ?= postSuccessTemplate
     @templates['postError'] ?= postErrorTemplate
     @templates['preUpload'] ?= preUploadUrl
+    @debug = false
 
   start: ->
     # set random values in some inputs
@@ -55,12 +56,19 @@ window.ApiMate = class ApiMate
     $("[data-api-mate-expand]").on "click", =>
       selected = !$("[data-api-mate-expand]").hasClass("active")
       @expandLinks(selected)
+      true
 
     # button to clear the inputs
     $("[data-api-mate-clear]").on "click", (e) =>
       @clearAllFields()
       @generateUrls()
       @addUrlsToPage(@urls)
+
+    # set our debug flag
+    $("[data-api-mate-debug]").on "click", =>
+      selected = !$("[data-api-mate-debug]").hasClass("active")
+      @debug = selected
+      true
 
     # generate the links already on setup
     @generateUrls()
@@ -134,7 +142,7 @@ window.ApiMate = class ApiMate
     server.url = server.url.replace(/(\/api)?\/?$/, '/api')
     server.name = server.url
 
-    new BigBlueButtonApi(server.url, server.salt)
+    new BigBlueButtonApi(server.url, server.salt, @debug)
 
   # Generate urls for all API calls and store them internally in `@urls`.
   generateUrls: () ->
