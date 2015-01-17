@@ -119,13 +119,13 @@ Install the dependencies with:
 
 Then compile the source files with:
 
-    cake build
+    [./node_modules/.bin/]cake build
 
 This will compile all files inside `src/` to formats that can be opened in the browser and place them into `/lib`.
 
 To watch for changes and compile the files automatically, run:
 
-    cake watch
+    [./node_modules/.bin/]cake watch
 
 
 License
