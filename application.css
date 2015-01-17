@@ -4,20 +4,23 @@ body {
 #page-header-wrapper {
   border: 0;
   border-radius: 0;
-  background: #f6f6f6;
-  border-bottom: 1px solid #eee; }
+  background: #333;
+  color: #eee;
+  margin-bottom: 0; }
 
-#page-header-top {
+#page-header-bottom {
   background: #eee;
+  border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  padding: 4px 8px; }
-  #page-header-top .docs {
+  padding: 4px 16px;
+  margin-bottom: 20px; }
+  #page-header-bottom .docs {
     font-size: 14px; }
-    #page-header-top .docs * {
+    #page-header-bottom .docs * {
       margin-right: 10px; }
 
 #page-header {
-  padding: 15px 0;
+  padding: 15px;
   margin: 0; }
   #page-header h1 {
     float: left;
@@ -31,8 +34,8 @@ body {
     #page-header .logo .description {
       display: block;
       clear: both;
-      color: #888;
-      white-space: nowrap; }
+      white-space: nowrap;
+      color: #aaa; }
 
 #nav {
   padding: 0 20px; }
@@ -50,9 +53,9 @@ body {
   margin: 0 0 30px 0; }
 
 #footer {
-  background: #f6f6f6;
-  border-top: 1px solid #dddddd;
-  padding: 6px 8px; }
+  border-top: 1px dashed #ccc;
+  padding: 10px 16px;
+  margin: 0 20px 10px 20px; }
   #footer .thanks .glyphicon {
     margin-left: 5px; }
   #footer .about {
@@ -62,26 +65,24 @@ body {
   #footer .thanks {
     text-align: center; }  #footer .about {
     text-align: center; } }
-#menu #menu-options {
-  clear: both;
+#options {
   margin-bottom: 15px; }
-  #menu #menu-options #menu-options-buttons {
+  #options #options-buttons {
     float: left; }
-  #menu #menu-options #menu-options-view-type {
+  #options #options-view-type {
     float: right;
     white-space: nowrap; }
-    #menu #menu-options #menu-options-view-type label {
-      display: inline-block; }
-    #menu #menu-options #menu-options-view-type input {
+    #options #options-view-type input {
       margin: -2px 5px 0 0; }
-  #menu #menu-options #view-type-input .glyphicon {
+  #options #options-view-type button .glyphicon {
     margin-right: 5px;
     display: none; }
-  #menu #menu-options #view-type-input.active .glyphicon {
+  #options #options-view-type button.active .glyphicon {
     display: inline-block; }
+
 #menu #menu-server {
   clear: both;
-  margin-bottom: 15px; }
+  margin-bottom: 5px; }
 #menu #menu-inputs {
   clear: both; }
   #menu #menu-inputs .form-group {
@@ -111,6 +112,8 @@ body {
     padding: 5px; }
     #menu .panel .panel-heading a {
       display: block; }
+      #menu .panel .panel-heading a:hover, #menu .panel .panel-heading a:focus {
+        text-decoration: none; }
 #menu .experimental {
   color: darkorange;
   cursor: pointer; }

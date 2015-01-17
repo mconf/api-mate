@@ -2,7 +2,7 @@
 (function() {
   var ApiMate, inputValue, isFilled, pad, parseQueryString, postErrorTemplate, postSuccessTemplate, preUploadUrl, resultsTemplate;
 
-  resultsTemplate = "<div class='api-mate-results'>     <div class='api-mate-result-title'>       <h5 class='label-title'>Results {{title}}:</h5>     </div>     <div class='api-mate-links'>       {{#urls}}         <div class='api-mate-link-wrapper'>           <div class='api-mate-link {{urlClass}}'>             <a href='#' data-url='{{url}}' class='tooltipped label'                title='Send \"{{name}}\" using a POST request'                data-api-mate-post='{{name}}'>post</a>             <span class='api-mate-method-name'>{{description}}</span>             <a href='{{url}}' target='_blank'>{{url}}</a>           </div>         </div>       {{/urls}}     </div>   </div>";
+  resultsTemplate = "<div class='api-mate-results'>     <div class='api-mate-links'>       {{#urls}}         <div class='api-mate-link-wrapper'>           <div class='api-mate-link {{urlClass}}'>             <i class='glyphicon glyphicon-headphones icon-url-standard'></i>             <i class='glyphicon glyphicon-record icon-url-recordings'></i>             <i class='glyphicon glyphicon-phone icon-url-from-mobile'></i>             <i class='glyphicon glyphicon-user icon-url-custom-call'></i>             <a href='#' data-url='{{url}}' class='tooltipped label'                title='Send \"{{name}}\" using a POST request'                data-api-mate-post='{{name}}'>post</a>             <span class='api-mate-method-name'>{{description}}</span>             <a href='{{url}}' target='_blank'>{{url}}</a>           </div>         </div>       {{/urls}}     </div>     <div class='api-mate-result-title'>       <h5 class='label-title'>Results {{title}}:</h5>     </div>   </div>";
 
   postSuccessTemplate = "<pre>{{response}}</pre>";
 
@@ -35,6 +35,7 @@
       if ((_base3 = this.templates)['preUpload'] == null) {
         _base3['preUpload'] = preUploadUrl;
       }
+      this.debug = false;
     }
 
     ApiMate.prototype.start = function() {
@@ -51,15 +52,26 @@
         _this.generateUrls();
         return _this.addUrlsToPage(_this.urls);
       });
+      $("[data-api-mate-special-param]").on("change keyup", function(e) {
+        _this.generateUrls();
+        return _this.addUrlsToPage(_this.urls);
+      });
       $("[data-api-mate-expand]").on("click", function() {
         var selected;
         selected = !$("[data-api-mate-expand]").hasClass("active");
-        return _this.expandLinks(selected);
+        _this.expandLinks(selected);
+        return true;
       });
       $("[data-api-mate-clear]").on("click", function(e) {
         _this.clearAllFields();
         _this.generateUrls();
         return _this.addUrlsToPage(_this.urls);
+      });
+      $("[data-api-mate-debug]").on("click", function() {
+        var selected;
+        selected = !$("[data-api-mate-debug]").hasClass("active");
+        _this.debug = selected;
+        return true;
       });
       this.generateUrls();
       this.addUrlsToPage(this.urls);
@@ -135,7 +147,7 @@
       server.salt = $("[data-api-mate-server='salt']").val();
       server.url = server.url.replace(/(\/api)?\/?$/, '/api');
       server.name = server.url;
-      return new BigBlueButtonApi(server.url, server.salt);
+      return new BigBlueButtonApi(server.url, server.salt, this.debug);
     };
 
     ApiMate.prototype.generateUrls = function() {
@@ -154,7 +166,7 @@
         }
         return true;
       });
-      lines = inputValue("textarea[data-api-mate-param='meta']");
+      lines = inputValue("textarea[data-api-mate-special-param='meta']");
       if (lines != null) {
         lines = lines.replace(/\r\n/g, "\n").split("\n");
         for (_i = 0, _len = lines.length; _i < _len; _i++) {
@@ -167,7 +179,7 @@
           }
         }
       }
-      lines = inputValue("textarea[data-api-mate-param='custom-params']");
+      lines = inputValue("textarea[data-api-mate-special-param='custom-params']");
       if (lines != null) {
         lines = lines.replace(/\r\n/g, "\n").split("\n");
         for (_j = 0, _len1 = lines.length; _j < _len1; _j++) {
@@ -180,7 +192,7 @@
           }
         }
       }
-      lines = inputValue("textarea[data-api-mate-param='custom-calls']");
+      lines = inputValue("textarea[data-api-mate-special-param='custom-calls']");
       if (lines != null) {
         lines = lines.replace(/\r\n/g, "\n").split("\n");
         customCalls = lines;

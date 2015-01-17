@@ -10,21 +10,36 @@
   <body>
     <div id="content-wrapper">
       <div id="github-banner"><a href="https://github.com/mconf/api-mate"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a></div>
-      <div id="page-header-top" class="row">
+      <header id="page-header-wrapper" class="navbar">
+        <div class="row-fluid">
+          <div id="page-header" class="col-xs-12 col-sm-5">
+            <div class="logo">
+              <h1>API Mate</h1>
+              <div class="description">A tool to access the API of BigBlueButton and Mconf</div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div id="page-header-bottom" class="row">
         <div class="col-sm-12">
           <div class="docs"><span>API docs:</span><a href="http://code.google.com/p/bigbluebutton/wiki/API">BigBlueButton</a><a href="https://github.com/mconf/wiki/wiki/Mconf-Live-API">Mconf-Live</a></div>
         </div>
       </div>
-      <header id="page-header-wrapper" class="navbar">
-        <div id="page-header" class="row">
-          <div class="col-sm-12 logo">
-            <h1>API Mate</h1>
-            <div class="description">A tool to access the API of BigBlueButton and Mconf</div>
-          </div>
-        </div>
-      </header>
       <div id="content" class="row tab-content">
         <div id="menu" class="col-sm-4">
+          <div id="options" class="clearfix">
+            <div id="options-buttons">
+              <button id="clear-all" type="submit" data-api-mate-clear="1" class="btn btn-xs btn-danger">Clear inputs</button>
+            </div>
+            <div id="options-view-type">
+              <div data-toggle="buttons-checkbox" class="btn-group">
+                <button id="view-type-input" type="button" data-api-mate-expand="1" title="Show the entire link generated instead of breaking to a single line" class="btn btn-default btn-xs tooltipped"><i class="glyphicon glyphicon-check"></i>Show full links</button>
+              </div>
+              <div data-toggle="buttons-checkbox" class="btn-group">
+                <button type="button" data-api-mate-debug="1" title="Print debug messages to your browser's console" class="btn btn-default btn-xs tooltipped"><i class="glyphicon glyphicon-check"></i>Debug messages</button>
+              </div>
+            </div>
+          </div>
           <div id="menu-server">
             <div class="panel-group">
               <div class="panel panel-default">
@@ -40,16 +55,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div id="menu-options" class="clearfix">
-            <div id="menu-options-view-type">
-              <div data-toggle="buttons-checkbox" class="btn-group">
-                <button id="view-type-input" type="button" data-api-mate-expand="1" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-check"></i>Show full links</button>
-              </div>
-            </div>
-            <div id="menu-options-buttons">
-              <button id="clear-all" type="submit" data-api-mate-clear="1" class="btn btn-sm btn-danger">Clear fields</button>
             </div>
           </div>
           <div id="menu-inputs" class="panel-group">
@@ -153,7 +158,7 @@
                 <div class="form-group">
                   <label for="input-meta"><code>meta_*</code></label>
                   <div class="tip">attribute=value (one per line, without spaces)</div>
-                  <textarea id="input-meta" rows="3" placeholder="myAttribute=1" data-api-mate-param="meta" class="form-control input-sm"></textarea>
+                  <textarea id="input-meta" rows="3" placeholder="myAttribute=1" data-api-mate-special-param="meta" class="form-control input-sm"></textarea>
                 </div>
               </div>
             </div>
@@ -181,12 +186,12 @@
                 <div class="form-group">
                   <label for="input-custom">Custom parameters:</label>
                   <div class="tip">attribute=value (one per line, without spaces)</div>
-                  <textarea id="input-custom" rows="3" placeholder="myCustomAttribute=Testing" data-api-mate-param="custom-params" class="form-control input-sm"></textarea>
+                  <textarea id="input-custom" rows="3" placeholder="myCustomAttribute=Testing" data-api-mate-special-param="custom-params" class="form-control input-sm"></textarea>
                 </div>
                 <div class="form-group">
                   <div class="tip">One call name per line</div>
                   <label for="input-custom">Custom API calls:</label>
-                  <textarea id="input-custom-calls" rows="3" placeholder="customApiCall" data-api-mate-param="custom-calls" class="form-control input-sm"></textarea>
+                  <textarea id="input-custom-calls" rows="3" placeholder="customApiCall" data-api-mate-special-param="custom-calls" class="form-control input-sm"></textarea>
                 </div>
               </div>
             </div>
