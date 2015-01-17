@@ -7,14 +7,17 @@ body {
 #page-header-wrapper {
   border: 0;
   border-radius: 0;
-  background: #f6f6f6;
-  border-bottom: 1px solid #eee;
+  background: #333;
+  color: #eee;
+  margin-bottom: 0;
 }
 
-#page-header-top {
+#page-header-bottom {
   background: #eee;
+  border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  padding: 4px 8px;
+  padding: 4px 16px;
+  margin-bottom: 20px;
 
   .docs {
     font-size: $font-size;
@@ -25,7 +28,7 @@ body {
 }
 
 #page-header {
-  padding: 15px 0;
+  padding: 15px;
   margin: 0;
 
   h1 {
@@ -45,8 +48,8 @@ body {
     .description {
       display: block;
       clear: both;
-      color: #888;
       white-space: nowrap;
+      color: #aaa;
     }
   }
 
@@ -75,9 +78,9 @@ body {
 }
 
 #footer {
-  background: #f6f6f6;
-  border-top: 1px solid darken(#f6f6f6, 10);
-  padding: 6px 8px;
+  border-top: 1px dashed #ccc;
+  padding: 10px 16px;
+  margin: 0 20px 10px 20px;
 
   .thanks {
     .glyphicon {
@@ -96,40 +99,36 @@ body {
   }
 }
 
-#menu {
-  #menu-options {
-    clear: both;
-    margin-bottom: 15px;
+#options {
+  margin-bottom: 15px;
 
-    #menu-options-buttons {
-      float: left;
-    }
+  #options-buttons {
+    float: left;
+  }
 
-    #menu-options-view-type {
-      float: right;
-      white-space: nowrap;
+  #options-view-type {
+    float: right;
+    white-space: nowrap;
 
-      label {
-        display: inline-block;
-      }
-
-      input {
-        margin: -2px 5px 0 0;
-      }
-    }
-
-    #view-type-input {
-      .glyphicon {
-        margin-right: 5px;
-        display: none;
-      }
-      &.active .glyphicon { display: inline-block; }
+    input {
+      margin: -2px 5px 0 0;
     }
   }
 
+  #options-view-type button {
+    .glyphicon {
+      margin-right: 5px;
+      display: none;
+    }
+    &.active .glyphicon { display: inline-block; }
+  }
+}
+
+#menu {
+
   #menu-server {
     clear: both;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
 
   #menu-inputs {
@@ -176,7 +175,12 @@ body {
 
     .panel-heading {
       padding: 5px;
-      a { display: block; }
+      a {
+        display: block;
+        &:hover, &:focus {
+          text-decoration: none;
+        }
+      }
     }
   }
 

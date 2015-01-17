@@ -4,13 +4,14 @@
 # Content shown in the middle of the page with the list of links generated
 resultsTemplate =
   "<div class='api-mate-results'>
-     <div class='api-mate-result-title'>
-       <h5 class='label-title'>Results {{title}}:</h5>
-     </div>
      <div class='api-mate-links'>
        {{#urls}}
          <div class='api-mate-link-wrapper'>
            <div class='api-mate-link {{urlClass}}'>
+             <i class='glyphicon glyphicon-headphones icon-url-standard'></i>
+             <i class='glyphicon glyphicon-record icon-url-recordings'></i>
+             <i class='glyphicon glyphicon-phone icon-url-from-mobile'></i>
+             <i class='glyphicon glyphicon-user icon-url-custom-call'></i>
              <a href='#' data-url='{{url}}' class='tooltipped label'
                 title='Send \"{{name}}\" using a POST request'
                 data-api-mate-post='{{name}}'>post</a>
@@ -19,6 +20,9 @@ resultsTemplate =
            </div>
          </div>
        {{/urls}}
+     </div>
+     <div class='api-mate-result-title'>
+       <h5 class='label-title'>Results {{title}}:</h5>
      </div>
    </div>"
 

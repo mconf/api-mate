@@ -7,13 +7,13 @@ $font-size: 14px;
   .api-mate-link-wrapper {
     clear: both;
     width: 100%;
-    border-top: 1px solid #eee;
-    padding: 2px;
+    //border-top: 1px solid #eee;
+    padding: 4px 0;
   }
 
   .api-mate-link {
-    padding: 2px 5px;
-    border-left: 7px solid #3A87AD;
+    padding: 2px;
+    //border-left: 7px solid #3A87AD;
     white-space: nowrap;
     line-height: 18px;
     font-size: $font-size - 1px;
@@ -40,6 +40,13 @@ $font-size: 14px;
       }
     }
 
+    i {
+      display: none;
+      float: left;
+      margin-right: 5px;
+      margin-top: 1px;
+      font-size: 15px;
+    }
   }
 
   .api-mate-url-standard {
@@ -47,24 +54,32 @@ $font-size: 14px;
     .label {
       background: lighten(#3A87AD, 10);
     }
+    i { color: #3A87AD; }
+    .icon-url-standard { display: inline-block; }
   }
   .api-mate-url-recordings {
     border-color: #468847;
     .label {
       background: lighten(#468847, 10);
     }
+    i { color: #468847; }
+    .icon-url-recordings { display: inline-block; }
   }
   .api-mate-url-from-mobile {
     border-color: #f89406;
     .label {
       background: lighten(#f89406, 10);
     }
+    i { color: #f89406; }
+    .icon-url-from-mobile { display: inline-block; }
   }
   .api-mate-url-custom-call {
     border-color: #B94A48;
     .label {
       background: lighten(#B94A48, 10);
     }
+    i { color: #B94A48; }
+    .icon-url-custom-call { display: inline-block; }
   }
 
   .api-mate-method-name {
@@ -79,5 +94,12 @@ $font-size: 14px;
       border-color: #EE5F5B;
       .label { background: #EE5F5B; }
     }
+  }
+
+  .label-title {
+    margin-top: 0;
+    font-size: 10px;
+    float: right;
+    margin-top: 10px;
   }
 }
