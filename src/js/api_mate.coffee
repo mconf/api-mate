@@ -51,6 +51,9 @@ window.ApiMate = class ApiMate
     $("[data-api-mate-server]").on "change keyup", (e) =>
       @generateUrls()
       @addUrlsToPage(@urls)
+    $("[data-api-mate-special-param]").on "change keyup", (e) =>
+      @generateUrls()
+      @addUrlsToPage(@urls)
 
     # expand or collapse links
     $("[data-api-mate-expand]").on "click", =>
@@ -157,7 +160,7 @@ window.ApiMate = class ApiMate
           params[attr] = value
       true # don't ever stop
 
-    lines = inputValue("textarea[data-api-mate-param='meta']")
+    lines = inputValue("textarea[data-api-mate-special-param='meta']")
     if lines?
       lines = lines.replace(/\r\n/g, "\n").split("\n")
       for line in lines
@@ -167,7 +170,7 @@ window.ApiMate = class ApiMate
           paramValue = line.substring(separator+1, line.length)
           params["meta_" + paramName] = paramValue
 
-    lines = inputValue("textarea[data-api-mate-param='custom-params']")
+    lines = inputValue("textarea[data-api-mate-special-param='custom-params']")
     if lines?
       lines = lines.replace(/\r\n/g, "\n").split("\n")
       for line in lines
@@ -177,7 +180,7 @@ window.ApiMate = class ApiMate
           paramValue = line.substring(separator+1, line.length)
           params["custom_" + paramName] = paramValue
 
-    lines = inputValue("textarea[data-api-mate-param='custom-calls']")
+    lines = inputValue("textarea[data-api-mate-special-param='custom-calls']")
     if lines?
       lines = lines.replace(/\r\n/g, "\n").split("\n")
       customCalls = lines

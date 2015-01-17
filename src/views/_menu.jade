@@ -130,7 +130,7 @@
         label(for='input-meta')
           code meta_*
         .tip attribute=value (one per line, without spaces)
-        textarea#input-meta.form-control.input-sm(rows='3', placeholder='myAttribute=1', data-api-mate-param='meta')
+        textarea#input-meta.form-control.input-sm(rows='3', placeholder='myAttribute=1', data-api-mate-special-param='meta')
 
   //- post data
   .panel.panel-default
@@ -163,9 +163,9 @@
         label(for='input-custom')
           | Custom parameters:
         .tip attribute=value (one per line, without spaces)
-        textarea#input-custom.form-control.input-sm(rows='3', placeholder='myCustomAttribute=Testing', data-api-mate-param='custom-params')
+        textarea#input-custom.form-control.input-sm(rows='3', placeholder='myCustomAttribute=Testing', data-api-mate-special-param='custom-params')
       .form-group
         .tip One call name per line
         label(for='input-custom')
           | Custom API calls:
-        textarea#input-custom-calls.form-control.input-sm(rows='3', placeholder='customApiCall', data-api-mate-param='custom-calls')
+        textarea#input-custom-calls.form-control.input-sm(rows='3', placeholder='customApiCall', data-api-mate-special-param='custom-calls')
