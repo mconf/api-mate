@@ -25,7 +25,7 @@ run = (bin, options, onExit) ->
     onExit?(code, options)
 
 compileView = (done) ->
-  options = ['--pretty', 'src/views/api_mate.jade', '--out', 'lib']
+  options = ['--pretty', 'src/views/api_mate.jade', '--out', 'lib', '--obj', 'src/jade_options.json']
   run 'jade', options, ->
     done?()
 
