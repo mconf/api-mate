@@ -112,7 +112,7 @@ window.ApiMate = class ApiMate
       desc = item.description
       if desc.match(/recordings/i)
         item.urlClass = "api-mate-url-recordings"
-      else if desc.match(/from mobile/i)
+      else if desc.match(/mobile/i)
         item.urlClass = "api-mate-url-from-mobile"
       else if desc.match(/custom call/i)
         item.urlClass = "api-mate-url-custom-call"
@@ -187,9 +187,32 @@ window.ApiMate = class ApiMate
     else
       customCalls = null
 
-    # get the list of links and add them to the page
+    # generate the list of links
     api = @getApi()
-    @urls = api.getUrls(params, customCalls)
+    @urls = []
+
+    # standard API calls
+    _elem = (name, desc, url) ->
+      { name: name, description: desc, url: url }
+    for name in api.availableApiCalls()
+      if name is 'join'
+        params['password'] = params['moderatorPW']
+        @urls.push _elem(name, "#{name} as moderator", api.urlFor(name, params))
+        params['password'] = params['attendeePW']
+        @urls.push _elem(name, "#{name} as attendee", api.urlFor(name, params))
+      else
+        @urls.push _elem(name, name, api.urlFor(name, params))
+
+    # custom API calls set by the user
+    if customCalls?
+      for name in customCalls
+        @urls.push _elem(name, "custom call: #{name}", api.urlFor(name, params))
+
+    # for mobile
+    params['password'] = params['moderatorPW']
+    @urls.push _elem("join", "mobile call: join as moderator", api.setMobileProtocol(api.urlFor("join", params)))
+    params['password'] = params['attendeePW']
+    @urls.push _elem("join", "mobile call: join as attendee", api.setMobileProtocol(api.urlFor("join", params)))
 
   # Empty all inputs in the configuration menu
   clearAllFields: ->
