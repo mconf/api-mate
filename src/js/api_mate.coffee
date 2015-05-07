@@ -234,16 +234,17 @@ window.ApiMate = class ApiMate
       $target = $(this)
       href = $target.attr('data-url')
 
-      # get the data to be posted for this method
+      # get the data to be posted for this method and the content type
       method = $target.attr('data-api-mate-post')
       data = _apiMate.getPostData(method)
+      contentType = _apiMate.getPostContentType(method)
 
       $('[data-api-mate-post]').addClass('disabled')
       $.ajax
         url: href
         type: "POST"
         crossDomain: true
-        contentType: "application/xml; charset=utf-8"
+        contentType: contentType
         dataType: "xml"
         data: data
         complete: (jqxhr, status) ->
@@ -283,15 +284,19 @@ window.ApiMate = class ApiMate
         opts = { urls: urls }
         Mustache.to_html(@templates['preUpload'], opts)
     else if method is 'setConfigXML'
-      # TODO: apparently BigBlueButton receives these parameters from the URL and not from
-      #   the body of the POST request as stated in the docs, need to check it better
-      null
-      # if isFilled("textarea[data-api-mate-param='configXML']")
-      #   api = @getApi()
-      #   query  = "meetingID=#{api.encodeForUrl($("#input-id").val())}"
-      #   query += "&configXML=#{api.encodeForUrl($("#input-config-xml").val())}"
-      #   checksum = api.checksum('setConfigXML', query)
-      #   query + "&checksum=" + checksum
+      if isFilled("textarea[data-api-mate-param='configXML']")
+        api = @getApi()
+        query  = "configXML=#{api.encodeForUrl($("#input-config-xml").val())}"
+        query += "&meetingID=#{api.encodeForUrl($("#input-id").val())}"
+        checksum = api.checksum('setConfigXML', query)
+        query += "&checksum=" + checksum
+        query
+
+  getPostContentType: (method) ->
+    if method is 'create'
+      'application/xml; charset=utf-8'
+    else if method is 'setConfigXML'
+      'application/x-www-form-urlencoded'
 
 # Returns the value set in an input, if any. For checkboxes, returns the value
 # as a boolean. For any other input, return as a string.
