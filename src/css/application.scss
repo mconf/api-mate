@@ -128,11 +128,28 @@ body {
 
   #menu-server {
     clear: both;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+
+    .title {
+      font-size: 12px;
+      padding: 2px 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+      color: #888;
+    }
   }
 
   #menu-inputs {
     clear: both;
+
+    #input-filter {
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-radius: 0;
+      border-bottom-width: 1px;
+      box-shadow: none;
+    }
 
     .form-group {
       display: block;
@@ -162,25 +179,6 @@ body {
 
     #pre-upload-text {
       display: none;
-    }
-  }
-
-  .panel {
-    border: 0;
-    box-shadow: none;
-
-    .panel-collapse {
-      padding: 10px;
-    }
-
-    .panel-heading {
-      padding: 5px;
-      a {
-        display: block;
-        &:hover, &:focus {
-          text-decoration: none;
-        }
-      }
     }
   }
 

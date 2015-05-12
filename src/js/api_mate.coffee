@@ -80,6 +80,9 @@ window.ApiMate = class ApiMate
     # binding elements
     @bindPostRequests()
 
+    # search
+    @bindSearch()
+
   initializeMenu: ->
     vbridge = "7" + pad(Math.floor(Math.random() * 10000 - 1).toString(), 4)
     $("[data-api-mate-param*='voiceBridge']").val(vbridge)
@@ -298,6 +301,33 @@ window.ApiMate = class ApiMate
     else if method is 'setConfigXML'
       'application/x-www-form-urlencoded'
 
+  bindSearch: ->
+    _apiMate = this
+    $(document).on 'keyup', '[data-api-mate-search-input]', (e) ->
+      $target = $(this)
+      searchTerm = inputValue($target)
+
+      search = ->
+        $elem = $(this)
+        if searchTerm? and not _.isEmpty(searchTerm.trim())
+          visible = false
+          searchRe = makeSearchRegexp(searchTerm)
+          attrs = $elem.attr('data-api-mate-param')?.split(',') or []
+          attrs = attrs.concat($elem.attr('data-api-mate-search')?.split(',') or [])
+          for attr in attrs
+            visible = true if attr.match(searchRe)
+        else
+          visible = true
+
+        if visible
+          $elem.parents('.form-group').show()
+        else
+          $elem.parents('.form-group').hide()
+        true # don't ever stop
+
+      $('[data-api-mate-param]').each(search)
+      $('[data-api-mate-special-param]').each(search)
+
 # Returns the value set in an input, if any. For checkboxes, returns the value
 # as a boolean. For any other input, return as a string.
 # `selector` can be a string with a selector or a jQuery object.
@@ -350,3 +380,10 @@ parseQueryString = (queryString) ->
     i++
 
   params
+
+makeSearchRegexp = (term) ->
+  terms = term.split(" ")
+  terms = _.filter(terms, (t) -> not _.isEmpty(t.trim()))
+  terms = _.map(terms, (t) -> ".*#{t}.*")
+  terms = terms.join('|')
+  new RegExp(terms, "i");
