@@ -110,6 +110,7 @@ window.ApiMate = class ApiMate
       delete query.sharedSecret
     for prop, value of query
       $("[data-api-mate-param*='#{prop}']").val(value)
+      $("[data-api-mate-special-param*='#{prop}']").val(value)
 
   # Add a div with all links and a close button to the global
   # results container
