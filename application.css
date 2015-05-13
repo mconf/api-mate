@@ -82,9 +82,22 @@ body {
 
 #menu #menu-server {
   clear: both;
-  margin-bottom: 5px; }
+  margin-bottom: 10px; }
+  #menu #menu-server .title {
+    font-size: 12px;
+    padding: 2px 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    color: #888; }
 #menu #menu-inputs {
   clear: both; }
+  #menu #menu-inputs #input-filter {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    border-bottom-width: 1px;
+    box-shadow: none; }
   #menu #menu-inputs .form-group {
     display: block;
     clear: both; }
@@ -103,17 +116,6 @@ body {
     resize: vertical; }
   #menu #menu-inputs #pre-upload-text {
     display: none; }
-#menu .panel {
-  border: 0;
-  box-shadow: none; }
-  #menu .panel .panel-collapse {
-    padding: 10px; }
-  #menu .panel .panel-heading {
-    padding: 5px; }
-    #menu .panel .panel-heading a {
-      display: block; }
-      #menu .panel .panel-heading a:hover, #menu .panel .panel-heading a:focus {
-        text-decoration: none; }
 #menu .experimental {
   color: darkorange;
   cursor: pointer; }

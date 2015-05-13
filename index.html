@@ -22,7 +22,7 @@
       </header>
       <div id="page-header-bottom" class="row">
         <div class="col-sm-12">
-          <div class="docs"><span>API docs:</span><a href="http://code.google.com/p/bigbluebutton/wiki/API">BigBlueButton</a><a href="https://github.com/mconf/wiki/wiki/Mconf-Live-API">Mconf-Live</a></div>
+          <div class="docs"><span>API docs:</span><a href="http://docs.bigbluebutton.org/">BigBlueButton</a><a href="https://github.com/mconf/wiki/wiki/Mconf-Live-API">Mconf-Live</a></div>
         </div>
       </div>
       <div id="content" class="row tab-content">
@@ -41,158 +41,135 @@
             </div>
           </div>
           <div id="menu-server">
-            <div class="panel-group">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title"><a data-toggle="collapse" href="#menu-server-panel-1">Server</a></h4>
-                </div>
-                <div id="menu-server-panel-1" class="panel-collapse collapse in">
-                  <div class="form-group">
-                    <input id="input-custom-server-url" type="text" value="http://test-install.blindsidenetworks.com/bigbluebutton/api" placeholder="Url (e.g http://192.168.0.100:8080/bigbluebutton/api)" data-api-mate-server="url" class="form-control input-sm input-sm">
-                  </div>
-                  <div class="form-group">
-                    <input id="input-custom-server-salt" type="text" value="8cd8ef52e8e101574e400365b55e11a6" placeholder="Salt" data-api-mate-server="salt" class="form-control input-sm">
-                  </div>
-                </div>
+            <div class="title">Server URL and shared secret</div>
+            <div id="menu-server-panel-1">
+              <div class="form-group">
+                <input id="input-custom-server-url" type="text" value="http://test-install.blindsidenetworks.com/bigbluebutton/api" placeholder="Url (e.g http://192.168.0.100:8080/bigbluebutton/api)" data-api-mate-server="url" class="form-control input-sm input-sm">
+              </div>
+              <div class="form-group">
+                <input id="input-custom-server-salt" type="text" value="8cd8ef52e8e101574e400365b55e11a6" placeholder="Salt" data-api-mate-server="salt" class="form-control input-sm">
               </div>
             </div>
           </div>
-          <div id="menu-inputs" class="panel-group">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#menu-inputs" href="#menu-panel-1">Basic URL parameters</a></h4>
+          <div id="menu-inputs">
+            <div class="form-group">
+              <input id="input-filter" type="text" value="" placeholder="Type here to filter parameters (e.g. &quot;token&quot;)" autofocus="autofocus" data-api-mate-search-input="1" class="form-control input-sm input-sm">
+            </div>
+            <div id="menu-panel-1">
+              <div class="form-group">
+                <label for="input-id"><code>meetingID</code> and <code>recordID</code>
+                </label>
+                <input id="input-id" type="text" data-api-mate-param="meetingID,recordID" data-api-mate-search="recording" class="form-control input-sm">
               </div>
-              <div id="menu-panel-1" class="panel-collapse collapse in">
-                <div class="form-group">
-                  <label for="input-id"><code>meetingID</code> and <code>recordID</code>
-                  </label>
-                  <input id="input-id" type="text" data-api-mate-param="meetingID,recordID" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-name"><code>name</code></label>
-                  <input id="input-name" type="text" data-api-mate-param="name" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-attendee-password"><code>attendeePW</code></label>
-                  <input id="input-attendee-password" type="text" value="ap" data-api-mate-param="attendeePW" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-moderator-password"><code>moderatorPW</code></label>
-                  <input id="input-moderator-password" type="text" value="mp" data-api-mate-param="moderatorPW" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-fullname"><code>fullName</code></label>
-                  <input id="input-fullname" type="text" data-api-mate-param="fullName" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-welcome"><code>welcome</code></label>
-                  <textarea id="input-welcome" rows="3" data-api-mate-param="welcome" class="form-control input-sm"><br>Welcome to <b>%%CONFNAME%%</b>!</textarea>
-                </div>
-                <div class="form-group">
-                  <label for="input-voice-bridge"><code>voiceBridge</code></label>
-                  <input id="input-voice-bridge" type="text" data-api-mate-param="voiceBridge" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-record"><code>record</code></label>
-                  <input id="input-record" type="checkbox" data-api-mate-param="record" class="form-control input-sm">
-                </div>
+              <div class="form-group">
+                <label for="input-name"><code>name</code></label>
+                <input id="input-name" type="text" data-api-mate-param="name" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-attendee-password"><code>attendeePW</code></label>
+                <input id="input-attendee-password" type="text" value="ap" data-api-mate-param="attendeePW" data-api-mate-search="password,key,participant" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-moderator-password"><code>moderatorPW</code></label>
+                <input id="input-moderator-password" type="text" value="mp" data-api-mate-param="moderatorPW" data-api-mate-search="password,key" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-fullname"><code>fullName</code></label>
+                <input id="input-fullname" type="text" data-api-mate-param="fullName" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-welcome"><code>welcome</code></label>
+                <textarea id="input-welcome" rows="3" data-api-mate-param="welcome" data-api-mate-search="message,msg" class="form-control input-sm"><br>Welcome to <b>%%CONFNAME%%</b>!</textarea>
+              </div>
+              <div class="form-group">
+                <label for="input-voice-bridge"><code>voiceBridge</code></label>
+                <input id="input-voice-bridge" type="text" data-api-mate-param="voiceBridge" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-record"><code>record</code></label>
+                <input id="input-record" type="checkbox" data-api-mate-param="record" data-api-mate-search="recording" class="form-control input-sm">
               </div>
             </div>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#menu-inputs" href="#menu-panel-2">Other URL parameters</a></h4>
+            <div id="menu-panel-2">
+              <div class="form-group">
+                <label for="input-dial-number"><code>dialNumber</code></label>
+                <input id="input-dial-number" type="text" data-api-mate-param="dialNumber" data-api-mate-search="voice" class="form-control input-sm">
               </div>
-              <div id="menu-panel-2" class="panel-collapse collapse">
-                <div class="form-group">
-                  <label for="input-dial-number"><code>dialNumber</code></label>
-                  <input id="input-dial-number" type="text" data-api-mate-param="dialNumber" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-web-voice"><code>webVoice</code></label>
-                  <input id="input-web-voice" type="text" data-api-mate-param="webVoice" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-logout-url"><code>logoutURL</code></label>
-                  <input id="input-logout-url" type="text" data-api-mate-param="logoutURL" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-max-participants"><code>maxParticipants</code></label>
-                  <input id="input-max-participants" type="text" data-api-mate-param="maxParticipants" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-duration"><code>duration</code></label>
-                  <input id="input-duration" type="text" data-api-mate-param="duration" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-user-id"><code>userID</code></label>
-                  <input id="input-user-id" type="text" data-api-mate-param="userID" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-create-time"><code>createTime</code></label>
-                  <input id="input-create-time" type="text" data-api-mate-param="createTime" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-web-voice-conf"><code>webVoiceConf</code></label>
-                  <input id="input-web-voice-conf" type="text" data-api-mate-param="webVoiceConf" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-publish"><code>publish</code></label>
-                  <input id="input-publish" type="checkbox" data-api-mate-param="publish" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-redirect-client"><code>redirectClient</code></label>
-                  <input id="input-redirect-client" type="text" data-api-mate-param="redirectClient" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-client-url"><code>clientURL</code></label>
-                  <input id="input-client-url" type="text" data-api-mate-param="clientURL" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-config-token"><code>configToken</code></label>
-                  <input id="input-config-token" type="text" data-api-mate-param="configToken" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-avatar-url"><code>avatarURL</code></label>
-                  <input id="input-avatar-url" type="text" data-api-mate-param="avatarURL" class="form-control input-sm">
-                </div>
-                <div class="form-group">
-                  <label for="input-meta"><code>meta_*</code></label>
-                  <div class="tip">attribute=value (one per line, without spaces)</div>
-                  <textarea id="input-meta" rows="3" placeholder="myAttribute=1" data-api-mate-special-param="meta" class="form-control input-sm"></textarea>
-                </div>
+              <div class="form-group">
+                <label for="input-web-voice"><code>webVoice</code></label>
+                <input id="input-web-voice" type="text" data-api-mate-param="webVoice" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-logout-url"><code>logoutURL</code></label>
+                <input id="input-logout-url" type="text" data-api-mate-param="logoutURL" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-max-participants"><code>maxParticipants</code></label>
+                <input id="input-max-participants" type="text" data-api-mate-param="maxParticipants" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-duration"><code>duration</code></label>
+                <input id="input-duration" type="text" data-api-mate-param="duration" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-user-id"><code>userID</code></label>
+                <input id="input-user-id" type="text" data-api-mate-param="userID" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-create-time"><code>createTime</code></label>
+                <input id="input-create-time" type="text" data-api-mate-param="createTime" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-web-voice-conf"><code>webVoiceConf</code></label>
+                <input id="input-web-voice-conf" type="text" data-api-mate-param="webVoiceConf" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-publish"><code>publish</code></label>
+                <input id="input-publish" type="checkbox" data-api-mate-param="publish" data-api-mate-search="recording" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-redirect-client"><code>redirectClient</code></label>
+                <input id="input-redirect-client" type="text" data-api-mate-param="redirectClient" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-client-url"><code>clientURL</code></label>
+                <input id="input-client-url" type="text" data-api-mate-param="clientURL" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-config-token"><code>configToken</code></label>
+                <input id="input-config-token" type="text" data-api-mate-param="configToken" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-avatar-url"><code>avatarURL</code></label>
+                <input id="input-avatar-url" type="text" data-api-mate-param="avatarURL" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-meta"><code>meta_*</code></label>
+                <div class="tip">attribute=value (one per line, without spaces)</div>
+                <textarea id="input-meta" rows="3" placeholder="myAttribute=1" data-api-mate-special-param="meta" class="form-control input-sm"></textarea>
               </div>
             </div>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#menu-inputs" href="#menu-panel-3">POST Data</a></h4>
+            <div id="menu-panel-3">
+              <div class="form-group">
+                <label>Pre-upload for<code>create</code>via<code>POST</code></label>
+                <div class="tip">Accepts multiple URLs, one per line</div>
+                <textarea id="input-pre-upload-url" rows="3" placeholder="http://my-server/sample.pdf" data-api-mate-param="pre-upload" data-api-mate-search="preupload,slides" class="form-control input-sm"></textarea>
               </div>
-              <div id="menu-panel-3" class="panel-collapse collapse">
-                <div class="form-group">
-                  <label>Pre-upload for<code>create</code>via<code>POST</code></label>
-                  <div class="tip">Accepts multiple URLs, one per line</div>
-                  <textarea id="input-pre-upload-url" rows="3" placeholder="http://my-server/sample.pdf" data-api-mate-param="pre-upload" class="form-control input-sm"></textarea>
-                </div>
-                <div class="form-group">
-                  <label>XML for<code>setConfigXML</code>via<code>POST</code></label>
-                  <textarea id="input-config-xml" rows="3" placeholder="All the content of your config.xml" data-api-mate-param="configXML" class="form-control input-sm"></textarea>
-                </div>
+              <div class="form-group">
+                <label>XML for<code>setConfigXML</code>via<code>POST</code></label>
+                <textarea id="input-config-xml" rows="3" placeholder="All the content of your config.xml" data-api-mate-param="configXML" class="form-control input-sm"></textarea>
               </div>
             </div>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#menu-inputs" href="#menu-panel-4">Custom parameters</a></h4>
+            <div id="menu-panel-4">
+              <div class="form-group">
+                <label for="input-custom">Custom parameters:</label>
+                <div class="tip">attribute=value (one per line, without spaces)</div>
+                <textarea id="input-custom" rows="3" placeholder="myCustomAttribute=Testing" data-api-mate-special-param="custom-params" data-api-mate-search="custom,api,params" class="form-control input-sm"></textarea>
               </div>
-              <div id="menu-panel-4" class="panel-collapse collapse">
-                <div class="form-group">
-                  <label for="input-custom">Custom parameters:</label>
-                  <div class="tip">attribute=value (one per line, without spaces)</div>
-                  <textarea id="input-custom" rows="3" placeholder="myCustomAttribute=Testing" data-api-mate-special-param="custom-params" class="form-control input-sm"></textarea>
-                </div>
-                <div class="form-group">
-                  <div class="tip">One call name per line</div>
-                  <label for="input-custom">Custom API calls:</label>
-                  <textarea id="input-custom-calls" rows="3" placeholder="customApiCall" data-api-mate-special-param="custom-calls" class="form-control input-sm"></textarea>
-                </div>
+              <div class="form-group">
+                <div class="tip">One call name per line</div>
+                <label for="input-custom">Custom API calls:</label>
+                <textarea id="input-custom-calls" rows="3" placeholder="customApiCall" data-api-mate-special-param="custom-calls" data-api-mate-search="custom,api,calls" class="form-control input-sm"></textarea>
               </div>
             </div>
           </div>
