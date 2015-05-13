@@ -93,7 +93,11 @@ window.ApiMate = class ApiMate
     $("[data-api-mate-param*='fullName']").val(user)
 
     # set values based on parameters in the URL
-    query = parseQueryString(window.location.search.substring(1))
+    # gives priority to params in the hash (e.g. 'api_mate.html#sharedSecret=123')
+    query = getHashParams()
+    # but also accept params in the search string for backwards compatibility (e.g. 'api_mate.html?sharedSecret=123')
+    query2 = parseQueryString(window.location.search.substring(1))
+    query = _.extend(query2, query)
     if query.server?
       $("[data-api-mate-server='url']").val(query.server)
       delete query.server
@@ -369,7 +373,10 @@ parseQueryString = (queryString) ->
   params = {}
 
   # Split into key/value pairs
-  queries = queryString.split("&")
+  if queryString? and not _.isEmpty(queryString)
+    queries = queryString.split("&")
+  else
+    queries = []
 
   # Convert the array of strings into an object
   i = 0
@@ -387,3 +394,14 @@ makeSearchRegexp = (term) ->
   terms = _.map(terms, (t) -> ".*#{t}.*")
   terms = terms.join('|')
   new RegExp(terms, "i");
+
+# Get the parameters from the hash in the URL
+# Adapted from: http://stackoverflow.com/questions/4197591/parsing-url-hash-fragment-identifier-with-javascript#answer-4198132
+getHashParams = ->
+  hashParams = {}
+  a = /\+/g  # Regex for replacing addition symbol with a space
+  r = /([^&;=]+)=?([^&;]*)/g
+  d = (s) -> decodeURIComponent(s.replace(a, " "))
+  q = window.location.hash.substring(1)
+  hashParams[d(e[1])] = d(e[2]) while e = r.exec(q)
+  hashParams
