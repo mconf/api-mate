@@ -62,8 +62,15 @@
       label(for='input-record')
         code record
       input#input-record.form-control.input-sm(type='checkbox', data-api-mate-param='record', data-api-mate-search='recording')
+    .form-group
+      label(for='input-auto-start-recording')
+        code autoStartRecording
+      input#input-auto-start-recording.form-control.input-sm(type='checkbox', data-api-mate-param='autoStartRecording', data-api-mate-search='recording')
+    .form-group
+      label(for='input-allow-start-stop-recording')
+        code allowStartStopRecording
+      input#input-allow-start-stop-recording.form-control.input-sm(type='checkbox', data-api-mate-param='allowStartStopRecording', data-api-mate-search='recording', checked)
 
-  #menu-panel-2
     .form-group
       label(for='input-dial-number')
         code dialNumber
@@ -101,9 +108,9 @@
         code publish
       input#input-publish.form-control.input-sm(type='checkbox', data-api-mate-param='publish', data-api-mate-search='recording')
     .form-group
-      label(for='input-redirect-client')
-        code redirectClient
-      input#input-redirect-client.form-control.input-sm(type='text', data-api-mate-param='redirectClient')
+      label(for='input-redirect')
+        code redirect
+      input#input-redirect.form-control.input-sm(type='text', data-api-mate-param='redirect')
     .form-group
       label(for='input-client-url')
         code clientURL
@@ -117,12 +124,15 @@
         code avatarURL
       input#input-avatar-url.form-control.input-sm(type='text', data-api-mate-param='avatarURL')
     .form-group
+      label(for='input-moderator-only-message')
+        code moderatorOnlyMessage
+      textarea#input-moderator-only-message.form-control.input-sm(rows='3', data-api-mate-param='moderatorOnlyMessage', data-api-mate-search='message,msg')
+    .form-group
       label(for='input-meta')
         code meta_*
       .tip attribute=value (one per line, without spaces)
       textarea#input-meta.form-control.input-sm(rows='3', placeholder='myAttribute=1', data-api-mate-special-param='meta')
 
-  #menu-panel-3
     .form-group
       label
         | Pre-upload for
