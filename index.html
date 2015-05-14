@@ -89,8 +89,14 @@
                 <label for="input-record"><code>record</code></label>
                 <input id="input-record" type="checkbox" data-api-mate-param="record" data-api-mate-search="recording" class="form-control input-sm">
               </div>
-            </div>
-            <div id="menu-panel-2">
+              <div class="form-group">
+                <label for="input-auto-start-recording"><code>autoStartRecording</code></label>
+                <input id="input-auto-start-recording" type="checkbox" data-api-mate-param="autoStartRecording" data-api-mate-search="recording" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-allow-start-stop-recording"><code>allowStartStopRecording</code></label>
+                <input id="input-allow-start-stop-recording" type="checkbox" data-api-mate-param="allowStartStopRecording" data-api-mate-search="recording" checked class="form-control input-sm">
+              </div>
               <div class="form-group">
                 <label for="input-dial-number"><code>dialNumber</code></label>
                 <input id="input-dial-number" type="text" data-api-mate-param="dialNumber" data-api-mate-search="voice" class="form-control input-sm">
@@ -128,8 +134,8 @@
                 <input id="input-publish" type="checkbox" data-api-mate-param="publish" data-api-mate-search="recording" class="form-control input-sm">
               </div>
               <div class="form-group">
-                <label for="input-redirect-client"><code>redirectClient</code></label>
-                <input id="input-redirect-client" type="text" data-api-mate-param="redirectClient" class="form-control input-sm">
+                <label for="input-redirect"><code>redirect</code></label>
+                <input id="input-redirect" type="checkbox" data-api-mate-param="redirect" checked class="form-control input-sm">
               </div>
               <div class="form-group">
                 <label for="input-client-url"><code>clientURL</code></label>
@@ -144,12 +150,14 @@
                 <input id="input-avatar-url" type="text" data-api-mate-param="avatarURL" class="form-control input-sm">
               </div>
               <div class="form-group">
+                <label for="input-moderator-only-message"><code>moderatorOnlyMessage</code></label>
+                <textarea id="input-moderator-only-message" rows="3" data-api-mate-param="moderatorOnlyMessage" data-api-mate-search="message,msg" class="form-control input-sm"></textarea>
+              </div>
+              <div class="form-group">
                 <label for="input-meta"><code>meta_*</code></label>
                 <div class="tip">attribute=value (one per line, without spaces)</div>
                 <textarea id="input-meta" rows="3" placeholder="myAttribute=1" data-api-mate-special-param="meta" class="form-control input-sm"></textarea>
               </div>
-            </div>
-            <div id="menu-panel-3">
               <div class="form-group">
                 <label>Pre-upload for<code>create</code>via<code>POST</code></label>
                 <div class="tip">Accepts multiple URLs, one per line</div>
