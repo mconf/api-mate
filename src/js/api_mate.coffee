@@ -208,6 +208,9 @@ window.ApiMate = class ApiMate
         @urls.push _elem(name, "#{name} as moderator", api.urlFor(name, params))
         params['password'] = params['attendeePW']
         @urls.push _elem(name, "#{name} as attendee", api.urlFor(name, params))
+
+        # so all other calls will use the moderator password
+        params['password'] = params['moderatorPW']
       else
         @urls.push _elem(name, name, api.urlFor(name, params))
 
