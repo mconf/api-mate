@@ -220,6 +220,7 @@
           this.urls.push(_elem(name, "" + name + " as moderator", api.urlFor(name, params)));
           params['password'] = params['attendeePW'];
           this.urls.push(_elem(name, "" + name + " as attendee", api.urlFor(name, params)));
+          params['password'] = params['moderatorPW'];
         } else {
           this.urls.push(_elem(name, name, api.urlFor(name, params)));
         }
