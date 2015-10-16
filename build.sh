@@ -7,7 +7,7 @@ git checkout master
 git pull
 nvm use
 sed -i 's/"analytics":[ ]*""/"analytics": "UA-21342779-11"/g' src/jade_options.json
-cake build
+./node_modules/.bin/cake build
 echo "Update gh-pages to mconf/api-mate@`git rev-parse HEAD`" > .gh-pages-update
 git checkout src/jade_options.json
 cp -r lib/ dist/
