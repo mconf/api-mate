@@ -217,7 +217,7 @@ window.ApiMate = class ApiMate
     # custom API calls set by the user
     if customCalls?
       for name in customCalls
-        @urls.push _elem(name, "custom call: #{name}", api.urlFor(name, params))
+        @urls.push _elem(name, "custom call: #{name}", api.urlFor(name, params, false))
 
     # for mobile
     params['password'] = params['moderatorPW']
