@@ -228,7 +228,7 @@
       if (customCalls != null) {
         for (_l = 0, _len3 = customCalls.length; _l < _len3; _l++) {
           name = customCalls[_l];
-          this.urls.push(_elem(name, "custom call: " + name, api.urlFor(name, params)));
+          this.urls.push(_elem(name, "custom call: " + name, api.urlFor(name, params, false)));
         }
       }
       params['password'] = params['moderatorPW'];
