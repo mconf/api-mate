@@ -13,7 +13,7 @@
         | Debug messages
 
 #menu-server
-  .title Server URL and shared secret
+  .section-title Server URL and shared secret
   #menu-server-panel-1
     .form-group
       input#input-custom-server-url.form-control.input-sm.input-sm(type='text', value='http://test-install.blindsidenetworks.com/bigbluebutton/api', placeholder='Url (e.g http://192.168.0.100:8080/bigbluebutton/api)', data-api-mate-server='url')
@@ -23,7 +23,7 @@
 #menu-inputs
 
   .form-group
-    input#input-filter.form-control.input-sm.input-sm(type='text', value='', placeholder='Type here to filter parameters (e.g. "token")', autofocus='autofocus', data-api-mate-search-input='1')
+    input#input-filter.form-control.input-sm.input-sm.input-clean-title(type='text', value='', placeholder='Type here to filter parameters (e.g. "token")', autofocus='autofocus', data-api-mate-search-input='1')
 
   //- common fields
   #menu-panel-1

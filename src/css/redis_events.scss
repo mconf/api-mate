@@ -1,0 +1,77 @@
+@import "application.scss";
+
+.events-template {
+  cursor: pointer;
+  margin: 10px 0;
+
+  code {
+    font-size: 90%;
+    padding: 2px 4px;
+    background-color: #f6f6f6;
+    white-space: pre-wrap;
+    border: 0;
+    word-wrap: break-word;
+    word-break: break-all;
+    display: block;
+    color: #333;
+
+    strong {
+      // color: #C7254E;
+      color: #357EBD;
+    }
+  }
+}
+
+#input-event-out-content {
+  resize: vertical;
+  font-size: 90%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+#input-event-out-submit {
+  float: right;
+  margin: 10px 0 0 0;
+}
+
+#events-results {
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .events-result {
+    padding: 0 0 10px 0;
+    margin: 0 0 10px 0;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid #f6f6f6;
+  }
+}
+
+#menu-server {
+  .connected-label {
+    float: right;
+    color: green;
+  }
+
+  .not-connected-label {
+    float: right;
+    color: red;
+  }
+
+  &.not-connected {
+    .section-title { border-color: red; }
+    .connected-label { display: none; }
+    .not-connected-label { display: block; }
+  }
+  &.connected {
+    .section-title { border-color: green; }
+    .connected-label { display: block; }
+    .not-connected-label { display: none; }
+  }
+}

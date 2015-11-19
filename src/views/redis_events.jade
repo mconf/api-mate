@@ -1,0 +1,23 @@
+extends application
+
+append stylesheets
+  link(href="redis_events.css", media="all", rel="stylesheet", type="text/css")
+append javascripts
+  script(type="text/javascript", src="redis_events.js")
+
+append content
+
+  #content.row.tab-content
+    #menu.col-sm-4
+      include _menu_events
+
+    #tab-all.col-sm-8
+      .section-title
+        | Input
+      .form-group
+        textarea#input-event-out-content.form-control.input-sm(rows='3', name='event', data-events-out-content="")
+        button#input-event-out-submit.btn.btn-xs.btn-primary(type='submit', data-events-out-submit="")
+          | Send event
+
+      .section-title Stream
+      ul#events-results

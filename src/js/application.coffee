@@ -1,16 +1,9 @@
 $ ->
-  placeholders =
-    results: '#api-mate-results'
-    modal: '#post-response-modal'
-  apiMate = new ApiMate(placeholders)
-  apiMate.start()
+  Application.bindTooltips()
 
-  bindTooltips()
-  $('#api-mate-results').on 'api-mate-urls-added', ->
-    bindTooltips()
-
-bindTooltips = ->
-  defaultOptions =
-    container: 'body'
-    placement: 'top'
-  $('.tooltipped').tooltip(defaultOptions)
+window.Application = class Application
+  @bindTooltips: ->
+    defaultOptions =
+      container: 'body'
+      placement: 'top'
+    $('.tooltipped').tooltip(defaultOptions)

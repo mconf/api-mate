@@ -1,3 +1,12 @@
+$ ->
+  placeholders =
+    results: '#api-mate-results'
+    modal: '#post-response-modal'
+  apiMate = new ApiMate(placeholders)
+  apiMate.start()
+  $('#api-mate-results').on 'api-mate-urls-added', ->
+    Application.bindTooltips()
+
 # A class that does all the logic of the API Mate. It's integrated with the html markup
 # via data attributes and a few classes. Can be used with other applications than the
 # API Mate to provide similar functionality.

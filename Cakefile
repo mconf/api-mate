@@ -27,12 +27,14 @@ run = (bin, options, onExit) ->
 compileView = (done) ->
   options = ['--pretty', 'src/views/api_mate.jade', '--out', 'lib', '--obj', 'src/jade_options.json']
   run 'jade', options, ->
-    done?()
+    options = ['--pretty', 'src/views/redis_events.jade', '--out', 'lib', '--obj', 'src/jade_options.json']
+    run 'jade', options, ->
+      done?()
 
 compileCss = (done) ->
   options = ['src/css/api_mate.scss', 'lib/api_mate.css']
   run 'node-sass', options, ->
-    options = ['src/css/application.scss', 'lib/application.css']
+    options = ['src/css/redis_events.scss', 'lib/redis_events.css']
     run 'node-sass', options, ->
       done?()
 
@@ -40,13 +42,13 @@ compileJs = (done) ->
   options = [
     '-o', 'lib',
     '--join', 'api_mate.js',
-    '--compile', 'src/js/templates.coffee', 'src/js/api_mate.coffee'
+    '--compile', 'src/js/application.coffee', 'src/js/templates.coffee', 'src/js/api_mate.coffee'
   ]
   run 'coffee', options, ->
     options = [
       '-o', 'lib',
-      '--join', 'application.js',
-      '--compile', 'src/js/application.coffee'
+      '--join', 'redis_events.js',
+      '--compile', 'src/js/application.coffee', 'src/js/redis_events.coffee'
     ]
     run 'coffee', options, ->
       done?()
