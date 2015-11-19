@@ -28,7 +28,7 @@ body {
 }
 
 #page-header {
-  padding: 15px;
+  padding: 10px;
   margin: 0;
 
   h1 {
@@ -42,14 +42,14 @@ body {
     h1 {
       margin: 0;
       margin-right: 10px;
-      display: block;
+      float: left;
     }
 
     .description {
-      display: block;
-      clear: both;
+      float: left;;
       white-space: nowrap;
       color: #aaa;
+      margin: 15px 0 0 10px;
     }
   }
 
@@ -67,7 +67,7 @@ body {
 #github-banner, #github-banner * {
   z-index: 9999;
   img {
-    width: 165px;
+    width: 130px;
   }
 }
 
