@@ -5,14 +5,13 @@
     <title>API Mate</title>
     <link href="vendor/bootstrap.min.css" media="all" rel="stylesheet" type="text/css">
     <link href="api_mate.css" media="all" rel="stylesheet" type="text/css">
-    <link href="application.css" media="all" rel="stylesheet" type="text/css">
   </head>
   <body>
     <div id="content-wrapper">
       <div id="github-banner"><a href="https://github.com/mconf/api-mate"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a></div>
       <header id="page-header-wrapper" class="navbar">
         <div class="row-fluid">
-          <div id="page-header" class="col-xs-12 col-sm-5">
+          <div id="page-header" class="col-xs-12 col-sm-12">
             <div class="logo">
               <h1>API Mate</h1>
               <div class="description">A tool to access the API of BigBlueButton and Mconf</div>
@@ -41,7 +40,7 @@
             </div>
           </div>
           <div id="menu-server">
-            <div class="title">Server URL and shared secret</div>
+            <div class="section-title">Server URL and shared secret</div>
             <div id="menu-server-panel-1">
               <div class="form-group">
                 <input id="input-custom-server-url" type="text" value="http://test-install.blindsidenetworks.com/bigbluebutton/api" placeholder="Url (e.g http://192.168.0.100:8080/bigbluebutton/api)" data-api-mate-server="url" class="form-control input-sm input-sm">
@@ -53,7 +52,7 @@
           </div>
           <div id="menu-inputs">
             <div class="form-group">
-              <input id="input-filter" type="text" value="" placeholder="Type here to filter parameters (e.g. &quot;token&quot;)" autofocus="autofocus" data-api-mate-search-input="1" class="form-control input-sm input-sm">
+              <input id="input-filter" type="text" value="" placeholder="Type here to filter parameters (e.g. &quot;token&quot;)" autofocus="autofocus" data-api-mate-search-input="1" class="form-control input-sm input-sm input-clean-title">
             </div>
             <div id="menu-panel-1">
               <div class="form-group">
@@ -201,8 +200,7 @@
     <div id="footer" class="row">
       <div class="thanks col-sm-6">Thanks to the original idea from <a href="http://www.omarshammas.com/bbbapibuddy">API Buddy</a>!<i class="glyphicon glyphicon-thumbs-up"></i>
       </div>
-      <div class="about col-sm-6">Developed using <a href="https://github.com/mconf/bigbluebutton-api-js">bigbluebutton-api-js</a>
-      </div>
+      <div class="experimental col-sm-6"><a href="redis_events.html">Redis Events</a><span> (experimental)</span></div>
     </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap.min.js"></script>
@@ -210,8 +208,7 @@
     <script type="text/javascript" src="vendor/mustache.js"></script>
     <script type="text/javascript" src="vendor/crypto-sha1-2.5.3.js"></script>
     <script type="text/javascript" src="vendor/bigbluebutton-api.js"></script>
-    <script type="text/javascript" src="api_mate.js"></script>
-    <script type="text/javascript" src="application.js"></script><script>
+    <script type="text/javascript" src="api_mate.js"></script><script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
