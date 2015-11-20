@@ -18,7 +18,7 @@ window.RedisEvents = class RedisEvents
     @serverUrl = @getServerUrlFromInput()
     @pushPath = '/push'
     @pullPath = '/pull'
-    @publishChannel = 'any-channel'
+    @publishChannel = null
     @source = null
     @lastContentSent = null
     @searchTimeout = null
@@ -30,8 +30,10 @@ window.RedisEvents = class RedisEvents
     $("[data-events-out-submit]").on "click", (e) =>
       content = $("[data-events-out-content]").val()
       content = JSON.parse(content) # TODO: error in case is not valid
+      channel = $("[data-events-out-channel]").val().trim()
+      channel = 'to-bbb-apps' if not channel? or channel is ""
       @lastContentSent = content
-      @sendEvent({ channel: @publishChannel, data: content })
+      @sendEvent({ channel: channel, data: content })
 
     # Button to subscribe to the events from the server
     $("[data-events-server-connect]").on "click", (e) =>

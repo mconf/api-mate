@@ -13,9 +13,11 @@ append content
 
     #tab-all.col-sm-8
       .section-title
-        | Input
+        | Publish message ... to chanel ...
       .form-group.event-out-content
-        textarea#input-event-out-content.form-control.input-sm(rows='3', name='event', data-events-out-content="")
+        textarea#input-event-out-content.form-control.input-sm(rows='3', data-events-out-content="")
+      .form-group
+        input#input-event-out-channel.form-control.input-sm(type='text', placeholder='to-bbb-apps', data-events-out-channel="")
       .form-group.event-out-pretty
         input#input-event-out-pretty.form-control.input-sm(type='checkbox', data-events-out-pretty="")
         label(for='input-event-out-pretty') pretty
