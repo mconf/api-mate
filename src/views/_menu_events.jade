@@ -1,25 +1,31 @@
-#menu-server.not-connected
+#menu-server.disconnected
   .section-title
     | Server
     .connected-label Connected
-    .not-connected-label Not connected
+    .disconnected-label Disconnected
   #menu-server-panel
     .form-group
       .input-group
-        input#input-server-url.form-control.input-sm.input-sm(type='text', value='http://localhost:3000', placeholder='Url (e.g http://192.168.0.100:3000)', data-events-server='url')
+        input#input-server-url.form-control.input-sm(type='text', value='http://localhost:3000', placeholder='Url (e.g http://192.168.0.100:3000)', data-events-server='url')
         .input-group-btn
           #input-server-connect.btn.btn-sm.btn-primary(data-events-server-connect="") Connect
 
-#menu-variables
-  .section-title Variables
-  #menu-vars-panel-1
+#menu-configs
+  .section-title Configurations
+  #menu-vars-panel
     .form-group
-      input#input-var-meeting-id.form-control.input-sm.input-sm(type='text', placeholder='meeting ID', data-events-var='meeting_id')
+      label(for='input-name')
+        code Exclude patterns
+      - content = '"name":"BbbPubSubPingMessage"\n"name":"BbbPubSubPongMessage"\n"name":"bbb_apps_is_alive_message"'
+      textarea#input-config-meeting-id.form-control.input-sm(rows='2', placeholder='meeting ID', data-events-config='exclude')= content
+
+    .form-group
+      input#input-var-meeting-id.form-control.input-sm(type='text', placeholder='meeting ID', data-events-var='meeting_id')
 
 #menu-templates
 
   .form-group
-    input#input-filter.form-control.input-sm.input-sm.input-clean-title(type='text', value='', placeholder='Templates (type to search...)', autofocus='autofocus', data-api-mate-search-input='1')
+    input#input-filter.form-control.input-sm.input-clean-title(type='text', value='', placeholder='Templates (type to search...)', autofocus='autofocus', data-api-mate-search-input='1')
 
   .events-template
     code

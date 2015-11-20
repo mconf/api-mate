@@ -32,39 +32,58 @@ window.RedisEvents = class RedisEvents
   getServerUrlFromInput: ->
     $("[data-events-server='url']").val()
 
-  connect: (url) ->
-    @serverUrl = url
+  onMessageReceived: (e) =>
+    console.log(e)
     @setConnected(true)
-    @source.close() if @source?
-    @source = new EventSource("#{@serverUrl}#{@pullPath}", { withCredentials: false })
-    @source.onerror = (e) =>
-      console.log "EventSource failed."
-      @setConnected(false)
-    @source.onmessage = (e) =>
-      console.log(e)
+    data = JSON.parse(e.data)
+    pretty = JSON.stringify(data, null, 0)
+
+    return if @excludeEvent(pretty)
+
+    if JSON.stringify(data) is JSON.stringify(@lastContentSent)
+      @lastContentSent = null
+      $message = $('<pre class="events-result sent">').html(pretty)
+      $icon = $('<span class="glyphicon glyphicon-arrow-up tooltipped" title="sent by you">')
+      $message.prepend($icon)
+      # $label = $('<span class="label label-danger">').html('sent')
+      # $message.prepend($label)
+    else
+      $message = $('<pre class="events-result received">').html(pretty)
+      # $label = $('<span class="label label-success">').html('received')
+      # $message.prepend($label)
+
+    $('#events-results').prepend($message)
+    Application.bindTooltips()
+
+  onMessageError: (e) =>
+    console.log "EventSource failed."
+    @setConnected(false)
+
+  excludeEvent: (str) ->
+    patterns = $("[data-events-config='exclude']").val()
+    for pattern in patterns.split('\n')
+      if str? and pattern? and pattern.trim() != '' and str.match(pattern)
+        return true
+    false
+
+  connect: (url) ->
+    try
+      @serverUrl = url
       @setConnected(true)
-      data = JSON.parse(e.data)
-      pretty = JSON.stringify(data, null, 0)
-
-      if JSON.stringify(data) is JSON.stringify(@lastContentSent)
-        @lastContentSent = null
-        $message = $('<pre class="events-result sent">').html(pretty)
-        # $label = $('<span class="label label-danger">').html('sent')
-        # $message.prepend($label)
-      else
-        $message = $('<pre class="events-result received">').html(pretty)
-        # $label = $('<span class="label label-success">').html('received')
-        # $message.prepend($label)
-
-      $('#events-results').prepend($message)
+      @source.close() if @source?
+      @source = new EventSource("#{@serverUrl}#{@pullPath}", { withCredentials: false })
+      @source.onerror = @onMessageError
+      @source.onmessage = @onMessageReceived
+    catch
+      @setConnected(false)
 
   setConnected: (connected) ->
     if connected
-      $("#menu-server").removeClass("not-connected")
+      $("#menu-server").removeClass("disconnected")
       $("#menu-server").addClass("connected")
     else
       $("#menu-server").removeClass("connected")
-      $("#menu-server").addClass("not-connected")
+      $("#menu-server").addClass("disconnected")
 
   sendEvent: (content) ->
     url = "#{@serverUrl}#{@pushPath}"

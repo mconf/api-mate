@@ -52,10 +52,13 @@
     border-radius: 0;
 
     &.received {
-      border-left: 3px solid #357EBD;
     }
     &.sent {
-      border-left: 3px solid #5CB85C; /* #C7254E; */
+      .glyphicon {
+        color: #5CB85C;
+        margin-right: 5px;
+        cursor: pointer;
+      }
     }
   }
 }
@@ -66,19 +69,19 @@
     color: green;
   }
 
-  .not-connected-label {
+  .disconnected-label {
     float: right;
     color: red;
   }
 
-  &.not-connected {
+  &.disconnected {
     .section-title { border-color: red; }
     .connected-label { display: none; }
-    .not-connected-label { display: block; }
+    .disconnected-label { display: block; }
   }
   &.connected {
     .section-title { border-color: green; }
     .connected-label { display: block; }
-    .not-connected-label { display: none; }
+    .disconnected-label { display: none; }
   }
 }
