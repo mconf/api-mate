@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "dependencies": {
     "body-parser": "^1.14.1",
-    "redis": "^2.3.1",
+    "corser": "^2.0.0",
     "express": "^4.9.5",
+    "redis": "^2.3.1",
     "redis-subscribe-sse": "0.2.0"
   },
   "engine": "node >= 0.10.0"

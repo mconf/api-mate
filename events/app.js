@@ -1,10 +1,9 @@
 var express = require('express');
 var fs = require('fs');
-var path = require('path');
 var subscribe = require('redis-subscribe-sse');
 var bodyParser = require('body-parser');
 var redis = require("redis");
-
+var corser = require("corser");
 
 // Main definitions
 var path = '';
@@ -12,6 +11,7 @@ var path = '';
 var app = express();
 var redisClient = redis.createClient();
 
+app.use(corser.create()); // for CORS
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
