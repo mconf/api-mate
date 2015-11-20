@@ -45,11 +45,18 @@
   }
 
   .events-result {
-    padding: 0 0 10px 0;
+    padding: 5px 10px;
     margin: 0 0 10px 0;
     background: none;
     border: 0;
-    border-bottom: 1px solid #f6f6f6;
+    border-radius: 0;
+
+    &.received {
+      border-left: 3px solid #357EBD;
+    }
+    &.sent {
+      border-left: 3px solid #5CB85C; /* #C7254E; */
+    }
   }
 }
 

@@ -1,13 +1,18 @@
 $font-size: 14px;
+$link-color: #008db6;
 
 body {
   overflow-x: hidden;
 }
 
+a {
+  color: $link-color;
+}
+
 #page-header-wrapper {
   border: 0;
   border-radius: 0;
-  background: #333;
+  background: #314b5d;
   color: #eee;
   margin-bottom: 0;
 }
@@ -48,7 +53,7 @@ body {
     .description {
       float: left;;
       white-space: nowrap;
-      color: #aaa;
+      color: #ddd;
       margin: 15px 0 0 10px;
     }
   }
@@ -86,10 +91,6 @@ body {
     .glyphicon {
       margin-left: 5px;
     }
-  }
-
-  .about {
-    text-align: right;
   }
 }
 @media(max-width:767px) {
@@ -219,8 +220,7 @@ body {
   border-bottom-width: 1px;
   box-shadow: none;
   font-size: 13px;
-
-  border-left: 3px solid red;
+  border-left: 3px solid #5CB85C; /* #C7254E; */
 
   &:focus {
     box-shadow: none;

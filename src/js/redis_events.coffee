@@ -14,12 +14,14 @@ window.RedisEvents = class RedisEvents
     @pullPath = '/pull'
     @publishChannel = 'any-channel'
     @source = null
+    @lastContentSent = null
 
   bind: ->
     # Button to send and event to the server
     $("[data-events-out-submit]").on "click", (e) =>
       content = $("[data-events-out-content]").val()
       content = JSON.parse(content) # TODO: error in case is not valid
+      @lastContentSent = content
       @sendEvent({ channel: @publishChannel, data: content })
 
     # Button to subscribe to the events from the server
@@ -43,7 +45,17 @@ window.RedisEvents = class RedisEvents
       @setConnected(true)
       data = JSON.parse(e.data)
       pretty = JSON.stringify(data, null, 0)
-      $message = $('<pre class="events-result">').html(pretty)
+
+      if JSON.stringify(data) is JSON.stringify(@lastContentSent)
+        @lastContentSent = null
+        $message = $('<pre class="events-result sent">').html(pretty)
+        # $label = $('<span class="label label-danger">').html('sent')
+        # $message.prepend($label)
+      else
+        $message = $('<pre class="events-result received">').html(pretty)
+        # $label = $('<span class="label label-success">').html('received')
+        # $message.prepend($label)
+
       $('#events-results').prepend($message)
 
   setConnected: (connected) ->
@@ -61,8 +73,9 @@ window.RedisEvents = class RedisEvents
       url: url
       type: 'POST'
       cache: false
-      data: content
+      data: JSON.stringify(content)
       crossdomain: true
+      contentType: 'application/json'
       success: (data) ->
         console.log 'Sent the event successfully'
       error: (jqXHR, textStatus, err) ->
