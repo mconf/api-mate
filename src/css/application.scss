@@ -92,11 +92,16 @@ a {
       margin-left: 5px;
     }
   }
+
+  .experimental {
+    text-align: right;
+    padding-right: 40px;
+  }
 }
 @media(max-width:767px) {
   #footer {
     .thanks { text-align: center; }
-    .about { text-align: center; }
+    .experimental { text-align: center; }
   }
 }
 
