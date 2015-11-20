@@ -19,6 +19,21 @@
       // color: #C7254E;
       color: #357EBD;
     }
+
+  }
+
+  .event-name {
+    text-align: center;
+    background-color: #f6f6f6;
+    font-size: 90%;
+    border-bottom: 1px solid #ddd;
+  }
+
+  &.updated {
+    .event-name, code {
+      color: #EE5F5B;
+      /* background: #F2DEDE; */
+    }
   }
 }
 
@@ -28,6 +43,11 @@
   white-space: pre-wrap;
   word-wrap: break-word;
   word-break: break-all;
+
+  &.updated {
+    color: #EE5F5B;
+    /* background: #F2DEDE; */
+  }
 }
 
 .event-out-content {

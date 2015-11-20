@@ -3,7 +3,14 @@ $ ->
   redisEvents.bind()
 
   $(".events-template").on "click", (e) ->
-    redisEvents.selectTemplate($(this).text())
+    redisEvents.selectTemplate($(".event-json", $(this)).text())
+
+    # highlight the template selected
+    $(this).addClass("updated")
+    clearTimeout(@selectTemplateTimeout)
+    @selectTemplateTimeout = setTimeout( =>
+      $(this).removeClass("updated")
+    , 300)
 
 window.RedisEvents = class RedisEvents
 
@@ -14,8 +21,11 @@ window.RedisEvents = class RedisEvents
     @publishChannel = 'any-channel'
     @source = null
     @lastContentSent = null
+    @searchTimeout = null
 
   bind: ->
+    @bindSearch()
+
     # Button to send and event to the server
     $("[data-events-out-submit]").on "click", (e) =>
       content = $("[data-events-out-content]").val()
@@ -30,6 +40,34 @@ window.RedisEvents = class RedisEvents
 
     $("[data-events-out-pretty]").on "click", (e) =>
       @selectTemplate($("[data-events-out-content]").val())
+
+  bindSearch: ->
+    timeout = @searchTimeout
+    $(document).on 'keyup', '[data-events-search-input]', (e) ->
+      $searchInput = $(this)
+
+      search = ->
+        searchTerm = $searchInput.val()
+        showOrHide = ->
+          $elem = $(this)
+          if searchTerm? and not _.isEmpty(searchTerm.trim())
+            visible = false
+            searchRe = makeSearchRegexp(searchTerm)
+            eventText = $("[data-events-template-content]", $elem).text()
+            visible = true if eventText.match(searchRe)
+          else
+            visible = true
+          if visible
+            $elem.show()
+          else
+            $elem.hide()
+          true # don't ever stop
+        $('[data-events-template]').each(showOrHide)
+
+      clearTimeout(timeout)
+      timeout = setTimeout( ->
+        search()
+      , 200)
 
   getServerUrlFromInput: ->
     $("[data-events-server='url']").val()
@@ -61,7 +99,7 @@ window.RedisEvents = class RedisEvents
     Application.bindTooltips()
 
   onMessageError: (e) =>
-    console.log "EventSource failed."
+    console.log "EventSource failed"
     @setConnected(false)
 
   excludeEvent: (str) ->
@@ -111,4 +149,18 @@ window.RedisEvents = class RedisEvents
       content = JSON.stringify(JSON.parse(content), null, 4)
     else
       content = JSON.stringify(JSON.parse(content), null, 0)
-    $("#input-event-out-content").val(content)
+    $("[data-events-out-content]").val(content)
+
+    # highlight the elements updated
+    $('[data-events-out-content]').addClass("updated")
+    clearTimeout(@selectTemplateTimeout2)
+    @selectTemplateTimeout2 = setTimeout( =>
+      $('[data-events-out-content]').removeClass("updated")
+    , 300)
+
+makeSearchRegexp = (term) ->
+  terms = term.split(" ")
+  terms = _.filter(terms, (t) -> not _.isEmpty(t.trim()))
+  terms = _.map(terms, (t) -> ".*#{t}.*")
+  terms = terms.join('|')
+  new RegExp(terms, "i");

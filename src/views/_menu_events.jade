@@ -17,28 +17,15 @@
       label(for='input-name')
         code Exclude patterns
       - content = '"name":"BbbPubSubPingMessage"\n"name":"BbbPubSubPongMessage"\n"name":"bbb_apps_is_alive_message"'
-      textarea#input-config-meeting-id.form-control.input-sm(rows='2', placeholder='meeting ID', data-events-config='exclude')= content
-
-    .form-group
-      input#input-var-meeting-id.form-control.input-sm(type='text', placeholder='meeting ID', data-events-var='meeting_id')
+      textarea#input-config-meeting-id.form-control.input-sm(rows='2', placeholder='assign_presenter_request_message', data-events-config='exclude')= content
+    //- .form-group
+    //-   input#input-var-meeting-id.form-control.input-sm(type='text', placeholder='meeting ID', data-events-var='meeting_id')
 
 #menu-templates
-
   .form-group
-    input#input-filter.form-control.input-sm.input-clean-title(type='text', value='', placeholder='Templates (type to search...)', autofocus='autofocus', data-api-mate-search-input='1')
-
-  .events-template
-    code
-      |{"payload":{"userid":"jogk3mnikgha_2","auth_token":"ebdk8k2asz8a","meeting_id":"183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1447948492302"},"header":{"timestamp":18631303,"reply_to":"183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1447948492302/jogk3mnikgha_2","name":"
-      strong validate_auth_token
-      |","version":"0.0.1"}}
-  .events-template
-    code
-      |{"payload":{"voice_user_id":"1","talking":false,"muted":false,"voice_conf_id":"70480","caller_id_name":"Leonardo","user_id":"jogk3mnikgha_2","caller_id_num":"jogk3mnikgha_2-bbbID-Leonardo"},"header":{"timestamp":19680901,"name":"
-      strong user_joined_voice_conf_message
-      |","version":"0.0.1"}}
-  .events-template
-    code
-      |{"payload":{"voice_conf":"70480","recorded":false,"meeting_id":"183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1447948492302","user":{"presenter":true,"role":"MODERATOR","locked":false,"phone_user":false,"webcam_stream":[],"extern_userid":"jogk3mnikgha","emoji_status":"none","voiceUser":{"talking":false,"callername":"Leonardo","locked":false,"callernum":"jogk3mnikgha_2-bbbID-Leonardo","muted":false,"web_userid":"jogk3mnikgha_2","joined":true,"userid":"1"},"name":"Leonardo","listenOnly":false,"has_stream":false,"userid":"jogk3mnikgha_2"}},"header":{"timestamp":19680905,"name":"
-      strong user_joined_voice_message
-      |","current_time":1447949543478,"version":"0.0.1"}}
+    input#input-filter.form-control.input-sm.input-clean-title(type='text', value='', placeholder='Templates (type to search...)', autofocus='autofocus', data-events-search-input='')
+   - each event in events
+    .events-template(data-events-template="")
+      .event-name= event["header"]["name"]
+      code.event-json(data-events-template-content="")
+        = JSON.stringify(event)

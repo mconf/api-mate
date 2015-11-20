@@ -1,1 +1,1697 @@
-{ "analytics": "" }
+{
+  "analytics": "",
+  "events": [
+    {
+      "payload": {
+        "new_presenter_id": "n4xjeiulnopu_2",
+        "new_presenter_name": "Leonardo",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "assigned_by": "1"
+      },
+      "header": {
+        "timestamp": 22729880,
+        "name": "assign_presenter_request_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "set_by_userid": "system",
+        "users": [
+
+        ],
+        "layout": "\n  \n    \n    \n    \n    \n  \n",
+        "locked": true,
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22667006,
+        "name": "broadcast_layout_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "layout": "\n  \n    \n    \n    \n    \n  \n",
+        "userid": "n4xjeiulnopu_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22648262,
+        "name": "broadcast_layout_request_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "whiteboard_id": "d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/1",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "requester_id": "n4xjeiulnopu_2"
+      },
+      "header": {
+        "timestamp": 22591311,
+        "name": "clear_whiteboard_request",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "duration": 0,
+        "create_date": "Fri Nov 20 15:46:16 BRST 2015",
+        "name": "Demo Meeting",
+        "create_time": 1448041576404,
+        "moderator_pass": "mp",
+        "allow_start_stop_recording": true,
+        "voice_conf": "70629",
+        "recorded": false,
+        "external_meeting_id": "Demo Meeting",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "viewer_pass": "ap",
+        "auto_start_recording": false
+      },
+      "header": {
+        "timestamp": 22470880,
+        "name": "create_meeting_request",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22856275,
+        "name": "destroy_meeting_request_event",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22856277,
+        "name": "disconnect_all_users_message",
+        "current_time": 1448041961851,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "userid": "tzrybwjpvz31_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22669551,
+        "name": "disconnect_user_message",
+        "current_time": 1448041775125,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "userid": "tzrybwjpvz31_2",
+        "ejected_by": "n4xjeiulnopu_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22669547,
+        "name": "eject_user_from_meeting_request_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "recorded": false,
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22856277,
+        "name": "end_and_kick_all_message",
+        "current_time": 1448041961851,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "chat_history": [
+          {
+            "from_color": "0",
+            "from_time": "1.448041796083E12",
+            "chat_type": "PUBLIC_CHAT",
+            "to_userid": "public_chat_userid",
+            "message": "hi public",
+            "from_username": "Leonardo",
+            "from_userid": "n4xjeiulnopu_2",
+            "to_username": "public_chat_username",
+            "from_tz_offset": "120"
+          }
+        ],
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "requester_id": "i6lc2uu3nr4j_2"
+      },
+      "header": {
+        "timestamp": 22725959,
+        "reply_to": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/i6lc2uu3nr4j_2",
+        "name": "get_chat_history_reply",
+        "current_time": 1448041831533,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "reply_to": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/i6lc2uu3nr4j_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "requester_id": "i6lc2uu3nr4j_2"
+      },
+      "header": {
+        "timestamp": 22725958,
+        "name": "get_chat_history_request",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "set_by_userid": "system",
+        "layout": "\n  \n    \n    \n    \n    \n  \n",
+        "requested_by_userid": "i6lc2uu3nr4j_2",
+        "locked": true,
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22719567,
+        "name": "get_current_layout_reply_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "userid": "i6lc2uu3nr4j_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22719567,
+        "name": "get_current_layout_request_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "reply_to": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/i6lc2uu3nr4j_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "requester_id": "i6lc2uu3nr4j_2"
+      },
+      "header": {
+        "timestamp": 22720976,
+        "name": "get_presentation_info",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "presentations": [
+          {
+            "id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122",
+            "pages": [
+              {
+                "width_ratio": 100,
+                "height_ratio": 100,
+                "txt_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/textfiles/1",
+                "num": 1,
+                "y_offset": 0,
+                "swf_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/slide/1",
+                "thumb_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/thumbnail/1",
+                "x_offset": 0,
+                "current": true,
+                "svg_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/svg/1",
+                "id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1"
+              }
+            ],
+            "name": "Screenshot from 2015-08-26 16:05:14.png",
+            "current": true
+          },
+          {
+            "id": "d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466",
+            "pages": [
+              {
+                "width_ratio": 100,
+                "height_ratio": 100,
+                "txt_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/textfiles/5",
+                "num": 5,
+                "y_offset": 0,
+                "swf_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/slide/5",
+                "thumb_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/thumbnail/5",
+                "x_offset": 0,
+                "current": false,
+                "svg_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/svg/5",
+                "id": "d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/5"
+              },
+              {
+                "width_ratio": 100,
+                "height_ratio": 100,
+                "txt_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/textfiles/1",
+                "num": 1,
+                "y_offset": 0,
+                "swf_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/slide/1",
+                "thumb_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/thumbnail/1",
+                "x_offset": 0,
+                "current": false,
+                "svg_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/svg/1",
+                "id": "d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/1"
+              },
+              {
+                "width_ratio": 100,
+                "height_ratio": 100,
+                "txt_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/textfiles/4",
+                "num": 4,
+                "y_offset": 0,
+                "swf_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/slide/4",
+                "thumb_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/thumbnail/4",
+                "x_offset": 0,
+                "current": false,
+                "svg_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/svg/4",
+                "id": "d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/4"
+              },
+              {
+                "width_ratio": 100,
+                "height_ratio": 100,
+                "txt_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/textfiles/3",
+                "num": 3,
+                "y_offset": 0,
+                "swf_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/slide/3",
+                "thumb_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/thumbnail/3",
+                "x_offset": 0,
+                "current": false,
+                "svg_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/svg/3",
+                "id": "d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/3"
+              },
+              {
+                "width_ratio": 100,
+                "height_ratio": 100,
+                "txt_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/textfiles/2",
+                "num": 2,
+                "y_offset": 0,
+                "swf_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/slide/2",
+                "thumb_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/thumbnail/2",
+                "x_offset": 0,
+                "current": true,
+                "svg_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/svg/2",
+                "id": "d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/2"
+              }
+            ],
+            "name": "default.pdf",
+            "current": false
+          }
+        ],
+        "presentation_info": {
+          "presenter": {
+            "userId": "n4xjeiulnopu_2",
+            "name": "Leonardo",
+            "assignedBy": "1"
+          },
+          "presentations": {
+          }
+        },
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "presenter": {
+          "name": "Leonardo",
+          "userid": "n4xjeiulnopu_2",
+          "assigned_by": "1"
+        },
+        "requester_id": "i6lc2uu3nr4j_2"
+      },
+      "header": {
+        "timestamp": 22720978,
+        "reply_to": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/i6lc2uu3nr4j_2",
+        "name": "get_presentation_info_reply",
+        "current_time": 1448041826552,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "recording": false,
+        "userid": "i6lc2uu3nr4j_2",
+        "recorded": false,
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22719137,
+        "name": "get_recording_status_reply",
+        "current_time": 1448041824711,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "userid": "i6lc2uu3nr4j_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22719133,
+        "name": "get_recording_status_request_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "voice_conf_id": "70629",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22470931,
+        "name": "get_users_from_voice_conf_request_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "users": [
+          {
+            "presenter": true,
+            "role": "MODERATOR",
+            "locked": false,
+            "phone_user": false,
+            "webcam_stream": [
+              "medium-n4xjeiulnopu_2-1448041820893"
+            ],
+            "extern_userid": "n4xjeiulnopu",
+            "emoji_status": "none",
+            "voiceUser": {
+              "talking": false,
+              "callername": "Leonardo",
+              "locked": false,
+              "callernum": "70629",
+              "muted": false,
+              "web_userid": "n4xjeiulnopu_2",
+              "joined": true,
+              "userid": "4"
+            },
+            "name": "Leonardo",
+            "listenOnly": false,
+            "has_stream": true,
+            "userid": "n4xjeiulnopu_2"
+          },
+          {
+            "presenter": false,
+            "role": "MODERATOR",
+            "locked": false,
+            "phone_user": false,
+            "webcam_stream": [
+
+            ],
+            "extern_userid": "i6lc2uu3nr4j",
+            "emoji_status": "none",
+            "voiceUser": {
+              "talking": false,
+              "callername": "Other user",
+              "locked": false,
+              "callernum": "Other user",
+              "muted": false,
+              "web_userid": "i6lc2uu3nr4j_2",
+              "joined": false,
+              "userid": "i6lc2uu3nr4j_2"
+            },
+            "name": "Other user",
+            "listenOnly": false,
+            "has_stream": false,
+            "userid": "i6lc2uu3nr4j_2"
+          }
+        ],
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "requester_id": "i6lc2uu3nr4j_2"
+      },
+      "header": {
+        "timestamp": 22719136,
+        "name": "get_users_reply",
+        "current_time": 1448041824710,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "requester_id": "i6lc2uu3nr4j_2"
+      },
+      "header": {
+        "timestamp": 22719132,
+        "name": "get_users_request_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "whiteboard_id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "shapes": [
+          {
+            "shape_type": "line",
+            "wb_id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1",
+            "shape": {
+              "type": "line",
+              "points": [
+                61.377247,
+                47.84689,
+                34.431137,
+                71.77033
+              ],
+              "color": 13434624,
+              "transparency": false,
+              "status": "DRAW_END",
+              "id": "n4xjeiulnopu_2-16-1448041722876",
+              "thickness": 27,
+              "whiteboardId": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1"
+            },
+            "status": "DRAW_END",
+            "id": "n4xjeiulnopu_2-16-1448041722876"
+          },
+          {
+            "shape_type": "line",
+            "wb_id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1",
+            "shape": {
+              "type": "line",
+              "points": [
+                23.353292,
+                33.97129,
+                67.96407,
+                85.88517
+              ],
+              "color": 13434624,
+              "transparency": false,
+              "status": "DRAW_END",
+              "id": "n4xjeiulnopu_2-17-1448041723813",
+              "thickness": 27,
+              "whiteboardId": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1"
+            },
+            "status": "DRAW_END",
+            "id": "n4xjeiulnopu_2-17-1448041723813"
+          }
+        ],
+        "requester_id": "i6lc2uu3nr4j_2"
+      },
+      "header": {
+        "timestamp": 22722034,
+        "reply_to": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/i6lc2uu3nr4j_2",
+        "name": "get_whiteboard_shapes_reply",
+        "current_time": 1448041827607,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "page": "d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22592790,
+        "name": "go_to_slide",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "muted": false,
+        "userid": "i6lc2uu3nr4j_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22719094,
+        "name": "init_audio_settings_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "permissions": {
+          "disablePrivateChat": false,
+          "lockOnJoinConfigurable": false,
+          "disableCam": false,
+          "disableMic": false,
+          "lockOnJoin": true,
+          "lockedLayout": false,
+          "disablePublicChat": false
+        },
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22719094,
+        "name": "init_permission_settings_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "set_by_userid": "n4xjeiulnopu_2",
+        "users": [
+
+        ],
+        "locked": true,
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22667006,
+        "name": "lock_layout_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "duration": 0,
+        "create_date": "Fri Nov 20 15:46:16 BRST 2015",
+        "name": "Demo Meeting",
+        "create_time": 1448041576404,
+        "moderator_pass": "mp",
+        "voice_conf": "70629",
+        "recorded": false,
+        "external_meeting_id": "Demo Meeting",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "viewer_pass": "ap"
+      },
+      "header": {
+        "timestamp": 22470901,
+        "name": "meeting_created_message",
+        "current_time": 1448041576475,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22856277,
+        "name": "meeting_destroyed_event",
+        "current_time": 1448041961851,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "meetingMuted": false
+      },
+      "header": {
+        "timestamp": 22662079,
+        "name": "meeting_muted_message",
+        "current_time": 1448041767653,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "userid": "i6lc2uu3nr4j_2",
+        "permissions": {
+          "disablePrivateChat": true,
+          "lockOnJoinConfigurable": false,
+          "disableCam": true,
+          "disableMic": true,
+          "lockOnJoin": true,
+          "lockedLayout": true,
+          "disablePublicChat": true
+        },
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "meetingMuted": false
+      },
+      "header": {
+        "timestamp": 22719126,
+        "name": "meeting_state_message",
+        "current_time": 1448041824700,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "mute": false,
+        "requester_id": "n4xjeiulnopu_2"
+      },
+      "header": {
+        "timestamp": 22662078,
+        "name": "mute_all_request_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "voice_user_id": "4",
+        "voice_conf_id": "70629",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "mute": false
+      },
+      "header": {
+        "timestamp": 22662079,
+        "name": "mute_user_in_voice_conf_request_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "user_id": "n4xjeiulnopu_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "mute": false,
+        "requester_id": "n4xjeiulnopu_2"
+      },
+      "header": {
+        "timestamp": 22621762,
+        "name": "mute_user_request_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "users": [
+          {
+            "presenter": false,
+            "role": "MODERATOR",
+            "locked": false,
+            "phone_user": false,
+            "webcam_stream": [
+
+            ],
+            "extern_userid": "tzrybwjpvz31",
+            "emoji_status": "none",
+            "voiceUser": {
+              "talking": false,
+              "callername": "Other",
+              "locked": false,
+              "callernum": "Other",
+              "muted": false,
+              "web_userid": "tzrybwjpvz31_2",
+              "joined": false,
+              "userid": "tzrybwjpvz31_2"
+            },
+            "name": "Other",
+            "listenOnly": true,
+            "has_stream": false,
+            "userid": "tzrybwjpvz31_2"
+          },
+          {
+            "presenter": true,
+            "role": "MODERATOR",
+            "locked": false,
+            "phone_user": false,
+            "webcam_stream": [
+              "medium-n4xjeiulnopu_2-1448041605446"
+            ],
+            "extern_userid": "n4xjeiulnopu",
+            "emoji_status": "none",
+            "voiceUser": {
+              "talking": false,
+              "callername": "Leonardo",
+              "locked": false,
+              "callernum": "70629",
+              "muted": false,
+              "web_userid": "n4xjeiulnopu_2",
+              "joined": true,
+              "userid": "4"
+            },
+            "name": "Leonardo",
+            "listenOnly": false,
+            "has_stream": true,
+            "userid": "n4xjeiulnopu_2"
+          }
+        ],
+        "permissions": {
+          "disablePrivateChat": true,
+          "lockOnJoinConfigurable": false,
+          "disableCam": true,
+          "disableMic": true,
+          "lockOnJoin": true,
+          "lockedLayout": true,
+          "disablePublicChat": true
+        },
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22667004,
+        "name": "new_permission_settings",
+        "current_time": 1448041772578,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "settings": "Permissions(false,false,false,false,false,true,false)",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22472668,
+        "name": "permisssion_setting_initialized_message",
+        "current_time": 1448041578242,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "poll": {
+          "id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1/1448041870277",
+          "answers": [
+            {
+              "id": 0,
+              "num_votes": 0,
+              "key": "Hi"
+            },
+            {
+              "id": 1,
+              "num_votes": 0,
+              "key": "Or"
+            },
+            {
+              "id": 2,
+              "num_votes": 0,
+              "key": "Not"
+            },
+            {
+              "id": 3,
+              "num_votes": 1,
+              "key": "Other"
+            }
+          ],
+          "num_responders": 1,
+          "num_respondents": 1
+        },
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22770313,
+        "name": "poll_show_result_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "poll": {
+          "id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1/1448041870277",
+          "answers": [
+            {
+              "id": 0,
+              "key": "Hi"
+            },
+            {
+              "id": 1,
+              "key": "Or"
+            },
+            {
+              "id": 2,
+              "key": "Not"
+            },
+            {
+              "id": 3,
+              "key": "Other"
+            }
+          ]
+        },
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "requester_id": "n4xjeiulnopu_2"
+      },
+      "header": {
+        "timestamp": 22764705,
+        "name": "poll_started_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "poll_id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1/1448041870277",
+        "requester_id": "i6lc2uu3nr4j_2"
+      },
+      "header": {
+        "timestamp": 22789117,
+        "name": "poll_stopped_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "presentation": {
+          "id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122",
+          "pages": [
+            {
+              "width_ratio": 100,
+              "height_ratio": 100,
+              "txt_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/textfiles/1",
+              "num": 1,
+              "y_offset": 0,
+              "swf_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/slide/1",
+              "thumb_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/thumbnail/1",
+              "x_offset": 0,
+              "current": true,
+              "svg_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/svg/1",
+              "id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1"
+            }
+          ],
+          "name": "Screenshot from 2015-08-26 16:05:14.png",
+          "current": false
+        },
+        "code": "CONVERT",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "message_key": "CONVERSION_COMPLETED"
+      },
+      "header": {
+        "timestamp": 22616104,
+        "name": "presentation_conversion_done_message",
+        "current_time": 1448041721678,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "presentation_id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122",
+        "code": "CONVERT",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "presentation_name": "Screenshot from 2015-08-26 16:05:14.png",
+        "message_key": "GENERATING_THUMBNAIL"
+      },
+      "header": {
+        "timestamp": 22615686,
+        "name": "presentation_conversion_progress_message",
+        "current_time": 1448041721260,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "y_percent": 0.6703096539162113,
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "x_percent": 0.9927140255009107
+      },
+      "header": {
+        "timestamp": 22788173,
+        "name": "presentation_cursor_updated_message",
+        "current_time": 1448041893747,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "page": {
+          "width_ratio": 100,
+          "height_ratio": 100,
+          "txt_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/textfiles/1",
+          "num": 1,
+          "y_offset": 0,
+          "swf_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/slide/1",
+          "thumb_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/thumbnail/1",
+          "x_offset": 0,
+          "current": true,
+          "svg_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/svg/1",
+          "id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1"
+        },
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22616104,
+        "name": "presentation_page_changed_message",
+        "current_time": 1448041721678,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "presentation_id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122",
+        "num_pages": 1,
+        "code": "CONVERT",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "presentation_name": "Screenshot from 2015-08-26 16:05:14.png",
+        "message_key": "GENERATED_SLIDE",
+        "pages_completed": 1
+      },
+      "header": {
+        "timestamp": 22615686,
+        "name": "presentation_page_generated_message",
+        "current_time": 1448041721260,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "page": {
+          "width_ratio": 46.51162790697675,
+          "height_ratio": 46.51162790697674,
+          "txt_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/textfiles/1",
+          "num": 1,
+          "y_offset": -26.74418604651162,
+          "swf_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/slide/1",
+          "thumb_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/thumbnail/1",
+          "x_offset": -26.744186046511626,
+          "current": true,
+          "svg_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/svg/1",
+          "id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1"
+        },
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22789223,
+        "name": "presentation_page_resized_message",
+        "current_time": 1448041894797,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "presentation": {
+          "id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122",
+          "pages": [
+            {
+              "width_ratio": 100,
+              "height_ratio": 100,
+              "txt_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/textfiles/1",
+              "num": 1,
+              "y_offset": 0,
+              "swf_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/slide/1",
+              "thumb_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/thumbnail/1",
+              "x_offset": 0,
+              "current": true,
+              "svg_uri": "http://10.0.3.39/bigbluebutton/presentation/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/svg/1",
+              "id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1"
+            }
+          ],
+          "name": "Screenshot from 2015-08-26 16:05:14.png",
+          "current": true
+        },
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22616104,
+        "name": "presentation_shared_message",
+        "current_time": 1448041721678,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "new_presenter_id": "i6lc2uu3nr4j_2",
+        "recorded": false,
+        "new_presenter_name": "Other user",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "assigned_by": "i6lc2uu3nr4j_2"
+      },
+      "header": {
+        "timestamp": 22789116,
+        "name": "presenter_assigned_message",
+        "current_time": 1448041894690,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "name": "Other user",
+        "userid": "i6lc2uu3nr4j",
+        "role": "MODERATOR",
+        "auth_token": "texm9mwp7zwg",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "external_user_id": "i6lc2uu3nr4j"
+      },
+      "header": {
+        "timestamp": 22718219,
+        "name": "register_user_request",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "reply_to": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/i6lc2uu3nr4j_2",
+        "whiteboard_id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "requester_id": "i6lc2uu3nr4j_2"
+      },
+      "header": {
+        "timestamp": 22722033,
+        "name": "request_whiteboard_annotation_history_request",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "y_offset": -26.74418604651162,
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "height_ratio": 46.51162790697674,
+        "width_ratio": 46.51162790697675,
+        "x_offset": -26.744186046511626
+      },
+      "header": {
+        "timestamp": 22789221,
+        "name": "resize_and_move_slide",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "y_percent": 0.6703096539162113,
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "x_percent": 0.9927140255009107
+      },
+      "header": {
+        "timestamp": 22788172,
+        "name": "send_cursor_update",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "settings": {
+          "disable_public_chat": true,
+          "locked_layout": true,
+          "disable_private_chat": true,
+          "lock_on_join": true,
+          "disable_camera": true,
+          "lock_on_join_configurable": false,
+          "disable_microphone": true
+        },
+        "userid": "n4xjeiulnopu_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22666999,
+        "name": "send_lock_settings",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "message": {
+          "from_color": "0",
+          "from_time": "1.448041808212E12",
+          "chat_type": "PRIVATE_CHAT",
+          "to_userid": "n4xjeiulnopu_2",
+          "message": "lll",
+          "from_username": "Other user",
+          "from_userid": "ldq2xgqulzey_2",
+          "to_username": "Leonardo",
+          "from_tz_offset": "120"
+        },
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22702647,
+        "name": "send_private_chat_message",
+        "current_time": 1448041808221,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "message": {
+          "from_color": "0",
+          "from_time": "1.448041796083E12",
+          "chat_type": "PUBLIC_CHAT",
+          "to_userid": "public_chat_userid",
+          "message": "hi public",
+          "from_username": "Leonardo",
+          "from_userid": "n4xjeiulnopu_2",
+          "to_username": "public_chat_username",
+          "from_tz_offset": "120"
+        },
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22690519,
+        "name": "send_public_chat_message",
+        "current_time": 1448041796093,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "annotation": {
+          "id": "n4xjeiulnopu_2-19-1448041887096",
+          "transparency": false,
+          "color": 13434624,
+          "status": "DRAW_END",
+          "whiteboardId": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1",
+          "thickness": 27,
+          "points": [
+            60,
+            76.01626016260163,
+            81.52542372881356,
+            91.73441734417344
+          ],
+          "type": "line"
+        },
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "requester_id": "n4xjeiulnopu_2"
+      },
+      "header": {
+        "timestamp": 22781912,
+        "name": "send_whiteboard_annotation_request",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "whiteboard_id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1",
+        "shape": {
+          "shape_type": "line",
+          "wb_id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1",
+          "shape": {
+            "type": "line",
+            "points": [
+              60,
+              76.01626,
+              81.52542,
+              91.73442
+            ],
+            "color": 13434624,
+            "transparency": false,
+            "status": "DRAW_END",
+            "id": "n4xjeiulnopu_2-19-1448041887096",
+            "thickness": 27,
+            "whiteboardId": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1"
+          },
+          "status": "DRAW_END",
+          "id": "n4xjeiulnopu_2-19-1448041887096"
+        },
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "requester_id": "n4xjeiulnopu_2"
+      },
+      "header": {
+        "timestamp": 22781913,
+        "name": "send_whiteboard_shape_message",
+        "current_time": 1448041887487,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "show": true,
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "poll_id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1/1448041870277",
+        "requester_id": "n4xjeiulnopu_2"
+      },
+      "header": {
+        "timestamp": 22770312,
+        "name": "show_poll_result_request_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "header": {
+        "name": "start_custom_poll_request_message",
+        "version": "0.0.1",
+        "timestamp": 1448041870268
+      },
+      "payload": {
+        "pollId": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1/1448041870267",
+        "requesterId": "n4xjeiulnopu_2",
+        "pollType": "Custom",
+        "meetingId": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "answers": [
+          "Hi",
+          "Or",
+          "Not",
+          "Other"
+        ]
+      }
+    },
+    {
+      "payload": {
+        "poll_type": "YN",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "poll_id": "d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/2/1448041709272",
+        "requester_id": "n4xjeiulnopu_2"
+      },
+      "header": {
+        "timestamp": 22603700,
+        "name": "start_poll_request_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "whiteboard_id": "d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/1",
+        "shape_id": "n4xjeiulnopu_2-13-1448041690630",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "requester_id": "n4xjeiulnopu_2"
+      },
+      "header": {
+        "timestamp": 22590341,
+        "name": "undo_whiteboard_request",
+        "current_time": 1448041695915,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "name": "Other%20user",
+        "userid": "i6lc2uu3nr4j_2",
+        "voice_conf": "70629"
+      },
+      "header": {
+        "timestamp": 22722131,
+        "name": "user_connected_to_global_audio",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "name": "Other%20user",
+        "userid": "i6lc2uu3nr4j_2",
+        "voice_conf": "70629"
+      },
+      "header": {
+        "timestamp": 22792590,
+        "name": "user_disconnected_from_global_audio",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "emoji_status": "none",
+        "userid": "n4xjeiulnopu_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22660733,
+        "name": "user_emoji_status_message",
+        "current_time": 1448041766307,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "user": {
+          "presenter": false,
+          "role": "VIEWER",
+          "locked": true,
+          "phone_user": true,
+          "webcam_stream": [
+
+          ],
+          "extern_userid": "n4xjeiulnopu",
+          "emoji_status": "none",
+          "voiceUser": {
+            "talking": false,
+            "callername": "Leonardo",
+            "locked": false,
+            "callernum": "70629",
+            "muted": false,
+            "web_userid": "n4xjeiulnopu_2",
+            "joined": true,
+            "userid": "4"
+          },
+          "name": "Leonardo",
+          "listenOnly": false,
+          "has_stream": false,
+          "userid": "n4xjeiulnopu_2"
+        }
+      },
+      "header": {
+        "timestamp": 22789116,
+        "name": "user_joined_message",
+        "current_time": 1448041894690,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "voice_user_id": "4",
+        "talking": false,
+        "muted": false,
+        "voice_conf_id": "70629",
+        "caller_id_name": "Leonardo",
+        "user_id": "n4xjeiulnopu_2",
+        "caller_id_num": "70629"
+      },
+      "header": {
+        "timestamp": 22508213,
+        "name": "user_joined_voice_conf_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "voice_conf": "70629",
+        "recorded": false,
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "user": {
+          "presenter": false,
+          "role": "VIEWER",
+          "locked": true,
+          "phone_user": true,
+          "webcam_stream": [
+
+          ],
+          "extern_userid": "n4xjeiulnopu",
+          "emoji_status": "none",
+          "voiceUser": {
+            "talking": false,
+            "callername": "Leonardo",
+            "locked": false,
+            "callernum": "70629",
+            "muted": false,
+            "web_userid": "n4xjeiulnopu_2",
+            "joined": true,
+            "userid": "4"
+          },
+          "name": "Leonardo",
+          "listenOnly": false,
+          "has_stream": false,
+          "userid": "n4xjeiulnopu_2"
+        }
+      },
+      "header": {
+        "timestamp": 22789117,
+        "name": "user_joined_voice_message",
+        "current_time": 1448041894691,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "userid": "i6lc2uu3nr4j_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22792608,
+        "name": "user_leaving_request",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "user": {
+          "presenter": true,
+          "role": "MODERATOR",
+          "locked": false,
+          "phone_user": false,
+          "webcam_stream": [
+
+          ],
+          "extern_userid": "i6lc2uu3nr4j",
+          "emoji_status": "none",
+          "voiceUser": {
+            "talking": false,
+            "callername": "Other user",
+            "locked": false,
+            "callernum": "Other user",
+            "muted": false,
+            "web_userid": "i6lc2uu3nr4j_2",
+            "joined": false,
+            "userid": "i6lc2uu3nr4j_2"
+          },
+          "name": "Other user",
+          "listenOnly": false,
+          "has_stream": false,
+          "userid": "i6lc2uu3nr4j_2"
+        }
+      },
+      "header": {
+        "timestamp": 22792609,
+        "name": "user_left_message",
+        "current_time": 1448041898183,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "voice_user_id": "7",
+        "voice_conf_id": "70629"
+      },
+      "header": {
+        "timestamp": 22792636,
+        "name": "user_left_voice_conf_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "voice_conf": "70629",
+        "recorded": false,
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "user": {
+          "presenter": false,
+          "role": "VIEWER",
+          "locked": true,
+          "phone_user": false,
+          "webcam_stream": [
+
+          ],
+          "extern_userid": "n4xjeiulnopu",
+          "emoji_status": "none",
+          "voiceUser": {
+            "talking": false,
+            "callername": "Leonardo",
+            "locked": false,
+            "callernum": "Leonardo",
+            "muted": false,
+            "web_userid": "n4xjeiulnopu_2",
+            "joined": false,
+            "userid": "n4xjeiulnopu_2"
+          },
+          "name": "Leonardo",
+          "listenOnly": false,
+          "has_stream": false,
+          "userid": "n4xjeiulnopu_2"
+        }
+      },
+      "header": {
+        "timestamp": 22789127,
+        "name": "user_left_voice_message",
+        "current_time": 1448041894701,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "userid": "i6lc2uu3nr4j_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "listen_only": false
+      },
+      "header": {
+        "timestamp": 22792594,
+        "name": "user_listening_only",
+        "current_time": 1448041898168,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "voice_user_id": "4",
+        "muted": false,
+        "voice_conf_id": "70629"
+      },
+      "header": {
+        "timestamp": 22662094,
+        "name": "user_muted_in_voice_conf_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "recorded": false,
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "user": {
+          "role": "MODERATOR",
+          "extern_userid": "i6lc2uu3nr4j",
+          "authToken": "texm9mwp7zwg",
+          "name": "Other user",
+          "userid": "i6lc2uu3nr4j"
+        }
+      },
+      "header": {
+        "timestamp": 22718221,
+        "name": "user_registered_message",
+        "current_time": 1448041823795,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "stream": "medium-n4xjeiulnopu_2-1448041820893",
+        "userid": "n4xjeiulnopu_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22715320,
+        "name": "user_share_webcam_request_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "stream": "medium-n4xjeiulnopu_2-1448041820893",
+        "userid": "n4xjeiulnopu_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22715603,
+        "name": "user_shared_webcam_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "status": "presenter",
+        "value": "true",
+        "userid": "i6lc2uu3nr4j_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22789116,
+        "name": "user_status_changed_message",
+        "current_time": 1448041894690,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "stream": "",
+        "userid": "i6lc2uu3nr4j_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22792542,
+        "name": "user_unshare_webcam_request_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "stream": "medium-n4xjeiulnopu_2-1448041820893",
+        "userid": "n4xjeiulnopu_2",
+        "recorded": false,
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22788795,
+        "name": "user_unshared_webcam_message",
+        "current_time": 1448041894369,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "voice_conf": "70629",
+        "recorded": false,
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "user": {
+          "presenter": true,
+          "role": "MODERATOR",
+          "locked": false,
+          "phone_user": false,
+          "webcam_stream": [
+            "medium-n4xjeiulnopu_2-1448041605446"
+          ],
+          "extern_userid": "n4xjeiulnopu",
+          "emoji_status": "none",
+          "voiceUser": {
+            "talking": false,
+            "callername": "Leonardo",
+            "locked": false,
+            "callernum": "70629",
+            "muted": false,
+            "web_userid": "n4xjeiulnopu_2",
+            "joined": true,
+            "userid": "4"
+          },
+          "name": "Leonardo",
+          "listenOnly": false,
+          "has_stream": true,
+          "userid": "n4xjeiulnopu_2"
+        }
+      },
+      "header": {
+        "timestamp": 22662096,
+        "name": "user_voice_muted_message",
+        "current_time": 1448041767670,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "presenter_id": "n4xjeiulnopu_2",
+        "poll": {
+          "id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1/1448041870277",
+          "answers": [
+            {
+              "id": 0,
+              "num_votes": 0,
+              "key": "Hi"
+            },
+            {
+              "id": 1,
+              "num_votes": 0,
+              "key": "Or"
+            },
+            {
+              "id": 2,
+              "num_votes": 0,
+              "key": "Not"
+            },
+            {
+              "id": 3,
+              "num_votes": 1,
+              "key": "Other"
+            }
+          ],
+          "num_responders": 1,
+          "num_respondents": 1
+        },
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22767922,
+        "name": "user_voted_poll_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "userid": "i6lc2uu3nr4j_2",
+        "auth_token": "texm9mwp7zwg",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22719123,
+        "reply_to": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/i6lc2uu3nr4j_2",
+        "name": "validate_auth_token",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "valid": "true",
+        "reply_to": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404/i6lc2uu3nr4j_2",
+        "userid": "i6lc2uu3nr4j_2",
+        "auth_token": "texm9mwp7zwg",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404"
+      },
+      "header": {
+        "timestamp": 22719125,
+        "name": "validate_auth_token_reply",
+        "current_time": 1448041824699,
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "answer_id": 3,
+        "user_id": "i6lc2uu3nr4j_2",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "question_id": 3,
+        "poll_id": "7a8b3fa921dcf7de6fafa2ee9761e441a2768cc3-1448041720122/1/1448041870277"
+      },
+      "header": {
+        "timestamp": 22767921,
+        "name": "vote_poll_user_request_message",
+        "version": "0.0.1"
+      }
+    },
+    {
+      "payload": {
+        "whiteboard_id": "d2d9a672040fbde2a47a10bf6c37b6a4b5ae187f-1448041576466/1",
+        "meeting_id": "183f0bf3a0982a127bdb8161e0c44eb696b3e75c-1448041576404",
+        "requester_id": "n4xjeiulnopu_2"
+      },
+      "header": {
+        "timestamp": 22591313,
+        "name": "whiteboard_cleared_message",
+        "current_time": 1448041696887,
+        "version": "0.0.1"
+      }
+    }
+  ]
+}
