@@ -30,9 +30,29 @@
   word-break: break-all;
 }
 
-#input-event-out-submit {
+.event-out-content {
+  margin-bottom: 5px;
+}
+
+.event-out-submit {
   float: right;
-  margin: 10px 0 0 0;
+  margin: 0 0 10px 0;
+  padding-top: 3px;
+}
+
+.event-out-pretty {
+  float: left;
+  margin: 0 0 10px 0;
+
+  label {
+    display: inline;
+    font-weight: normal;
+  }
+  .form-control {
+    display: inline;
+    width: auto;
+    margin: -2px 3px 0 0;
+  }
 }
 
 #events-results {

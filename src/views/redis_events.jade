@@ -14,8 +14,12 @@ append content
     #tab-all.col-sm-8
       .section-title
         | Input
-      .form-group
+      .form-group.event-out-content
         textarea#input-event-out-content.form-control.input-sm(rows='3', name='event', data-events-out-content="")
+      .form-group.event-out-pretty
+        input#input-event-out-pretty.form-control.input-sm(type='checkbox', data-events-out-pretty="")
+        label(for='input-event-out-pretty') pretty
+      .form-group.event-out-submit
         button#input-event-out-submit.btn.btn-xs.btn-primary(type='submit', data-events-out-submit="")
           | Send event
 

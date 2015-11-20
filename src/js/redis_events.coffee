@@ -3,8 +3,7 @@ $ ->
   redisEvents.bind()
 
   $(".events-template").on "click", (e) ->
-    content = $(this).text()
-    $("#input-event-out-content").val(content)
+    redisEvents.selectTemplate($(this).text())
 
 window.RedisEvents = class RedisEvents
 
@@ -29,6 +28,9 @@ window.RedisEvents = class RedisEvents
       url = @getServerUrlFromInput()
       @connect(url)
 
+    $("[data-events-out-pretty]").on "click", (e) =>
+      @selectTemplate($("[data-events-out-content]").val())
+
   getServerUrlFromInput: ->
     $("[data-events-server='url']").val()
 
@@ -36,7 +38,10 @@ window.RedisEvents = class RedisEvents
     console.log(e)
     @setConnected(true)
     data = JSON.parse(e.data)
-    pretty = JSON.stringify(data, null, 0)
+    if $("[data-events-out-pretty]").is(":checked")
+      pretty = JSON.stringify(data, null, 4)
+    else
+      pretty = JSON.stringify(data, null, 0)
 
     return if @excludeEvent(pretty)
 
@@ -99,3 +104,11 @@ window.RedisEvents = class RedisEvents
         console.log 'Sent the event successfully'
       error: (jqXHR, textStatus, err) ->
         console.log 'Error sending the event:', textStatus, ', err', err
+
+  selectTemplate: (text) ->
+    content = text
+    if $("[data-events-out-pretty]").is(":checked")
+      content = JSON.stringify(JSON.parse(content), null, 4)
+    else
+      content = JSON.stringify(JSON.parse(content), null, 0)
+    $("#input-event-out-content").val(content)
