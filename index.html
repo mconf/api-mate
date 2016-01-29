@@ -56,9 +56,14 @@
             </div>
             <div id="menu-panel-1">
               <div class="form-group">
-                <label for="input-id"><code>meetingID</code> and <code>recordID</code>
+                <label for="input-mid"><code>meetingID</code>
                 </label>
-                <input id="input-id" type="text" data-api-mate-param="meetingID,recordID" data-api-mate-search="recording" class="form-control input-sm">
+                <input id="input-mid" type="text" data-api-mate-param="meetingID" data-api-mate-search="meeting" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-rid"><code>recordID</code>
+                </label>
+                <input id="input-rid" type="text" data-api-mate-param="recordID" data-api-mate-search="recording" class="form-control input-sm">
               </div>
               <div class="form-group">
                 <label for="input-name"><code>name</code></label>
@@ -156,6 +161,11 @@
                 <label for="input-meta"><code>meta_*</code></label>
                 <div class="tip">attribute=value (one per line, without spaces)</div>
                 <textarea id="input-meta" rows="3" placeholder="myAttribute=1" data-api-mate-special-param="meta" class="form-control input-sm"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="input-state"><code>state</code></label>
+                <div class="tip"></div>
+                <input id="input-state" type="text" data-api-mate-param="state" data-api-mate-search="recording" class="form-control input-sm" placeholder="publish,unpublish" >
               </div>
               <div class="form-group">
                 <label>Pre-upload for<code>create</code>via<code>POST</code></label>
