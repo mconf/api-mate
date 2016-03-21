@@ -13,7 +13,8 @@
       var defaultOptions;
       defaultOptions = {
         container: 'body',
-        placement: 'top'
+        placement: 'top',
+        template: '<div class="tooltip results-tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
       };
       return $('.tooltipped').tooltip(defaultOptions);
     };
@@ -167,6 +168,7 @@
         urls: urls
       };
       html = Mustache.to_html(this.templates['results'], opts);
+      $('.results-tooltip').remove();
       $(placeholder).html(html);
       this.expandLinks($("[data-api-mate-expand]").hasClass("active"));
       $('.api-mate-results', this.placeholders['results']).addClass("updated");
