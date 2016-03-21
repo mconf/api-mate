@@ -5,7 +5,7 @@
   },
   "devDependencies": {
     "jade": "0.33.0",
-    "node-sass": "0.5.4",
+    "node-sass": "3.4.2",
     "coffee-script": "1.6.3",
     "chokidar": "0.8.1"
   },

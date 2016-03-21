@@ -1,6 +1,5 @@
 chokidar = require('chokidar')
 fs = require('fs')
-{print} = require('sys')
 {spawn} = require('child_process')
 jade = require('jade')
 sass = require('node-sass')
@@ -18,8 +17,8 @@ run = (bin, options, onExit) ->
   bin = binPath + bin
   console.log timeNow() + ' - running: ' + bin + ' ' + (if options? then options.join(' ') else '')
   cmd = spawn bin, options
-  cmd.stdout.on 'data', (data) -> #print data.toString()
-  cmd.stderr.on 'data', (data) -> print data.toString()
+  cmd.stdout.on 'data', (data) -> #console.log data.toString()
+  cmd.stderr.on 'data', (data) -> console.log data.toString()
   cmd.on 'exit', (code) ->
     console.log timeNow() + ' - done.'
     onExit?(code, options)
