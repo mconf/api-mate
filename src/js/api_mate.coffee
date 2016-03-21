@@ -139,6 +139,7 @@ window.ApiMate = class ApiMate
       title: new Date().toTimeString()
       urls: urls
     html = Mustache.to_html(@templates['results'], opts)
+    $('.results-tooltip').remove()
     $(placeholder).html(html)
     @expandLinks($("[data-api-mate-expand]").hasClass("active"))
 
