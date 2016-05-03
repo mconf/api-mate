@@ -28,11 +28,9 @@
   //- common fields
   #menu-panel-1
     .form-group
-      label(for='input-id')
+      label(for='input-mid')
         code meetingID
-        = ' and '
-        code recordID
-      input#input-id.form-control.input-sm(type='text', data-api-mate-param='meetingID,recordID', data-api-mate-search='recording')
+      input#input-mid.form-control.input-sm(type='text', data-api-mate-param='meetingID', data-api-mate-search='recording')
     .form-group
       label(for='input-name')
         code name
@@ -132,6 +130,11 @@
         code meta_*
       .tip attribute=value (one per line, without spaces)
       textarea#input-meta.form-control.input-sm(rows='3', placeholder='myAttribute=1', data-api-mate-special-param='meta')
+    .form-group
+      label(for='input-state')
+        code state
+      .tip attribute=value (add the list of states to lookup "processing,processed,published,unpublished,deleted" or the key "any")
+      input#input-state.form-control.input-sm(type='text', data-api-mate-param='state', placeholder='publish,unpublish', data-api-mate-search='record')
 
     .form-group
       label
