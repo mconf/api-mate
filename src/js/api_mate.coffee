@@ -308,7 +308,7 @@ window.ApiMate = class ApiMate
       if isFilled("textarea[data-api-mate-param='configXML']")
         api = @getApi()
         query  = "configXML=#{api.encodeForUrl($("#input-config-xml").val())}"
-        query += "&meetingID=#{api.encodeForUrl($("#input-id").val())}"
+        query += "&meetingID=#{api.encodeForUrl($("#input-mid").val())}"
         checksum = api.checksum('setConfigXML', query)
         query += "&checksum=" + checksum
         query
