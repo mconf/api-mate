@@ -67,8 +67,10 @@ a {
 
 @media (max-width: 767px) {
   #footer .thanks {
-    text-align: center; }  #footer .experimental {
+    text-align: center; }
+  #footer .experimental {
     text-align: center; } }
+
 #options {
   margin-bottom: 15px; }
   #options #options-buttons {
@@ -87,6 +89,7 @@ a {
 #menu #menu-server {
   clear: both;
   margin-bottom: 10px; }
+
 #menu #menu-inputs {
   clear: both; }
   #menu #menu-inputs .form-group {
@@ -105,17 +108,20 @@ a {
     resize: vertical; }
   #menu #menu-inputs #pre-upload-text {
     display: none; }
+
 #menu .experimental {
   color: darkorange;
   cursor: pointer; }
+
 #menu label {
   font-weight: normal; }
 
-
 #tab-config-xml dl.dl-horizontal dt {
   width: 20px; }
+
 #tab-config-xml dl.dl-horizontal dd {
   margin-left: 25px; }
+
 #tab-config-xml .step {
   margin-bottom: 20px; }
   #tab-config-xml .step .step-headline {
@@ -126,6 +132,7 @@ a {
     #tab-config-xml .step .step-headline ul.step-options {
       padding-left: 20px;
       margin-top: 5px; }
+
 #tab-config-xml #config-xml, #tab-config-xml #config-xml-2 {
   height: 150px; }
 
@@ -227,18 +234,25 @@ a {
 #menu-server .connected-label {
   float: right;
   color: green; }
+
 #menu-server .disconnected-label {
   float: right;
   color: red; }
+
 #menu-server.disconnected .section-title {
   border-color: red; }
+
 #menu-server.disconnected .connected-label {
   display: none; }
+
 #menu-server.disconnected .disconnected-label {
   display: block; }
+
 #menu-server.connected .section-title {
   border-color: green; }
+
 #menu-server.connected .connected-label {
   display: block; }
+
 #menu-server.connected .disconnected-label {
   display: none; }

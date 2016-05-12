@@ -120,6 +120,7 @@
       name = "random-" + Math.floor(Math.random() * 10000000).toString();
       $("[data-api-mate-param*='name']").val(name);
       $("[data-api-mate-param*='meetingID']").val(name);
+      $("[data-api-mate-param*='recordID']").val(name);
       user = "User " + Math.floor(Math.random() * 10000000).toString();
       $("[data-api-mate-param*='fullName']").val(user);
       query = getHashParams();
@@ -362,7 +363,7 @@
         if (isFilled("textarea[data-api-mate-param='configXML']")) {
           api = this.getApi();
           query = "configXML=" + (api.encodeForUrl($("#input-config-xml").val()));
-          query += "&meetingID=" + (api.encodeForUrl($("#input-id").val()));
+          query += "&meetingID=" + (api.encodeForUrl($("#input-mid").val()));
           checksum = api.checksum('setConfigXML', query);
           query += "&checksum=" + checksum;
           return query;

@@ -56,9 +56,12 @@
             </div>
             <div id="menu-panel-1">
               <div class="form-group">
-                <label for="input-id"><code>meetingID</code> and <code>recordID</code>
-                </label>
-                <input id="input-id" type="text" data-api-mate-param="meetingID,recordID" data-api-mate-search="recording" class="form-control input-sm">
+                <label for="input-mid"><code>meetingID</code></label>
+                <input id="input-mid" type="text" data-api-mate-param="meetingID" data-api-mate-search="meeting,meetingID" class="form-control input-sm">
+              </div>
+              <div class="form-group">
+                <label for="input-rid"><code>recordID</code></label>
+                <input id="input-rid" type="text" data-api-mate-param="recordID" data-api-mate-search="recording,recordID" class="form-control input-sm">
               </div>
               <div class="form-group">
                 <label for="input-name"><code>name</code></label>
@@ -155,7 +158,12 @@
               <div class="form-group">
                 <label for="input-meta"><code>meta_*</code></label>
                 <div class="tip">attribute=value (one per line, without spaces)</div>
-                <textarea id="input-meta" rows="3" placeholder="myAttribute=1" data-api-mate-special-param="meta" class="form-control input-sm"></textarea>
+                <textarea id="input-meta" rows="3" placeholder="myAttribute=1" data-api-mate-param="meta" data-api-mate-special-param="meta" class="form-control input-sm"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="input-state"><code>state</code></label>
+                <div class="tip">comma separated list of values</div>
+                <input id="input-state" type="text" data-api-mate-param="state" placeholder="published,unpublished,deleted,processing,processed,any" data-api-mate-search="record" class="form-control input-sm">
               </div>
               <div class="form-group">
                 <label>Pre-upload for<code>create</code>via<code>POST</code></label>
