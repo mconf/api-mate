@@ -28,11 +28,13 @@
   //- common fields
   #menu-panel-1
     .form-group
-      label(for='input-id')
+      label(for='input-mid')
         code meetingID
-        = ' and '
+      input#input-mid.form-control.input-sm(type='text', data-api-mate-param='meetingID', data-api-mate-search='meeting,meetingID')
+    .form-group
+      label(for='input-rid')
         code recordID
-      input#input-id.form-control.input-sm(type='text', data-api-mate-param='meetingID,recordID', data-api-mate-search='recording')
+      input#input-rid.form-control.input-sm(type='text', data-api-mate-param='recordID', data-api-mate-search='recording,recordID')
     .form-group
       label(for='input-name')
         code name
@@ -131,7 +133,12 @@
       label(for='input-meta')
         code meta_*
       .tip attribute=value (one per line, without spaces)
-      textarea#input-meta.form-control.input-sm(rows='3', placeholder='myAttribute=1', data-api-mate-special-param='meta')
+      textarea#input-meta.form-control.input-sm(rows='3', placeholder='myAttribute=1', data-api-mate-param='meta', data-api-mate-special-param='meta')
+    .form-group
+      label(for='input-state')
+        code state
+      .tip comma separated list of values
+      input#input-state.form-control.input-sm(type='text', data-api-mate-param='state', placeholder='published,unpublished,deleted,processing,processed,any', data-api-mate-search='record')
 
     .form-group
       label
