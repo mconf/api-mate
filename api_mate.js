@@ -70,6 +70,7 @@
         _base3['preUpload'] = preUploadUrl;
       }
       this.debug = false;
+      this.urlsLast = null;
     }
 
     ApiMate.prototype.start = function() {
@@ -148,8 +149,13 @@
     };
 
     ApiMate.prototype.addUrlsToPage = function(urls) {
-      var desc, html, item, opts, placeholder, _i, _len,
+      var desc, html, isEqual, item, opts, placeholder, _i, _len,
         _this = this;
+      isEqual = (urls != null) && (this.urlsLast != null) && (JSON.stringify(urls) === JSON.stringify(this.urlsLast));
+      if (isEqual) {
+        return;
+      }
+      this.urlsLast = _.map(urls, _.clone);
       placeholder = $(this.placeholders['results']);
       for (_i = 0, _len = urls.length; _i < _len; _i++) {
         item = urls[_i];
