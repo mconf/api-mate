@@ -44,6 +44,7 @@ window.ApiMate = class ApiMate
     @templates['postError'] ?= postErrorTemplate
     @templates['preUpload'] ?= preUploadUrl
     @debug = false
+    @urlsLast = null
 
   start: ->
     # set random values in some inputs
@@ -125,6 +126,11 @@ window.ApiMate = class ApiMate
   # Add a div with all links and a close button to the global
   # results container
   addUrlsToPage: (urls) ->
+    # don't do it again unless something changed
+    isEqual = urls? and @urlsLast? and (JSON.stringify(urls) == JSON.stringify(@urlsLast))
+    return if isEqual
+    @urlsLast = _.map(urls, _.clone)
+
     placeholder = $(@placeholders['results'])
     for item in urls
       desc = item.description
