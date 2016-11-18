@@ -16,7 +16,7 @@
     }
 
     BigBlueButtonApi.prototype.availableApiCalls = function() {
-      return ['/', 'create', 'join', 'isMeetingRunning', 'getMeetingInfo', 'end', 'getMeetings', 'getDefaultConfigXML', 'setConfigXML', 'enter', 'configXML', 'signOut', 'getRecordings', 'publishRecordings', 'deleteRecordings'];
+      return ['/', 'create', 'join', 'isMeetingRunning', 'getMeetingInfo', 'end', 'getMeetings', 'getDefaultConfigXML', 'setConfigXML', 'enter', 'configXML', 'signOut', 'getRecordings', 'publishRecordings', 'deleteRecordings', 'updateRecordings'];
     };
 
     BigBlueButtonApi.prototype.urlParamsFor = function(param) {
@@ -32,11 +32,13 @@
         case "getMeetingInfo":
           return [["meetingID", true], ["password", true]];
         case "getRecordings":
-          return [["meetingID", true], ["recordID", true], ["state", true], [/meta_\w+/, false]];
+          return [["meetingID", false], ["recordID", false], ["state", false], [/meta_\w+/, false]];
         case "publishRecordings":
           return [["recordID", true], ["publish", true]];
         case "deleteRecordings":
           return [["recordID", true]];
+        case "updateRecordings":
+          return [["recordID", true], [/meta_\w+/, false]];
       }
     };
 
