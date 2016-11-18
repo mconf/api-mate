@@ -16,7 +16,7 @@
         placement: 'top',
         template: '<div class="tooltip results-tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
       };
-      return $('.tooltipped').tooltip(defaultOptions);
+      //return $('.tooltipped').tooltip(defaultOptions);
     };
 
     return Application;

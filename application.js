@@ -22,7 +22,7 @@
       container: 'body',
       placement: 'top'
     };
-    return $('.tooltipped').tooltip(defaultOptions);
+    //return $('.tooltipped').tooltip(defaultOptions);
   };
 
 }).call(this);
