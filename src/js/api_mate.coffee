@@ -103,25 +103,7 @@ window.ApiMate = class ApiMate
     user = "User " + Math.floor(Math.random() * 10000000).toString()
     $("[data-api-mate-param*='fullName']").val(user)
 
-    # set values based on parameters in the URL
-    # gives priority to params in the hash (e.g. 'api_mate.html#sharedSecret=123')
-    query = getHashParams()
-    # but also accept params in the search string for backwards compatibility (e.g. 'api_mate.html?sharedSecret=123')
-    query2 = parseQueryString(window.location.search.substring(1))
-    query = _.extend(query2, query)
-    if query.server?
-      $("[data-api-mate-server='url']").val(query.server)
-      delete query.server
-    # accept both 'salt' and 'sharedSecret', giving priority to 'sharedSecret'
-    if query.salt?
-      $("[data-api-mate-server='salt']").val(query.salt)
-      delete query.salt
-    if query.sharedSecret?
-      $("[data-api-mate-server='salt']").val(query.sharedSecret)
-      delete query.sharedSecret
-    for prop, value of query
-      $("[data-api-mate-param*='#{prop}']").val(value)
-      $("[data-api-mate-special-param*='#{prop}']").val(value)
+    @setMenuValuesFromURL()
 
   # Add a div with all links and a close button to the global
   # results container
@@ -353,14 +335,37 @@ window.ApiMate = class ApiMate
       $('[data-api-mate-param]').each(search)
       $('[data-api-mate-special-param]').each(search)
 
+  setMenuValuesFromURL: ->
+    # set values based on parameters in the URL
+    # gives priority to params in the hash (e.g. 'api_mate.html#sharedSecret=123')
+    query = getHashParams()
+    # but also accept params in the search string for backwards compatibility (e.g. 'api_mate.html?sharedSecret=123')
+    query2 = parseQueryString(window.location.search.substring(1))
+    query = _.extend(query2, query)
+    if query.server?
+      $("[data-api-mate-server='url']").val(query.server)
+      delete query.server
+    # accept several options for the secret
+    if query.salt?
+      $("[data-api-mate-server='salt']").val(query.salt)
+      delete query.salt
+    if query.sharedSecret?
+      $("[data-api-mate-server='salt']").val(query.sharedSecret)
+      delete query.sharedSecret
+    if query.secret?
+      $("[data-api-mate-server='salt']").val(query.secret)
+      delete query.secret
+    # all other properties
+    for prop, value of query
+      setInputValue($("[data-api-mate-param='#{prop}']"), value)
+      setInputValue($("[data-api-mate-special-param='#{prop}']"), value)
+
+
 # Returns the value set in an input, if any. For checkboxes, returns the value
 # as a boolean. For any other input, return as a string.
 # `selector` can be a string with a selector or a jQuery object.
 inputValue = (selector) ->
-  if _.isString(selector)
-    $elem = $(selector)
-  else
-    $elem = selector
+  $elem = $(selector)
 
   type = $elem.attr('type') or $elem.prop('tagName')?.toLowerCase()
   switch type
@@ -372,6 +377,20 @@ inputValue = (selector) ->
         value
       else
         null
+
+# Sets `value` as the value of the input. For checkboxes checks the input if the value
+# is anything other than [null, undefined, 0].
+# `selector` can be a string with a selector or a jQuery object.
+setInputValue = (selector, value) ->
+  $elem = $(selector)
+
+  type = $elem.attr('type') or $elem.prop('tagName')?.toLowerCase()
+  switch type
+    when 'checkbox'
+      val = value? && value != '0' && value != 0
+      $elem.prop('checked', val)
+    else
+      $elem.val(value)
 
 # Check if an input text field has a valid value (not empty).
 isFilled = (field) ->
