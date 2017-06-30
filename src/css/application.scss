@@ -3,6 +3,11 @@ $link-color: #008db6;
 
 body {
   overflow-x: hidden;
+  transition: all .2s;
+
+  * {
+    transition: background .8s;
+  }
 }
 
 a {
@@ -12,52 +17,61 @@ a {
 #page-header-wrapper {
   border: 0;
   border-radius: 0;
+  /* background: #24292e; */
   background: #314b5d;
+  border-bottom: 1px solid #314b5d;
   color: #eee;
-  margin-bottom: 0;
-}
-
-#page-header-bottom {
-  background: #eee;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  padding: 4px 16px;
   margin-bottom: 20px;
-
-  .docs {
-    font-size: $font-size;
-    * {
-      margin-right: 10px;
-    }
-  }
+  transition: all .8s;
 }
 
 #page-header {
-  padding: 10px;
+  padding: 16px;
   margin: 0;
 
-  h2 {
-    float: left;
-    font-weight: bold;
-  }
-
   .logo {
-    float: left;
-
     h2 {
+      font-size: 36px;
       margin: 0;
-      margin-right: 10px;
-      float: left;
+      font-weight: bold;
+      display: block;
+      /* text-shadow: 2px 2px #111; */
     }
 
     .description {
-      float: left;;
       white-space: nowrap;
+      display: block;
       color: #ddd;
-      margin: 10px 0 0 10px;
+      margin-top: 10px;
     }
   }
+}
 
+#page-header-docs {
+  font-size: $font-size;
+  margin: 8px 0 0 0;
+  color: #bbb;
+
+  a {
+    margin: 0 0 0 8px;
+    color: #eee;
+    text-decoration: underline;
+
+    &:hover {
+      color: $link-color;
+    }
+  }
+}
+
+#theme {
+    text-align: right;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+
+    .theme-option {
+        display: inline-block;
+    }
 }
 
 #nav {
@@ -84,8 +98,8 @@ a {
 
 #footer {
   border-top: 1px dashed #ccc;
-  padding: 10px 16px;
-  margin: 0 20px 10px 20px;
+  padding: 10px 0;
+  margin: 0 10px 10px 10px;
 
   .thanks {
     .glyphicon {
@@ -108,20 +122,9 @@ a {
 #options {
   margin-bottom: 15px;
 
-  #options-buttons {
-    float: left;
-  }
+  button {
+    margin-bottom: 3px;
 
-  #options-view-type {
-    float: right;
-    white-space: nowrap;
-
-    input {
-      margin: -2px 5px 0 0;
-    }
-  }
-
-  #options-view-type button {
     .glyphicon {
       margin-right: 5px;
       display: none;
@@ -131,6 +134,7 @@ a {
 }
 
 #menu {
+  transition: all .8s;
 
   #menu-server {
     clear: both;
@@ -139,19 +143,24 @@ a {
 
   #menu-inputs {
     clear: both;
+    margin-top: 32px;
 
     .form-group {
       display: block;
       clear: both;
 
       .tip {
-        float: right;
         font-size: $font-size;
         color: #888;
         margin-top: 3px;
         font-style: italic;
+
+        &::before {
+          content: '↘';
+          margin-right: 5px;
+        }
       }
-    }
+    };
 
     input[type=checkbox] {
       margin: 0 0 0 5px;
@@ -174,6 +183,8 @@ a {
 
   label {
     font-weight: normal;
+    font-size: 0.9em;
+    margin-bottom: 2px;
   }
 
 }
@@ -246,3 +257,41 @@ a {
 /* @media(min-width:768px){} */
 /* @media(min-width:992px){} */
 /* @media(min-width:1200px){} */
+
+.form-control:focus {
+  border-color: #54a0c6;
+}
+
+body.dark-theme {
+  background: #111;
+  color: #ddd;
+  transition: all .8s;
+
+  /* github gray: 24292e */
+
+  #page-header-wrapper {
+    background: #000;
+    border-bottom: 1px solid #222;
+    transition: all .8s;
+  }
+
+  #menu {
+    transition: all .8s;
+
+    input, textarea {
+      background: #000;
+      color: #ccc;
+      border-color: #000;
+
+      &:focus,
+      &:active {
+        box-shadow: none;
+        border-color: #7b2d29; //#54a0c6;
+      }
+    }
+
+    .input-clean-title {
+      background-color: transparent;
+    }
+  }
+}

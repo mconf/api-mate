@@ -15,15 +15,13 @@ $font-size: 14px;
 
   .api-mate-link {
     padding: 2px;
-    //border-left: 7px solid #3A87AD;
     white-space: nowrap;
     line-height: 18px;
     font-size: $font-size - 1px;
     word-break: normal;
 
     .label {
-      float: left;
-      font-size: $font-size - 4px;
+      font-size: $font-size - 2px;
       margin: 2px 5px 0 0;
 
       &.disabled {
@@ -57,7 +55,6 @@ $font-size: 14px;
       background: lighten(#3A87AD, 10);
     }
     i { color: #3A87AD; }
-    .icon-url-standard { display: inline-block; }
   }
   .api-mate-url-recordings {
     border-color: #468847;
@@ -65,7 +62,6 @@ $font-size: 14px;
       background: lighten(#468847, 10);
     }
     i { color: #468847; }
-    .icon-url-recordings { display: inline-block; }
   }
   .api-mate-url-from-mobile {
     border-color: #f89406;
@@ -73,7 +69,6 @@ $font-size: 14px;
       background: lighten(#f89406, 10);
     }
     i { color: #f89406; }
-    .icon-url-from-mobile { display: inline-block; }
   }
   .api-mate-url-custom-call {
     border-color: #B94A48;
@@ -81,7 +76,6 @@ $font-size: 14px;
       background: lighten(#B94A48, 10);
     }
     i { color: #B94A48; }
-    .icon-url-custom-call { display: inline-block; }
   }
 
   .api-mate-method-name {

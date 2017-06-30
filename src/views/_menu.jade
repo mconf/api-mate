@@ -1,24 +1,26 @@
 #options.clearfix
-  #options-buttons
-    button#clear-all.btn.btn-xs.btn-danger(type='submit', data-api-mate-clear='1')
-      | Clear inputs
-  #options-view-type
-    div.btn-group(data-toggle="buttons-checkbox")
-      button.btn.btn-default.btn-xs.tooltipped#view-type-input(type="button", data-api-mate-expand='1', title='Show the entire link generated instead of breaking to a single line')
-        i.glyphicon.glyphicon-check
-        | Show full links
-    div.btn-group(data-toggle="buttons-checkbox")
-      button.btn.btn-default.btn-xs.tooltipped(type="button", data-api-mate-debug='1', title="Print debug messages to your browser's console")
-        i.glyphicon.glyphicon-check
-        | Debug messages
+  button#clear-all.btn.btn-xs.btn-danger(type='submit', data-api-mate-clear='1')
+    | Clear inputs
+  div.btn-group(data-toggle="buttons-checkbox")
+    button.btn.btn-default.btn-xs.tooltipped#view-type-input(type="button", data-api-mate-expand='1', title='Show the entire link generated instead of breaking to a single line')
+      i.glyphicon.glyphicon-check
+      | Show full links
+  div.btn-group(data-toggle="buttons-checkbox")
+    button.btn.btn-default.btn-xs.tooltipped(type="button", data-api-mate-debug='1', title="Print debug messages to your browser's console")
+      i.glyphicon.glyphicon-check
+      | Debug messages
 
 #menu-server
   .section-title Server URL and shared secret
-  #menu-server-panel-1
+  #menu-server-panel-1.form-horizontal
     .form-group
-      input#input-custom-server-url.form-control.input-sm.input-sm(type='text', value='http://test-install.blindsidenetworks.com/bigbluebutton/api', placeholder='Url (e.g http://192.168.0.100:8080/bigbluebutton/api)', data-api-mate-server='url')
+      label.control-label.col-sm-3(for='input-custom-server-url') Server
+      .col-sm-9
+        input#input-custom-server-url.form-control.input-sm.input-sm(type='text', value='http://test-install.blindsidenetworks.com/bigbluebutton/api', placeholder='Url (e.g http://192.168.0.100:8080/bigbluebutton/api)', data-api-mate-server='url')
     .form-group
-      input#input-custom-server-salt.form-control.input-sm(type='text', value='8cd8ef52e8e101574e400365b55e11a6', placeholder='Salt', data-api-mate-server='salt')
+      label.control-label.col-sm-3(for='input-custom-server-salt') Shared secret
+      .col-sm-9
+        input#input-custom-server-salt.form-control.input-sm(type='text', value='8cd8ef52e8e101574e400365b55e11a6', placeholder='Salt', data-api-mate-server='salt')
 
 #menu-inputs
 
@@ -26,144 +28,142 @@
     input#input-filter.form-control.input-sm.input-sm.input-clean-title(type='text', value='', placeholder='Type here to filter parameters (e.g. "token")', autofocus='autofocus', data-api-mate-search-input='1')
 
   //- common fields
-  #menu-panel-1
+  #menu-panel-1.form-horizontal
     .form-group
-      label(for='input-mid')
-        code meetingID
-      input#input-mid.form-control.input-sm(type='text', data-api-mate-param='meetingID', data-api-mate-search='meeting,meetingID')
+      label.control-label.col-sm-3(for='input-mid') meetingID
+      .col-sm-9
+        input#input-mid.form-control.input-sm(type='text', data-api-mate-param='meetingID', data-api-mate-search='meeting,meetingID')
     .form-group
-      label(for='input-rid')
-        code recordID
-      input#input-rid.form-control.input-sm(type='text', data-api-mate-param='recordID', data-api-mate-search='recording,recordID')
+      label.control-label.col-sm-3(for='input-rid') recordID
+      .col-sm-9
+        input#input-rid.form-control.input-sm(type='text', data-api-mate-param='recordID', data-api-mate-search='recording,recordID')
     .form-group
-      label(for='input-name')
-        code name
-      input#input-name.form-control.input-sm(type='text', data-api-mate-param='name')
+      label.control-label.col-sm-3(for='input-name') name
+      .col-sm-9
+        input#input-name.form-control.input-sm(type='text', data-api-mate-param='name')
     .form-group
-      label(for='input-attendee-password')
-        code attendeePW
-      input#input-attendee-password.form-control.input-sm(type='text', value='ap', data-api-mate-param='attendeePW', data-api-mate-search='password,key,participant')
+      label.control-label.col-sm-3(for='input-attendee-password') attendeePW
+      .col-sm-9
+        input#input-attendee-password.form-control.input-sm(type='text', value='ap', data-api-mate-param='attendeePW', data-api-mate-search='password,key,participant')
     .form-group
-      label(for='input-moderator-password')
-        code moderatorPW
-      input#input-moderator-password.form-control.input-sm(type='text', value='mp', data-api-mate-param='moderatorPW', data-api-mate-search='password,key')
+      label.control-label.col-sm-3(for='input-moderator-password') moderatorPW
+      .col-sm-9
+        input#input-moderator-password.form-control.input-sm(type='text', value='mp', data-api-mate-param='moderatorPW', data-api-mate-search='password,key')
     .form-group
-      label(for='input-fullname')
-        code fullName
-      input#input-fullname.form-control.input-sm(type='text', data-api-mate-param='fullName')
+      label.control-label.col-sm-3(for='input-fullname') fullName
+      .col-sm-9
+        input#input-fullname.form-control.input-sm(type='text', data-api-mate-param='fullName')
     .form-group
-      label(for='input-welcome')
-        code welcome
-      textarea#input-welcome.form-control.input-sm(rows='3', data-api-mate-param='welcome', data-api-mate-search='message,msg')
-        | <br>Welcome to <b>%%CONFNAME%%</b>!
+      label.control-label.col-sm-3(for='input-welcome') welcome
+      .col-sm-9
+        textarea#input-welcome.form-control.input-sm(rows='3', data-api-mate-param='welcome', data-api-mate-search='message,msg')
+          | <br>Welcome to <b>%%CONFNAME%%</b>!
     .form-group
-      label(for='input-voice-bridge')
-        code voiceBridge
-      input#input-voice-bridge.form-control.input-sm(type='text', data-api-mate-param='voiceBridge')
+      label.control-label.col-sm-3(for='input-voice-bridge') voiceBridge
+      .col-sm-9
+        input#input-voice-bridge.form-control.input-sm(type='text', data-api-mate-param='voiceBridge')
     .form-group
-      label(for='input-record')
-        code record
-      input#input-record.form-control.input-sm(type='checkbox', data-api-mate-param='record', data-api-mate-search='recording')
+      label.control-label.col-sm-3(for='input-record') record
+      .col-sm-9
+        input#input-record.form-control.input-sm(type='checkbox', data-api-mate-param='record', data-api-mate-search='recording')
     .form-group
-      label(for='input-auto-start-recording')
-        code autoStartRecording
-      input#input-auto-start-recording.form-control.input-sm(type='checkbox', data-api-mate-param='autoStartRecording', data-api-mate-search='recording')
+      label.control-label.col-sm-3(for='input-auto-start-recording') autoStartRecording
+      .col-sm-9
+        input#input-auto-start-recording.form-control.input-sm(type='checkbox', data-api-mate-param='autoStartRecording', data-api-mate-search='recording')
     .form-group
-      label(for='input-allow-start-stop-recording')
-        code allowStartStopRecording
-      input#input-allow-start-stop-recording.form-control.input-sm(type='checkbox', data-api-mate-param='allowStartStopRecording', data-api-mate-search='recording', checked)
+      label.control-label.col-sm-3(for='input-allow-start-stop-recording') allowStartStopRecording
+      .col-sm-9
+        input#input-allow-start-stop-recording.form-control.input-sm(type='checkbox', data-api-mate-param='allowStartStopRecording', data-api-mate-search='recording', checked)
 
     .form-group
-      label(for='input-dial-number')
-        code dialNumber
-      input#input-dial-number.form-control.input-sm(type='text', data-api-mate-param='dialNumber', data-api-mate-search='voice')
+      label.control-label.col-sm-3(for='input-dial-number') dialNumber
+      .col-sm-9
+        input#input-dial-number.form-control.input-sm(type='text', data-api-mate-param='dialNumber', data-api-mate-search='voice')
     .form-group
-      label(for='input-web-voice')
-        code webVoice
-      input#input-web-voice.form-control.input-sm(type='text', data-api-mate-param='webVoice')
+      label.control-label.col-sm-3(for='input-web-voice') webVoice
+      .col-sm-9
+        input#input-web-voice.form-control.input-sm(type='text', data-api-mate-param='webVoice')
     .form-group
-      label(for='input-logout-url')
-        code logoutURL
-      input#input-logout-url.form-control.input-sm(type='text', data-api-mate-param='logoutURL')
+      label.control-label.col-sm-3(for='input-logout-url') logoutURL
+      .col-sm-9
+        input#input-logout-url.form-control.input-sm(type='text', data-api-mate-param='logoutURL')
     .form-group
-      label(for='input-max-participants')
-        code maxParticipants
-      input#input-max-participants.form-control.input-sm(type='text', data-api-mate-param='maxParticipants')
+      label.control-label.col-sm-3(for='input-max-participants') maxParticipants
+      .col-sm-9
+        input#input-max-participants.form-control.input-sm(type='text', data-api-mate-param='maxParticipants')
     .form-group
-      label(for='input-duration')
-        code duration
-      input#input-duration.form-control.input-sm(type='text', data-api-mate-param='duration')
+      label.control-label.col-sm-3(for='input-duration') duration
+      .col-sm-9
+        input#input-duration.form-control.input-sm(type='text', data-api-mate-param='duration')
     .form-group
-      label(for='input-user-id')
-        code userID
-      input#input-user-id.form-control.input-sm(type='text', data-api-mate-param='userID')
+      label.control-label.col-sm-3(for='input-user-id') userID
+      .col-sm-9
+        input#input-user-id.form-control.input-sm(type='text', data-api-mate-param='userID')
     .form-group
-      label(for='input-create-time')
-        code createTime
-      input#input-create-time.form-control.input-sm(type='text', data-api-mate-param='createTime')
+      label.control-label.col-sm-3(for='input-create-time') createTime
+      .col-sm-9
+        input#input-create-time.form-control.input-sm(type='text', data-api-mate-param='createTime')
     .form-group
-      label(for='input-web-voice-conf')
-        code webVoiceConf
-      input#input-web-voice-conf.form-control.input-sm(type='text', data-api-mate-param='webVoiceConf')
+      label.control-label.col-sm-3(for='input-web-voice-conf') webVoiceConf
+      .col-sm-9
+        input#input-web-voice-conf.form-control.input-sm(type='text', data-api-mate-param='webVoiceConf')
     .form-group
-      label(for='input-publish')
-        code publish
-      input#input-publish.form-control.input-sm(type='checkbox', data-api-mate-param='publish', data-api-mate-search='recording')
+      label.control-label.col-sm-3(for='input-publish') publish
+      .col-sm-9
+        input#input-publish.form-control.input-sm(type='checkbox', data-api-mate-param='publish', data-api-mate-search='recording')
     .form-group
-      label(for='input-redirect')
-        code redirect
-      input#input-redirect.form-control.input-sm(type='checkbox', data-api-mate-param='redirect', checked)
+      label.control-label.col-sm-3(for='input-redirect') redirect
+      .col-sm-9
+        input#input-redirect.form-control.input-sm(type='checkbox', data-api-mate-param='redirect', checked)
     .form-group
-      label(for='input-client-url')
-        code clientURL
-      input#input-client-url.form-control.input-sm(type='text', data-api-mate-param='clientURL')
+      label.control-label.col-sm-3(for='input-client-url') clientURL
+      .col-sm-9
+        input#input-client-url.form-control.input-sm(type='text', data-api-mate-param='clientURL')
     .form-group
-      label(for='input-config-token')
-        code configToken
-      input#input-config-token.form-control.input-sm(type='text', data-api-mate-param='configToken')
+      label.control-label.col-sm-3(for='input-config-token') configToken
+      .col-sm-9
+        input#input-config-token.form-control.input-sm(type='text', data-api-mate-param='configToken')
     .form-group
-      label(for='input-avatar-url')
-        code avatarURL
-      input#input-avatar-url.form-control.input-sm(type='text', data-api-mate-param='avatarURL')
+      label.control-label.col-sm-3(for='input-avatar-url') avatarURL
+      .col-sm-9
+        input#input-avatar-url.form-control.input-sm(type='text', data-api-mate-param='avatarURL')
     .form-group
-      label(for='input-moderator-only-message')
-        code moderatorOnlyMessage
-      textarea#input-moderator-only-message.form-control.input-sm(rows='3', data-api-mate-param='moderatorOnlyMessage', data-api-mate-search='message,msg')
-    .form-group
-      label(for='input-meta')
-        code meta_*
-      .tip attribute=value (one per line, without spaces)
-      textarea#input-meta.form-control.input-sm(rows='3', placeholder='myAttribute=1', data-api-mate-param='meta', data-api-mate-special-param='meta')
-    .form-group
-      label(for='input-state')
-        code state
-      .tip comma separated list of values
-      input#input-state.form-control.input-sm(type='text', data-api-mate-param='state', placeholder='published,unpublished,deleted,processing,processed,any', data-api-mate-search='record')
+      label.control-label.col-sm-3(for='input-moderator-only-message') moderatorOnlyMessage
+      .col-sm-9
+        textarea#input-moderator-only-message.form-control.input-sm(rows='3', data-api-mate-param='moderatorOnlyMessage', data-api-mate-search='message,msg')
 
     .form-group
-      label
-        | Pre-upload for
-        code create
-        | via
-        code POST
-      .tip Accepts multiple URLs, one per line
-      textarea.form-control.input-sm#input-pre-upload-url(rows='3', placeholder='http://my-server/sample.pdf', data-api-mate-param='pre-upload', data-api-mate-search='preupload,slides')
+      label.control-label.col-sm-3(for='input-meta') meta_*
+      .col-sm-9
+        textarea#input-meta.form-control.input-sm(rows='3', placeholder='myAttribute=value\nanother_attribute=123', data-api-mate-param='meta', data-api-mate-special-param='meta')
+        .tip one attribute per line
     .form-group
-      label
-        | XML for
-        code setConfigXML
-        | via
-        code POST
-      textarea.form-control.input-sm#input-config-xml(rows='3', placeholder='All the content of your config.xml', data-api-mate-param='configXML')
+      label.control-label.col-sm-3(for='input-state') state
+      .col-sm-9
+        input#input-state.form-control.input-sm(type='text', data-api-mate-param='state', placeholder='published,unpublished,deleted,processing,processed,any', data-api-mate-search='record')
+        .tip comma separated list of values
 
-  #menu-panel-4
     .form-group
-      label(for='input-custom')
-        | Custom parameters:
-      .tip attribute=value (one per line, without spaces)
-      textarea#input-custom.form-control.input-sm(rows='3', placeholder='myCustomAttribute=Testing', data-api-mate-special-param='custom-params', data-api-mate-search='custom,api,params')
+      label.control-label.col-sm-3
+        | Pre-upload for create
+      .col-sm-9
+        textarea.form-control.input-sm#input-pre-upload-url(rows='3', placeholder='http://my-server/sample.pdf\nhttps://other-server/other.pdf', data-api-mate-param='pre-upload', data-api-mate-search='preupload,slides')
+        .tip one or more URLs, one per line, only works via POST
     .form-group
-      .tip One call name per line
-      label(for='input-custom')
-        | Custom API calls:
-      textarea#input-custom-calls.form-control.input-sm(rows='3', placeholder='customApiCall', data-api-mate-special-param='custom-calls', data-api-mate-search='custom,api,calls')
+      label.control-label.col-sm-3
+        | XML for setConfigXML
+      .col-sm-9
+        textarea.form-control.input-sm#input-config-xml(rows='3', placeholder='All the content of your config.xml', data-api-mate-param='configXML')
+        .tip only works via POST
+
+  #menu-panel-4.form-horizontal
+    .form-group
+      label.control-label.col-sm-3(for='input-custom') Custom parameters:
+      .col-sm-9
+        textarea#input-custom.form-control.input-sm(rows='3', placeholder='myCustomAttribute=Testing\nanother_attribute=123', data-api-mate-special-param='custom-params', data-api-mate-search='custom,api,params')
+        .tip attribute=value (one per line, without spaces)
+    .form-group
+      label.control-label.col-sm-3(for='input-custom') Custom API calls:
+      .col-sm-9
+        textarea#input-custom-calls.form-control.input-sm(rows='3', placeholder='customApiCall\nanother/custom/call', data-api-mate-special-param='custom-calls', data-api-mate-search='custom,api,calls')
+        .tip One call name per line

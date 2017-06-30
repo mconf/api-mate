@@ -8,13 +8,10 @@ resultsTemplate =
        {{#urls}}
          <div class='api-mate-link-wrapper'>
            <div class='api-mate-link {{urlClass}}'>
-             <i class='glyphicon glyphicon-headphones icon-url-standard'></i>
-             <i class='glyphicon glyphicon-record icon-url-recordings'></i>
-             <i class='glyphicon glyphicon-phone icon-url-from-mobile'></i>
-             <i class='glyphicon glyphicon-user icon-url-custom-call'></i>
+             <a class='label' href='{{url}}' target='_blank'>GET</a>
              <a href='#' data-url='{{url}}' class='tooltipped label'
                 title='Send \"{{name}}\" using a POST request'
-                data-api-mate-post='{{name}}'>post</a>
+                data-api-mate-post='{{name}}'>POST</a>
              <span class='api-mate-method-name'>{{description}}</span>
              <a href='{{url}}' target='_blank'>{{url}}</a>
            </div>
