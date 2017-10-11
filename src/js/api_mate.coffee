@@ -76,6 +76,12 @@ window.ApiMate = class ApiMate
       @clearAllFields()
       @generateUrls()
       @addUrlsToPage(@urls)
+      
+    # button to re-randomize menu
+    $("[data-api-mate-randomize]").on "click", (e) =>
+      @initializeMenu()
+      @generateUrls()
+      @addUrlsToPage(@urls)
 
     # set our debug flag
     $("[data-api-mate-debug]").on "click", =>
