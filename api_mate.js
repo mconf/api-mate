@@ -23,7 +23,7 @@
 
   })();
 
-  resultsTemplate = "<div class='api-mate-results'>     <div class='api-mate-links'>       {{#urls}}         <div class='api-mate-link-wrapper'>           <div class='api-mate-link {{urlClass}}'>             <i class='glyphicon glyphicon-headphones icon-url-standard'></i>             <i class='glyphicon glyphicon-record icon-url-recordings'></i>             <i class='glyphicon glyphicon-phone icon-url-from-mobile'></i>             <i class='glyphicon glyphicon-user icon-url-custom-call'></i>             <a href='#' data-url='{{url}}' class='tooltipped label'                title='Send \"{{name}}\" using a POST request'                data-api-mate-post='{{name}}'>post</a>             <span class='api-mate-method-name'>{{description}}</span>             <a href='{{url}}' target='_blank'>{{url}}</a>           </div>         </div>       {{/urls}}     </div>     <div class='api-mate-result-title'>       <h5 class='label-title'>Results {{title}}:</h5>     </div>   </div>";
+  resultsTemplate = "<div class='api-mate-results'>     <div class='api-mate-links'>       {{#urls}}         <div class='api-mate-link-wrapper'>           <div class='api-mate-link {{urlClass}}'>             <a class='label' href='{{url}}' target='_blank'>GET</a>             <a href='#' data-url='{{url}}' class='tooltipped label'                title='Send \"{{name}}\" using a POST request'                data-api-mate-post='{{name}}'>POST</a>             <span class='api-mate-method-name'>{{description}}</span>             <a href='{{url}}' target='_blank'>{{url}}</a>           </div>         </div>       {{/urls}}     </div>     <div class='api-mate-result-title'>       <h5 class='label-title'>Results {{title}}:</h5>     </div>   </div>";
 
   postSuccessTemplate = "<pre>{{response}}</pre>";
 
@@ -99,6 +99,11 @@
       });
       $("[data-api-mate-clear]").on("click", function(e) {
         _this.clearAllFields();
+        _this.generateUrls();
+        return _this.addUrlsToPage(_this.urls);
+      });
+      $("[data-api-mate-randomize]").on("click", function(e) {
+        _this.initializeMenu();
         _this.generateUrls();
         return _this.addUrlsToPage(_this.urls);
       });
