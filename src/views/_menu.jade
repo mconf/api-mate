@@ -1,16 +1,25 @@
 #options.clearfix
-  button#clear-all.btn.btn-xs.btn-danger(type='submit', data-api-mate-clear='1')
-    | Clear inputs
-  button#randomize-ids.btn.btn-xs.btn-primary(type='submit', data-api-mate-randomize='1')
-    | Randomize ID's
-  div.btn-group(data-toggle="buttons-checkbox")
-    button.btn.btn-default.btn-xs.tooltipped#view-type-input(type="button", data-api-mate-expand='1', title='Show the entire link generated instead of breaking to a single line')
-      i.glyphicon.glyphicon-check
-      | Show full links
-  div.btn-group(data-toggle="buttons-checkbox")
-    button.btn.btn-default.btn-xs.tooltipped(type="button", data-api-mate-debug='1', title="Print debug messages to your browser's console")
-      i.glyphicon.glyphicon-check
-      | Debug messages
+  #options-actions
+    button#clear-all.btn.btn-xs.btn-danger(type='submit', data-api-mate-clear='1')
+      | Clear inputs
+    button#randomize-ids.btn.btn-xs.btn-warning(type='submit', data-api-mate-randomize='1')
+      | Randomize ID's
+  #options-toggles
+    div.btn-group(data-toggle="buttons-checkbox")
+      button.btn.btn-info.btn-xs.tooltipped#view-type-input(type="button", data-api-mate-expand='1', title='Show the entire link generated instead of breaking to a single line')
+        i.glyphicon.glyphicon-check
+        | Show full links
+    div.btn-group(data-toggle="buttons-checkbox")
+      button.btn.btn-info.btn-xs.tooltipped(type="button", data-api-mate-debug='1', title="Print debug messages to your browser's console")
+        i.glyphicon.glyphicon-check
+        | Debug messages
+    div.btn-group(data-toggle="buttons")
+      .btn.btn-info.btn-xs.active(data-api-mate-sha='sha1')
+        input(type="radio", name="sha1")
+        | SHA1
+      .btn.btn-info.btn-xs(data-api-mate-sha='sha256')
+        input(type="radio", name="sha256")
+        | SHA256
 
 #menu-server
   .section-title Server URL and shared secret

@@ -121,6 +121,11 @@ a {
 
 #options {
   margin-bottom: 15px;
+  text-align: right;
+
+  #options-actions {
+    margin-bottom: 5px;
+  }
 
   button {
     margin-bottom: 3px;

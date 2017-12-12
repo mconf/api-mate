@@ -64,6 +64,11 @@ window.ApiMate = class ApiMate
     $("[data-api-mate-special-param]").on "change keyup", (e) =>
       @generateUrls()
       @addUrlsToPage(@urls)
+    $("[data-api-mate-sha]").on "click", (e) =>
+      $("[data-api-mate-sha]").removeClass('active')
+      $(e.target).addClass('active')
+      @generateUrls()
+      @addUrlsToPage(@urls)
 
     # expand or collapse links
     $("[data-api-mate-expand]").on "click", =>
@@ -76,7 +81,7 @@ window.ApiMate = class ApiMate
       @clearAllFields()
       @generateUrls()
       @addUrlsToPage(@urls)
-      
+
     # button to re-randomize menu
     $("[data-api-mate-randomize]").on "click", (e) =>
       @initializeMenu()
@@ -158,7 +163,13 @@ window.ApiMate = class ApiMate
     server.url = server.url.replace(/(\/api)?\/?$/, '/api')
     server.name = server.url
 
-    new BigBlueButtonApi(server.url, server.salt, @debug)
+    opts = {}
+    if $("[data-api-mate-sha='sha256']").hasClass("active")
+      opts.shaType = 'sha256'
+    else
+      opts.shaType = 'sha1'
+
+    new BigBlueButtonApi(server.url, server.salt, @debug, opts)
 
   # Generate urls for all API calls and store them internally in `@urls`.
   generateUrls: () ->
