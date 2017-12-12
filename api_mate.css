@@ -84,7 +84,10 @@ a {
     text-align: center; } }
 
 #options {
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  text-align: right; }
+  #options #options-actions {
+    margin-bottom: 5px; }
   #options button {
     margin-bottom: 3px; }
     #options button .glyphicon {

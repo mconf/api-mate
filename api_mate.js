@@ -91,6 +91,12 @@
         _this.generateUrls();
         return _this.addUrlsToPage(_this.urls);
       });
+      $("[data-api-mate-sha]").on("click", function(e) {
+        $("[data-api-mate-sha]").removeClass('active');
+        $(e.target).addClass('active');
+        _this.generateUrls();
+        return _this.addUrlsToPage(_this.urls);
+      });
       $("[data-api-mate-expand]").on("click", function() {
         var selected;
         selected = !$("[data-api-mate-expand]").hasClass("active");
@@ -171,13 +177,19 @@
     };
 
     ApiMate.prototype.getApi = function() {
-      var server;
+      var opts, server;
       server = {};
       server.url = $("[data-api-mate-server='url']").val();
       server.salt = $("[data-api-mate-server='salt']").val();
       server.url = server.url.replace(/(\/api)?\/?$/, '/api');
       server.name = server.url;
-      return new BigBlueButtonApi(server.url, server.salt, this.debug);
+      opts = {};
+      if ($("[data-api-mate-sha='sha256']").hasClass("active")) {
+        opts.shaType = 'sha256';
+      } else {
+        opts.shaType = 'sha1';
+      }
+      return new BigBlueButtonApi(server.url, server.salt, this.debug, opts);
     };
 
     ApiMate.prototype.generateUrls = function() {

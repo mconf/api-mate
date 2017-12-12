@@ -6,13 +6,21 @@
   root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
   BigBlueButtonApi = (function() {
-    function BigBlueButtonApi(url, salt, debug) {
+    function BigBlueButtonApi(url, salt, debug, opts) {
+      var _base;
       if (debug == null) {
         debug = false;
+      }
+      if (opts == null) {
+        opts = {};
       }
       this.url = url;
       this.salt = salt;
       this.debug = debug;
+      this.opts = opts;
+      if ((_base = this.opts).shaType == null) {
+        _base.shaType = 'sha1';
+      }
     }
 
     BigBlueButtonApi.prototype.availableApiCalls = function() {
@@ -121,13 +129,19 @@
     };
 
     BigBlueButtonApi.prototype.checksum = function(method, query) {
-      var c, str;
+      var c, shaObj, str;
       query || (query = "");
       if (this.debug) {
         console.log("- Calculating the checksum using: '" + method + "', '" + query + "', '" + this.salt + "'");
       }
       str = method + query + this.salt;
-      c = Crypto.SHA1(str);
+      if (this.opts.shaType === 'sha256') {
+        shaObj = new jsSHA("SHA-256", "TEXT");
+      } else {
+        shaObj = new jsSHA("SHA-1", "TEXT");
+      }
+      shaObj.update(str);
+      c = shaObj.getHash("HEX");
       if (this.debug) {
         console.log("- Checksum calculated:", c);
       }

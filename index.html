@@ -40,13 +40,25 @@
       <div id="content" class="row tab-content">
         <div id="menu" class="col-xs-7 col-sm-5">
           <div id="options" class="clearfix">
-            <button id="clear-all" type="submit" data-api-mate-clear="1" class="btn btn-xs btn-danger">Clear inputs</button>
-            <button id="randomize-ids" type="submit" data-api-mate-randomize="1" class="btn btn-xs btn-primary">Randomize ID's</button>
-            <div data-toggle="buttons-checkbox" class="btn-group">
-              <button id="view-type-input" type="button" data-api-mate-expand="1" title="Show the entire link generated instead of breaking to a single line" class="btn btn-default btn-xs tooltipped"><i class="glyphicon glyphicon-check"></i>Show full links</button>
+            <div id="options-actions">
+              <button id="clear-all" type="submit" data-api-mate-clear="1" class="btn btn-xs btn-danger">Clear inputs</button>
+              <button id="randomize-ids" type="submit" data-api-mate-randomize="1" class="btn btn-xs btn-warning">Randomize ID's</button>
             </div>
-            <div data-toggle="buttons-checkbox" class="btn-group">
-              <button type="button" data-api-mate-debug="1" title="Print debug messages to your browser's console" class="btn btn-default btn-xs tooltipped"><i class="glyphicon glyphicon-check"></i>Debug messages</button>
+            <div id="options-toggles">
+              <div data-toggle="buttons-checkbox" class="btn-group">
+                <button id="view-type-input" type="button" data-api-mate-expand="1" title="Show the entire link generated instead of breaking to a single line" class="btn btn-info btn-xs tooltipped"><i class="glyphicon glyphicon-check"></i>Show full links</button>
+              </div>
+              <div data-toggle="buttons-checkbox" class="btn-group">
+                <button type="button" data-api-mate-debug="1" title="Print debug messages to your browser's console" class="btn btn-info btn-xs tooltipped"><i class="glyphicon glyphicon-check"></i>Debug messages</button>
+              </div>
+              <div data-toggle="buttons" class="btn-group">
+                <div data-api-mate-sha="sha1" class="btn btn-info btn-xs active">
+                  <input type="radio" name="sha1">SHA1
+                </div>
+                <div data-api-mate-sha="sha256" class="btn btn-info btn-xs">
+                  <input type="radio" name="sha256">SHA256
+                </div>
+              </div>
             </div>
           </div>
           <div id="menu-server">
@@ -297,7 +309,7 @@ another/custom/call" data-api-mate-special-param="custom-calls" data-api-mate-se
     <script type="text/javascript" src="vendor/bootstrap.min.js"></script>
     <script type="text/javascript" src="vendor/underscore-min.js"></script>
     <script type="text/javascript" src="vendor/mustache.js"></script>
-    <script type="text/javascript" src="vendor/crypto-sha1-2.5.3.js"></script>
+    <script type="text/javascript" src="vendor/jsSHA.js"></script>
     <script type="text/javascript" src="vendor/keypress-2.1.4.min.js"></script>
     <script type="text/javascript" src="vendor/bigbluebutton-api.js"></script>
     <script type="text/javascript" src="api_mate.js"></script><script>
