@@ -127,7 +127,7 @@ window.ApiMate = class ApiMate
     placeholder = $(@placeholders['results'])
     for item in urls
       desc = item.description
-      if desc.match(/recordings/i)
+      if desc.match(/recording/i)
         item.urlClass = "api-mate-url-recordings"
       else if desc.match(/mobile/i)
         item.urlClass = "api-mate-url-from-mobile"
