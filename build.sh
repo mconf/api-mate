@@ -21,7 +21,7 @@ mv dist/* .
 mv api_mate.html index.html
 
 # commit the changes
-git add index.html api_mate.css api_mate.js application.css application.js
+git add index.html api_mate.css api_mate.js application.css application.js redis_events.css redis_events.html
 if [ -d "vendor" ]; then
     git add vendor/
 fi
