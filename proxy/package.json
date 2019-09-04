@@ -1,12 +1,12 @@
 {
-    "name": "api-mate-proxy"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
-      "http-proxy": "0.10.3"
-    , "colors": "0.6.2"
-  }
-  , "engines": {
+  "name": "api-mate-proxy",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "http-proxy": "0.10.3",
+    "colors": "0.6.2"
+  },
+  "engines": {
     "node": ">= 0.10"
   }
 }
