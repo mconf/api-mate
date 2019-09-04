@@ -193,8 +193,9 @@
     };
 
     ApiMate.prototype.generateUrls = function() {
-      var api, customCalls, line, lines, name, paramName, paramValue, params, separator, _elem, _i, _j, _k, _l, _len, _len1, _len2, _len3, _ref;
+      var api, customCalls, customParams, line, lines, name, paramName, paramValue, params, separator, _elem, _i, _j, _k, _l, _len, _len1, _len2, _len3, _ref;
       params = {};
+      customParams = {};
       $('[data-api-mate-param]').each(function() {
         var $elem, attr, attrs, value, _i, _len;
         $elem = $(this);
@@ -231,6 +232,7 @@
             paramName = line.substring(0, separator);
             paramValue = line.substring(separator + 1, line.length);
             params["custom_" + paramName] = paramValue;
+            customParams["custom_" + paramName] = paramValue;
           }
         }
       }
@@ -266,7 +268,7 @@
       if (customCalls != null) {
         for (_l = 0, _len3 = customCalls.length; _l < _len3; _l++) {
           name = customCalls[_l];
-          this.urls.push(_elem(name, "custom call: " + name, api.urlFor(name, params, false)));
+          this.urls.push(_elem(name, "custom call: " + name, api.urlFor(name, customParams, false)));
         }
       }
       params['password'] = params['moderatorPW'];
