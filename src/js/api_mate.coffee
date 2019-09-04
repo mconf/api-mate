@@ -174,6 +174,7 @@ window.ApiMate = class ApiMate
   # Generate urls for all API calls and store them internally in `@urls`.
   generateUrls: () ->
     params = {}
+    customParams = {}
 
     $('[data-api-mate-param]').each ->
       $elem = $(this)
@@ -203,6 +204,7 @@ window.ApiMate = class ApiMate
           paramName = line.substring(0, separator)
           paramValue = line.substring(separator+1, line.length)
           params["custom_" + paramName] = paramValue
+          customParams["custom_" + paramName] = paramValue
 
     lines = inputValue("textarea[data-api-mate-special-param='custom-calls']")
     if lines?
@@ -233,7 +235,7 @@ window.ApiMate = class ApiMate
     # custom API calls set by the user
     if customCalls?
       for name in customCalls
-        @urls.push _elem(name, "custom call: #{name}", api.urlFor(name, params, false))
+        @urls.push _elem(name, "custom call: #{name}", api.urlFor(name, customParams, false))
 
     # for mobile
     params['password'] = params['moderatorPW']
