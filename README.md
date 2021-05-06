@@ -6,7 +6,7 @@ API Mate is a web application (a simple web page) to access the APIs of [BigBlue
 Usage
 -----
 
-* Use it online at http://mconf.github.com/api-mate; or
+* Use it online at http://mconf.github.io/api-mate; or
 * Get the latest version from the branch [`gh-pages`](https://github.com/mconf/api-mate/tree/gh-pages) and
   open `index.html` in your browser.
 
@@ -25,7 +25,7 @@ api_mate.html#server=http://my-server.com/bigbluebutton/api&sharedSecret=lsk8df7
 ```
 
 The parameters should be passed in the hash part of the URL, so they are not submitted to the server.
-This means the application at http://mconf.github.com/api-mate will not receive your server's URL
+This means the application at http://mconf.github.io/api-mate will not receive your server's URL
 and shared secret. You can also pass these parameters in the search string part of the URL, but that means the server will have access to your parameters (might be useful if
 you're hosting your own API Mate).
 
