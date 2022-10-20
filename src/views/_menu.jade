@@ -14,12 +14,19 @@
         i.glyphicon.glyphicon-check
         | Debug messages
     div.btn-group(data-toggle="buttons")
-      .btn.btn-info.btn-xs.active(data-api-mate-sha='sha1')
+      .btn.btn-info.btn-xs(data-api-mate-sha='sha1')
         input(type="radio", name="sha1")
         | SHA1
-      .btn.btn-info.btn-xs(data-api-mate-sha='sha256')
+      .btn.btn-info.btn-xs.active(data-api-mate-sha='sha256')
         input(type="radio", name="sha256")
         | SHA256
+      .btn.btn-info.btn-xs(data-api-mate-sha='sha384')
+        input(type="radio", name="sha384")
+        | SHA384
+      .btn.btn-info.btn-xs(data-api-mate-sha='sha512')
+        input(type="radio", name="sha512")
+        | SHA512
+
 
 #menu-server
   .section-title Server URL and shared secret

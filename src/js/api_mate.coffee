@@ -164,10 +164,16 @@ window.ApiMate = class ApiMate
     server.name = server.url
 
     opts = {}
-    if $("[data-api-mate-sha='sha256']").hasClass("active")
-      opts.shaType = 'sha256'
-    else
-      opts.shaType = 'sha1'
+    shaLevels = [
+      'sha1',
+      'sha256',
+      'sha384',
+      'sha512',
+    ]
+    # Find the active SHA level, could have only one active so we can break out of the loop 
+    for level in shaLevels 
+      if $("[data-api-mate-sha='#{level}']").hasClass("active")
+        opts.shaType = level
 
     new BigBlueButtonApi(server.url, server.salt, @debug, opts)
 
