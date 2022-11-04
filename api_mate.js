@@ -177,17 +177,19 @@
     };
 
     ApiMate.prototype.getApi = function() {
-      var opts, server;
+      var level, opts, server, shaLevels, _i, _len;
       server = {};
       server.url = $("[data-api-mate-server='url']").val();
       server.salt = $("[data-api-mate-server='salt']").val();
       server.url = server.url.replace(/(\/api)?\/?$/, '/api');
       server.name = server.url;
       opts = {};
-      if ($("[data-api-mate-sha='sha256']").hasClass("active")) {
-        opts.shaType = 'sha256';
-      } else {
-        opts.shaType = 'sha1';
+      shaLevels = ['sha1', 'sha256', 'sha384', 'sha512'];
+      for (_i = 0, _len = shaLevels.length; _i < _len; _i++) {
+        level = shaLevels[_i];
+        if ($("[data-api-mate-sha='" + level + "']").hasClass("active")) {
+          opts.shaType = level;
+        }
       }
       return new BigBlueButtonApi(server.url, server.salt, this.debug, opts);
     };
