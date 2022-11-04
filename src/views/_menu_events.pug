@@ -24,7 +24,7 @@
 #menu-templates
   .form-group
     input#input-filter.form-control.input-sm.input-clean-title(type='text', value='', placeholder='Templates (type to search...)', autofocus='autofocus', data-events-search-input='')
-   - each event in events
+  each event in events
     .events-template(data-events-template="")
       .event-name= event["header"]["name"]
       code.event-json(data-events-template-content="")

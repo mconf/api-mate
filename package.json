@@ -1,9 +1,12 @@
 {
   "name": "api-mate",
   "version": "0.0.1",
-  "dependencies": {},
+  "dependencies": {
+    "pug-cli": "^1.0.0-alpha6",
+    "uglify-js": "^3.17.4"
+  },
   "devDependencies": {
-    "jade": "1.11.0",
+    "pug": "3.0.2",
     "node-sass": "7.0.3",
     "coffee-script": "1.6.3",
     "chokidar": "3.5.3"

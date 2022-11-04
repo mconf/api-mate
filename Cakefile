@@ -1,7 +1,7 @@
 chokidar = require('chokidar')
 fs = require('fs')
 {spawn} = require('child_process')
-jade = require('jade')
+pug = require('pug')
 sass = require('node-sass')
 
 binPath = './node_modules/.bin/'
@@ -24,10 +24,10 @@ run = (bin, options, onExit) ->
     onExit?(code, options)
 
 compileView = (done) ->
-  options = ['--pretty', 'src/views/api_mate.jade', '--out', 'lib', '--obj', 'src/jade_options.json']
-  run 'jade', options, ->
-    options = ['--pretty', 'src/views/redis_events.jade', '--out', 'lib', '--obj', 'src/jade_options.json']
-    run 'jade', options, ->
+  options = ['--pretty', 'src/views/api_mate.pug', '--out', 'lib', '--obj', 'src/pug_options.json']
+  run 'pug', options, ->
+    options = ['--pretty', 'src/views/redis_events.pug', '--out', 'lib', '--obj', 'src/pug_options.json']
+    run 'pug', options, ->
       done?()
 
 compileCss = (done) ->
@@ -66,7 +66,7 @@ watch = () ->
       compileJs()
     else if path.match(/\.scss/)
       compileCss()
-    else if path.match(/\.jade/)
+    else if path.match(/\.pug/)
       compileView()
 
 task 'build', 'Build everything from src/ into lib/', ->
