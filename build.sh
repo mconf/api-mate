@@ -6,10 +6,10 @@ source ~/.nvm/nvm.sh
 git checkout master
 git pull
 nvm use
-sed -i 's/"analytics":[ ]*""/"analytics": "UA-21342779-11"/g' src/jade_options.json
+sed -i 's/"analytics":[ ]*""/"analytics": "UA-21342779-11"/g' src/pug_options.json
 ./node_modules/.bin/cake build
 echo "Update gh-pages to mconf/api-mate@`git rev-parse HEAD`" > .gh-pages-update
-git checkout src/jade_options.json
+git checkout src/pug_options.json
 cp -r lib/ dist/
 
 # back to gh-pages and organize the compiled app
